@@ -1,27 +1,23 @@
 sudo: false
-dist: trusty
-language: c
-compiler:
-  - gcc
+
+branches:
+  only:
+    - 7.0
+
 addons:
   apt:
     packages:
-    - libreadline6-dev
-    - libncurses5-dev
-    - perl
-    - clang
-    - g++-mingw-w64-i686
-    - qemu-system-x86
+      - doxygen
+
 script:
-  - .ci/travis-build.sh
-env:
-  - CMPLR=gcc
-  - CMPLR=clang
-  - CMPLR=gcc   STATIC=YES
-  - CMPLR=clang STATIC=YES
-  - CMPLR=gcc   EXTRA=CMD_CXXFLAGS=-std=c++11
-  - CMPLR=clang EXTRA=CMD_CXXFLAGS=-std=c++11
-  - WINE=32 TEST=NO STATIC=YES
-  - WINE=32 TEST=NO STATIC=NO
-  - RTEMS=4.10 TEST=YES
-  - RTEMS=4.9  TEST=YES
+  - git submodule update --init --reference ./
+  - doxygen Doxygen.epics
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  local_dir: docs/html
+  github_token: $GH_REPO_TOKEN
+  on:
+    branch: master
+    
