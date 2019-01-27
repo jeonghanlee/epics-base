@@ -8,6 +8,7 @@ addons:
   apt:
     packages:
       - doxygen
+      - graphviz
 
 script:
   - git submodule update --init --reference ./
