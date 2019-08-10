@@ -147,17 +147,17 @@ starting at <a href="#ReleaseApproval">Release Approval</a>.</p>
       <td>Tag the module in Git, using these tag conventions:
         <ul>
           <li>
-            <tt>R7.0.2-pre<i>n</i></tt>
+            <tt>R7.0.3-pre<i>n</i></tt>
             &mdash; pre-release tag
             </li>
           <li>
-            <tt>R7.0.2-rc<i>n</i></tt>
+            <tt>R7.0.3-rc<i>n</i></tt>
             &mdash; release candidate tag
             </li>
           </ul>
         <blockquote><tt>
           cd base-7.0<br />
-          git tag -m 'ANJ: Tagged for 7.0.2-rc1' R7.0.2-rc1
+          git tag -m 'ANJ: Tagged for 7.0.3-rc1' R7.0.3-rc1
           </tt></blockquote>
         Note that submodules must <em>not</em> be tagged with the version used
         for the top-level, they each have their own separate version numbers
@@ -171,11 +171,11 @@ starting at <a href="#ReleaseApproval">Release Approval</a>.</p>
         files and directories that are only used for continuous integration:
         <blockquote><tt>
           cd base-7.0<br />
-          ./.tools/make-tar.sh R7.0.2-rc1 base-7.0.2-rc1.tar.gz base-7.0.2-rc1/
+          ./.tools/make-tar.sh R7.0.3-rc1 base-7.0.3-rc1.tar.gz base-7.0.3-rc1/
           </tt></blockquote>
         Create a GPG signature file of the tarfile as follows:
         <blockquote><tt>
-          gpg --armor --sign --detach-sig base-7.0.2-rc1.tar.gz
+          gpg --armor --sign --detach-sig base-7.0.3-rc1.tar.gz
           </tt></blockquote>
         </td>
       </tr>
@@ -289,13 +289,20 @@ starting at <a href="#ReleaseApproval">Release Approval</a>.</p>
       <td><input type="checkbox"></td>
       <td>Release Manager</td>
       <td>Edit and commit changes to the EPICS Base version number file and
-        the embedded module version files:
+        these embedded module version files:
         <ul>
           <li>configure/CONFIG_BASE_VERSION </li>
           <li>modules/libcom/configure/CONFIG_LIBCOM_VERSION</li>
           <li>modules/ca/configure/CONFIG_CA_VERSION</li>
           <li>modules/database/configure/CONFIG_DATABASE_VERSION</li>
-          </ul></td>
+          </ul>
+        <p>Version numbers should be set according to the level of changes
+          made since the last release. Note that the MAINTENANCE_VERSION or
+          PATCH_LEVEL value should have been incremented after the previous
+          release tag was applied.</p>
+        <p>Set all DEVELOPMENT_FLAG values to 0 and EPICS_DEV_SNAPSHOT to the
+          empty string.</p>
+          </td>
       </tr>
     <tr>
       <td><input type="checkbox"></td>
@@ -303,9 +310,28 @@ starting at <a href="#ReleaseApproval">Release Approval</a>.</p>
       <td>Tag the epics-base module in Git:
         <blockquote><tt>
           cd base-7.0<br />
-          git tag -m 'ANJ: Tagged for 7.0.2.2' R7.0.2.2</i>
+          git tag -m 'ANJ: Tagged for 7.0.3' R7.0.3</i>
           </tt></blockquote>
-        Don't push the new tag to the Launchpad repository yet.</td>
+        <p>Don't push these commits or the new tag to the Launchpad repository
+          yet.</td>
+      </tr>
+    <tr>
+      <td><input type="checkbox"></td>
+      <td>Release Manager</td>
+      <td>Edit and commit changes to the EPICS Base version number file and
+        the embedded module version files as follows:
+        <ul>
+          <li>configure/CONFIG_BASE_VERSION </li>
+          <li>modules/libcom/configure/CONFIG_LIBCOM_VERSION</li>
+          <li>modules/ca/configure/CONFIG_CA_VERSION</li>
+          <li>modules/database/configure/CONFIG_DATABASE_VERSION</li>
+          </ul>
+        <p>Version numbers should be set for the next expected patch/maintenance
+          release by incrementing the MAINTENANCE_VERSION or PATCH_LEVEL
+          value in each file.</p>
+        <p>Set all DEVELOPMENT_FLAG values to 1 and EPICS_DEV_SNAPSHOT to
+          "-DEV".</p>
+        </td>
       </tr>
     <tr>
       <td><input type="checkbox"></td>
@@ -315,11 +341,11 @@ starting at <a href="#ReleaseApproval">Release Approval</a>.</p>
         files and directories that are only used for continuous integration:
         <blockquote><tt>
           cd base-7.0<br />
-          ./.tools/make-tar.sh R7.0.2.2 base-7.0.2.2.tar.gz base-7.0.2.2/
+          ./.tools/make-tar.sh R7.0.3 base-7.0.3.tar.gz base-7.0.3/
           </tt></blockquote>
         Create a GPG signature file of the tarfile as follows:
         <blockquote><tt>
-          gpg --armor --sign --detach-sig base-7.0.2.2.tar.gz
+          gpg --armor --sign --detach-sig base-7.0.3.tar.gz
           </tt></blockquote>
         </td>
       </tr>
@@ -327,29 +353,13 @@ starting at <a href="#ReleaseApproval">Release Approval</a>.</p>
       <td><input type="checkbox"></td>
       <td>Release Manager</td>
       <td>Test the tar file by extracting its contents and building it on at
-        least one supported platform. When this succeeds the new git tag can be
-        pushed to the Launchpad repository:
+        least one supported platform. When this succeeds the commits and new git
+        tag can be pushed to the Launchpad repository:
         <blockquote><tt>
           git push --follow-tags upstream 7.0
           </tt></blockquote>
         </td>
       </tr>
-    <tr>
-      <td><input type="checkbox"></td>
-      <td>Release Manager</td>
-      <td>Edit and commit changes to the EPICS Base version number file and
-        the embedded module version files:
-        <ul>
-          <li>configure/CONFIG_BASE_VERSION </li>
-          <li>modules/libcom/configure/CONFIG_LIBCOM_VERSION</li>
-          <li>modules/ca/configure/CONFIG_CA_VERSION</li>
-          <li>modules/database/configure/CONFIG_DATABASE_VERSION</li>
-        </ul>
-        Version numbers should be set to the next expected patch release,
-        with a "-DEV" tag added (where applicable).
-      </td>
-    </tr>
-
     <tr>
       <th colspan="3">Publish to epics.anl.gov</th>
       </tr>
@@ -398,7 +408,11 @@ starting at <a href="#ReleaseApproval">Release Approval</a>.</p>
       <td><input type="checkbox"></td>
       <td>Website Manager</td>
       <td>Upload the tar file and its <tt>.asc</tt> signature file to the
-        epics-controls web-server [ToDo: ssh-key, location]</td>
+        epics-controls web-server.
+        <blockquote><tt>
+          scp base-7.0.3.tar.gz base-7.0.3.tar.gz.asc epics-controls:download/base<br />
+          </tt></blockquote>
+        </td>
       </tr>
     <tr>
       <td><input type="checkbox"></td>
@@ -406,7 +420,10 @@ starting at <a href="#ReleaseApproval">Release Approval</a>.</p>
       <td>Follow instructions on
         <a href="https://epics-controls.org/resources-and-support/documents/epics-website-documentation/adding-a-page-for-a-new-release/">
         Add a page for a new release</a> to create a new release webpage (not
-        required for a patch release though, just edit the existing page).</td>
+        required for a patch release, just edit the existing page). Update the
+        TablePress "Point Releases" table and add the new download, and adjust
+        the XYZ Html Snippet for the series download.
+        </td>
       </tr>
 
     <tr>
