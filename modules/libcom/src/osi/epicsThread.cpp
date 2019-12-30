@@ -164,7 +164,7 @@ bool epicsThread::exitWait ( const double delay ) throw ()
             }
             return true;
         }
-        epicsTime exitWaitBegin = epicsTime::getCurrent ();
+        epicsTime exitWaitBegin = epicsTime::getMonotonic ();
         double exitWaitElapsed = 0.0;
         epicsGuard < epicsMutex > guard ( this->mutex );
         this->cancel = true;
@@ -172,7 +172,7 @@ bool epicsThread::exitWait ( const double delay ) throw ()
             epicsGuardRelease < epicsMutex > unguard ( guard );
             this->event.signal ();
             this->exitEvent.wait ( delay - exitWaitElapsed );
-            epicsTime current = epicsTime::getCurrent ();
+            epicsTime current = epicsTime::getMonotonic ();
             exitWaitElapsed = current - exitWaitBegin;
         }
         if(this->terminated && !joined) {
@@ -227,9 +227,8 @@ epicsThread::~epicsThread () throw ()
         char nameBuf [256];
         this->getName ( nameBuf, sizeof ( nameBuf ) );
         fprintf ( stderr,
-            "epicsThread::~epicsThread(): "
-            "blocking for thread \"%s\" to exit\n",
-            nameBuf );
+            "epicsThread::~epicsThread(): \"%s\" blocking for thread \"%s\" to exit\n",
+            getNameSelf(), nameBuf );
         fprintf ( stderr,
             "was epicsThread object destroyed before thread exit ?\n");
     }

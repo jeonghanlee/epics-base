@@ -11,6 +11,7 @@ TOP = ../../../../..
 include $(TOP)/configure/CONFIG
 
 USR_CPPFLAGS += -DUSE_TYPED_RSET
+USR_CPPFLAGS += -DUSE_TYPED_DSET
 
 TESTLIBRARY = dbRecStdTest
 
@@ -147,6 +148,13 @@ asyncproctest_SRCS += asyncproctest.c
 asyncproctest_SRCS += asyncproctest_registerRecordDeviceDriver.cpp
 TESTFILES += $(COMMON_DIR)/asyncproctest.dbd ../asyncproctest.db
 TESTS += asyncproctest
+
+# dbHeader* is only a compile test
+# no need to actually run
+TESTPROD += dbHeaderTest
+dbHeaderTest_SRCS += dbHeaderTest.cpp
+TESTPROD += dbHeaderTestxx
+dbHeaderTestxx_SRCS += dbHeaderTestxx.cpp
 
 ifeq ($(T_A),$(EPICS_HOST_ARCH))
 # Host-only tests of softIoc/softIocPVA, caget and pvget (if present)
