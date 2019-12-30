@@ -11,6 +11,7 @@ addons:
       - graphviz
 
 script:
+
   - git submodule update --init --reference ./
   - doxygen Doxygen.epics
 

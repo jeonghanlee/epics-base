@@ -52,8 +52,6 @@
 /*
  * Prototypes for some functions not in header files
  */
-void tzset(void);
-int fileno(FILE *);
 int main(int argc, char **argv);
 
 static void
@@ -100,26 +98,6 @@ LogFatal (const char *msg, ...)
     va_start (ap, msg);
     errlogVprintf (msg, ap);
     va_end (ap);
-    delayedPanic (msg);
-}
-
-/*
- * Log RTEMS error and terminate
- */
-void
-LogRtemsFatal (const char *msg, rtems_status_code sc)
-{
-    errlogPrintf ("%s: %s\n", msg, rtems_status_text (sc));
-    delayedPanic (msg);
-}
-
-/*
- * Log network error and terminate
- */
-void
-LogNetFatal (const char *msg, int err)
-{
-    errlogPrintf ("%s: %d\n", msg, err);
     delayedPanic (msg);
 }
 
@@ -370,7 +348,7 @@ initialize_remote_filesystem(char **argv, int hasLocalFilesystem)
 }
 
 static
-char rtems_etc_hosts[] = "127.0.0.1       localhost\n";
+const char rtems_etc_hosts[] = "127.0.0.1 localhost\n";
 
 /* If it doesn't already exist, create /etc/hosts with an entry for 'localhost' */
 static
@@ -680,25 +658,11 @@ Init (rtems_task_argument ignored)
             printf ("***** Can't set time: %s\n", rtems_status_text (sc));
     }
     if (getenv("TZ") == NULL) {
-        const char *tzp = envGetConfigParamPtr(&EPICS_TIMEZONE);
-        if (tzp == NULL) {
-            printf("Warning -- no timezone information available -- times will be displayed as GMT.\n");
-        }
-        else {
-            char tz[10];
-            int minWest, toDst = 0, fromDst = 0;
-            if(sscanf(tzp, "%9[^:]::%d:%d:%d", tz, &minWest, &toDst, &fromDst) < 2) {
-                printf("Warning: EPICS_TIMEZONE (%s) unrecognizable -- times will be displayed as GMT.\n", tzp);
-            }
-            else {
-                char posixTzBuf[40];
-                char *p = posixTzBuf;
-                p += sprintf(p, "%cST%d:%.2d", tz[0], minWest/60, minWest%60);
-                if (toDst != fromDst)
-                    p += sprintf(p, "%cDT", tz[0]);
-                epicsEnvSet("TZ", posixTzBuf);
-            }
-        }
+        const char *tzp = envGetConfigParamPtr(&EPICS_TZ);
+        if (!tzp || *tzp)
+            printf("Warning: No timezone information, times will be displayed in UTC.\n");
+        else
+            epicsEnvSet("TZ", tzp);
     }
     tzset();
     osdTimeRegister();

@@ -53,7 +53,7 @@
 
 static const char pVersionCAC[] =
     "@(#) " EPICS_VERSION_STRING
-    ", CA Client Library " __DATE__;
+    ", CA Client Library";
 
 // TCP response dispatch table
 const cac::pProtoStubTCP cac::tcpJumpTableCAC [] =
@@ -130,7 +130,7 @@ cac::cac (
     epicsMutex & callbackControlIn,
     cacContextNotify & notifyIn ) :
     _refLocalHostName ( localHostNameCache.getReference () ),
-    programBeginTime ( epicsTime::getCurrent() ),
+    programBeginTime ( epicsTime::getMonotonic() ),
     connTMO ( CA_CONN_VERIFY_PERIOD ),
     mutex ( mutualExclusionIn ),
     cbMutex ( callbackControlIn ),

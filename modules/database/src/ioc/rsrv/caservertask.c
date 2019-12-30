@@ -335,7 +335,7 @@ void rsrv_build_addr_lists(void)
             char sockErrBuf[64];
             epicsSocketConvertErrnoToString (
                 sockErrBuf, sizeof ( sockErrBuf ) );
-            errlogPrintf("rsrv: failed to set mcast ttl %d\n", ttl);
+            errlogPrintf("rsrv: failed to set mcast ttl %d\n", (int)ttl);
         }
     }
 #endif
@@ -1343,10 +1343,13 @@ void casExpandBuffer ( struct message_buffer *buf, ca_uint32_t size, int sendbuf
         // round up to multiple of 4K
         size = ((size-1)|0xfff)+1;
 
-        if (buf->type==mbtLargeTCP)
+        if (buf->type==mbtLargeTCP) {
             newbuf = realloc (buf->buf, size);
-        else
+            if(newbuf)
+                buf->buf = newbuf;
+        } else {
             newbuf = malloc (size);
+        }
         newtype = mbtLargeTCP;
         newsize = size;
 

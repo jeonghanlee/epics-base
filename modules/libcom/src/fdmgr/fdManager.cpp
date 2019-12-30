@@ -97,7 +97,7 @@ epicsShareFunc void fdManager::process (double delay)
     // more than once here so that fd activity get serviced
     // in a reasonable length of time.
     //
-    double minDelay = this->pTimerQueue->process(epicsTime::getCurrent());
+    double minDelay = this->pTimerQueue->process(epicsTime::getMonotonic());
 
     if ( minDelay >= delay ) {
         minDelay = delay;
@@ -121,7 +121,7 @@ epicsShareFunc void fdManager::process (double delay)
         fd_set * pExceptSet = & this->fdSetsPtr[fdrException];
         int status = select (this->maxFD, pReadSet, pWriteSet, pExceptSet, &tv);
 
-        this->pTimerQueue->process(epicsTime::getCurrent());
+        this->pTimerQueue->process(epicsTime::getMonotonic());
 
         if ( status > 0 ) {
 
@@ -204,7 +204,7 @@ epicsShareFunc void fdManager::process (double delay)
          * of select()
          */
         epicsThreadSleep(minDelay);
-        this->pTimerQueue->process(epicsTime::getCurrent());
+        this->pTimerQueue->process(epicsTime::getMonotonic());
     }
     this->processInProg = false;
     return;
@@ -249,7 +249,7 @@ void fdRegId::show ( unsigned level ) const
         static_cast <const void *> ( this ) );
     if ( level > 1u ) {
         printf ( "\tfd = %d, type = %d\n",
-            this->fd, this->type );
+            int(this->fd), this->type );
     }
 }
 

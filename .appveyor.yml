@@ -40,15 +40,16 @@ configuration:
 # Environment variables: compiler toolchain
 environment:
   matrix:
-  - TOOLCHAIN: 10.0
-  - TOOLCHAIN: 11.0
-  - TOOLCHAIN: 12.0
-  - TOOLCHAIN: 14.0
-  - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
-    TOOLCHAIN: 2017
-  - TOOLCHAIN: cygwin
   - TOOLCHAIN: mingw
     APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
+  - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
+    TOOLCHAIN: 2019
+  - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
+    TOOLCHAIN: 2017
+  - TOOLCHAIN: 14.0
+  - TOOLCHAIN: 12.0
+  - TOOLCHAIN: 11.0
+  - TOOLCHAIN: 10.0
 
 # Platform: architecture
 platform:
@@ -61,12 +62,19 @@ matrix:
   # VS Express installs don't have the 64 bit compiler
   - platform: x64
     TOOLCHAIN: 10.0
-  # Cygwin static-debug has compiler problems
-  - configuration: static-debug
-    TOOLCHAIN: cygwin
-  # Cygwin x86 install is currently (08/2019) broken (libncursesw-devel fails)
+  # Exclude to reduce total job runtime
+  # skip 64-bit for older and 32-bit for newer
+  - platform: x64
+    TOOLCHAIN: 11.0
   - platform: x86
-    TOOLCHAIN: cygwin
+    TOOLCHAIN: mingw
+    APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
+  - platform: x86
+    APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
+    TOOLCHAIN: 2019
+  - platform: x86
+    APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
+    TOOLCHAIN: 2017
 
 
 #---------------------------------#
@@ -81,7 +89,25 @@ build_script:
   - cmd: .ci/appveyor-make.bat
 
 test_script:
-  - cmd: .ci/appveyor-make.bat runtests
+  - cmd: .ci/appveyor-make.bat tapfiles
+  - cmd: .ci/appveyor-make.bat test-results
+
+on_finish:
+  - ps: Get-ChildItem *.tap -Recurse -Force | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name }
+
+
+#---------------------------------#
+#         debugging               #
+#---------------------------------#
+
+## if you want to connect by remote desktop to a failed build, uncomment these lines
+## note that you will need to connect within the usual build timeout limit (60 minutes)
+## so you may want to adjust the build matrix above to just build the one of interest
+
+#on_failure:
+#  - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+#  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+
 
 #---------------------------------#
 #         notifications           #
