@@ -2,7 +2,7 @@
 * Copyright (c) 2012 UChicago Argonne LLC, as Operator of Argonne
 *     National Laboratory.
 * EPICS BASE is distributed subject to a Software License Agreement found
-* in file LICENSE that is included with this distribution. 
+* in file LICENSE that is included with this distribution.
 \*************************************************************************/
 /*
  *      Author: Andrew Johnson
@@ -19,7 +19,7 @@ static long write_string(printfRecord *prec)
 }
 
 printfdset devPrintfSoft = {
-    5, NULL, NULL, NULL, NULL, write_string
+    { 5, NULL, NULL, NULL, NULL }, write_string
 };
 epicsExportAddress(dset, devPrintfSoft);
 

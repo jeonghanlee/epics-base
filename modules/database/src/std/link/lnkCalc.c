@@ -127,8 +127,8 @@ static jlif_result lnkCalc_integer(jlink *pjlink, long long num)
     }
 
     if (clink->pstate != ps_args) {
-        return jlif_stop;
         errlogPrintf("lnkCalc: Unexpected integer %lld\n", num);
+        return jlif_stop;
     }
 
     if (clink->nArgs == CALCPERFORM_NARGS) {
@@ -147,8 +147,8 @@ static jlif_result lnkCalc_double(jlink *pjlink, double num)
     calc_link *clink = CONTAINER(pjlink, struct calc_link, jlink);
 
     if (clink->pstate != ps_args) {
-        return jlif_stop;
         errlogPrintf("lnkCalc: Unexpected double %g\n", num);
+        return jlif_stop;
     }
 
     if (clink->nArgs == CALCPERFORM_NARGS) {
@@ -198,6 +198,7 @@ static jlif_result lnkCalc_string(jlink *pjlink, const char *val, size_t len)
     inbuf = malloc(len+1);
     if(!inbuf) {
         errlogPrintf("lnkCalc: Out of memory\n");
+        free(postbuf);
         return jlif_stop;
     }
     memcpy(inbuf, val, len);
@@ -552,7 +553,12 @@ static long lnkCalc_getValue(struct link *plink, short dbrType, void *pbuffer,
     dbCommon *prec = plink->precord;
     int i;
     long status;
-    FASTCONVERT conv = dbFastPutConvertRoutine[DBR_DOUBLE][dbrType];
+    FASTCONVERT conv;
+
+    if(INVALID_DB_REQ(dbrType))
+        return S_db_badDbrtype;
+
+    conv = dbFastPutConvertRoutine[DBR_DOUBLE][dbrType];
 
     /* Any link errors will trigger a LINK/INVALID alarm in the child link */
     for (i = 0; i < clink->nArgs; i++) {
@@ -623,7 +629,12 @@ static long lnkCalc_putValue(struct link *plink, short dbrType,
     dbCommon *prec = plink->precord;
     int i;
     long status;
-    FASTCONVERT conv = dbFastGetConvertRoutine[dbrType][DBR_DOUBLE];
+    FASTCONVERT conv;
+
+    if(INVALID_DB_REQ(dbrType))
+        return S_db_badDbrtype;
+
+    conv = dbFastGetConvertRoutine[dbrType][DBR_DOUBLE];
 
     /* Any link errors will trigger a LINK/INVALID alarm in the child link */
     for (i = 0; i < clink->nArgs; i++) {

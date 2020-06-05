@@ -2,11 +2,10 @@
 * Copyright (c) 2010 UChicago Argonna LLC, as Operator of Argonne
 *     National Laboratory.
 * EPICS BASE is distributed subject to a Software License Agreement found
-* in file LICENSE that is included with this distribution. 
+* in file LICENSE that is included with this distribution.
 \*************************************************************************/
 /* epicsMath.cpp */
 
-#define epicsExportSharedSymbols
 #include <epicsMath.h>
 
 #ifdef _MSC_VER
@@ -33,8 +32,8 @@ static float makeINF ( void )
 #endif
 
 extern "C" {
-epicsShareDef float epicsNAN = NAN;
-epicsShareDef float epicsINF = INFINITY;
+float epicsNAN = NAN;
+float epicsINF = INFINITY;
 }
 
 #ifdef _MSC_VER

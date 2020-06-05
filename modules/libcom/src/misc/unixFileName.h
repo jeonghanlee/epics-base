@@ -5,7 +5,7 @@
 *     Operator of Los Alamos National Laboratory.
 * EPICS BASE Versions 3.13.7
 * and higher are distributed subject to a Software License Agreement found
-* in file LICENSE that is included with this distribution. 
+* in file LICENSE that is included with this distribution.
 \*************************************************************************/
 /*
  * unixFileName.h
@@ -14,7 +14,7 @@
 #ifndef unixFileNameH
 #define unixFileNameH
 
-#include <shareLib.h>
+#include <libComAPI.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -24,15 +24,15 @@ extern "C" {
 #define OSI_PATH_SEPARATOR "/"
 
 /** Return the absolute path of the current executable.
- @returns NULL or the path.  Caller must free()
+ \return NULL or the path.  Caller must free()
  */
-epicsShareFunc
+LIBCOM_API
 char *epicsGetExecName(void);
 
 /** Return the absolute path of the directory containing the current executable.
- @returns NULL or the path.  Caller must free()
+ \return NULL or the path.  Caller must free()
  */
-epicsShareFunc
+LIBCOM_API
 char *epicsGetExecDir(void);
 
 #ifdef __cplusplus

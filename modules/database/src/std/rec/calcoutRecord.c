@@ -90,16 +90,6 @@ epicsExportAddress(int, calcoutODLYprecision);
 double calcoutODLYlimit = 100000;
 epicsExportAddress(double, calcoutODLYlimit);
 
-typedef struct calcoutDSET {
-    long       number;
-    DEVSUPFUN  dev_report;
-    DEVSUPFUN  init;
-    DEVSUPFUN  init_record;
-    DEVSUPFUN  get_ioint_info;
-    DEVSUPFUN  write;
-}calcoutDSET;
-
-
 /* To provide feedback to the user as to the connection status of the
  * links (.INxV and .OUTV), the following algorithm has been implemented ...
  *
@@ -142,7 +132,7 @@ static long init_record(struct dbCommon *pcommon, int pass)
     double *pvalue;
     epicsEnum16 *plinkValid;
     short error_number;
-    calcoutDSET *pcalcoutDSET;
+    calcoutdset *pcalcoutDSET;
     rpvtStruct *prpvt;
 
     if (pass == 0) {
@@ -150,13 +140,13 @@ static long init_record(struct dbCommon *pcommon, int pass)
         return 0;
     }
 
-    if (!(pcalcoutDSET = (calcoutDSET *)prec->dset)) {
+    if (!(pcalcoutDSET = (calcoutdset *)prec->dset)) {
         recGblRecordError(S_dev_noDSET, (void *)prec, "calcout:init_record");
         return S_dev_noDSET;
     }
 
     /* must have write defined */
-    if ((pcalcoutDSET->number < 5) || (pcalcoutDSET->write ==NULL)) {
+    if ((pcalcoutDSET->common.number < 5) || (pcalcoutDSET->write ==NULL)) {
         recGblRecordError(S_dev_missingSup, (void *)prec, "calcout:init_record");
         return S_dev_missingSup;
     }
@@ -220,8 +210,8 @@ static long init_record(struct dbCommon *pcommon, int pass)
     prpvt->cbScheduled = 0;
 
     prec->epvt = eventNameToHandle(prec->oevt);
-    
-    if (pcalcoutDSET->init_record) pcalcoutDSET->init_record(prec);
+
+    if (pcalcoutDSET->common.init_record) pcalcoutDSET->common.init_record(pcommon);
     prec->pval = prec->val;
     prec->mlst = prec->val;
     prec->alst = prec->val;
@@ -271,7 +261,7 @@ static long process(struct dbCommon *pcommon)
             doOutput = (prec->val != 0.0);
             break;
         default:
-	    doOutput = 0;
+            doOutput = 0;
             break;
         }
         prec->pval = prec->val;
@@ -468,7 +458,7 @@ static long get_graphic_double(DBADDR *paddr, struct dbr_grDouble *pgd)
     calcoutRecord *prec = (calcoutRecord *)paddr->precord;
     int fieldIndex = dbGetFieldIndex(paddr);
     int linkNumber;
-    
+
     switch (fieldIndex) {
         case indexof(VAL):
         case indexof(HIHI):
@@ -484,7 +474,7 @@ static long get_graphic_double(DBADDR *paddr, struct dbr_grDouble *pgd)
         case indexof(ODLY):
             recGblGetGraphicDouble(paddr,pgd);
             pgd->lower_disp_limit = 0.0;
-            break;       
+            break;
         default:
             linkNumber = get_linkNumber(fieldIndex);
             if (linkNumber >= 0) {
@@ -500,7 +490,7 @@ static long get_graphic_double(DBADDR *paddr, struct dbr_grDouble *pgd)
 static long get_control_double(DBADDR *paddr, struct dbr_ctrlDouble *pcd)
 {
     calcoutRecord *prec = (calcoutRecord *)paddr->precord;
-    
+
     switch (dbGetFieldIndex(paddr)) {
         case indexof(VAL):
         case indexof(HIHI):
@@ -768,7 +758,7 @@ static void checkLinks(calcoutRecord *prec)
 
 static long writeValue(calcoutRecord *prec)
 {
-    calcoutDSET *pcalcoutDSET = (calcoutDSET *)prec->dset;
+    calcoutdset *pcalcoutDSET = (calcoutdset *)prec->dset;
 
 
     if (!pcalcoutDSET || !pcalcoutDSET->write) {

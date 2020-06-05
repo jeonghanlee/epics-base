@@ -5,7 +5,7 @@
 *     Operator of Los Alamos National Laboratory.
 * EPICS BASE Versions 3.13.7
 * and higher are distributed subject to a Software License Agreement found
-* in file LICENSE that is included with this distribution. 
+* in file LICENSE that is included with this distribution.
 \*************************************************************************/
 /*
  *      Author: Janet Anderson
@@ -27,19 +27,9 @@
 
 /* Create the dset for devSoSoft */
 static long write_stringout(stringoutRecord *prec);
-struct {
-    long        number;
-    DEVSUPFUN   report;
-    DEVSUPFUN   init;
-    DEVSUPFUN   init_record;
-    DEVSUPFUN   get_ioint_info;
-    DEVSUPFUN   write_stringout;
-} devSoSoft = {
-    5,
-    NULL,
-    NULL,
-    NULL,
-    NULL,
+
+stringoutdset devSoSoft = {
+    {5, NULL, NULL, NULL, NULL},
     write_stringout
 };
 epicsExportAddress(dset, devSoSoft);

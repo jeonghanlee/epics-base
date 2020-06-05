@@ -4,7 +4,7 @@
 * Copyright (c) 2002 The Regents of the University of California, as
 *     Operator of Los Alamos National Laboratory.
 * EPICS BASE is distributed subject to a Software License Agreement found
-* in file LICENSE that is included with this distribution. 
+* in file LICENSE that is included with this distribution.
 \*************************************************************************/
 
 #ifndef epicsMathh
@@ -12,14 +12,14 @@
 
 #include <math.h>
 #include <ieeefp.h>
-#include <shareLib.h>
+#include <libComAPI.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-epicsShareExtern float epicsNAN;
-epicsShareExtern float epicsINF;
+LIBCOM_API extern float epicsNAN;
+LIBCOM_API extern float epicsINF;
 
 #ifdef __cplusplus
 }

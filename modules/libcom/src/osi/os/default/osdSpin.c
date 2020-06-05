@@ -12,7 +12,6 @@
 
 #include <stdlib.h>
 
-#define epicsExportSharedSymbols
 #include "cantProceed.h"
 #include "errlog.h"
 #include "epicsMutex.h"
@@ -62,7 +61,7 @@ void epicsSpinLock(epicsSpinId spin) {
 
     status = epicsMutexLock(spin->lock);
     if (status != epicsMutexLockOK) {
-        errlogPrintf("epicsSpinLock(%p): epicsMutexLock returned %s\n", spin, 
+        errlogPrintf("epicsSpinLock(%p): epicsMutexLock returned %s\n", spin,
                      status == epicsMutexLockTimeout ?
                          "epicsMutexLockTimeout" : "epicsMutexLockError");
     }

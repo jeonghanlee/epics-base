@@ -16,8 +16,12 @@
 
 /**
  * \file yajl_alloc.h
- * default memory allocation routines for yajl which use malloc/realloc and
- * free
+ * \brief Memory allocation macros for yajl
+ * \author Lloyd Hilaiel
+ *
+ * These macros are used inside YAJL instead of directly calling
+ * malloc(), realloc() or free(). They call the equivalent method
+ * in their \ref yajl_alloc_funcs parameter \a afs.
  */
 
 #ifndef __YAJL_ALLOC_H__
@@ -29,6 +33,14 @@
 #define YA_FREE(afs, ptr) (afs)->free((afs)->ctx, (ptr))
 #define YA_REALLOC(afs, ptr, sz) (afs)->realloc((afs)->ctx, (ptr), (sz))
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 YAJL_API void yajl_set_default_alloc_funcs(yajl_alloc_funcs * yaf);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

@@ -4,7 +4,7 @@
 * Copyright (c) 2002 The Regents of the University of California, as
 *     Operator of Los Alamos National Laboratory.
 * EPICS BASE is distributed subject to a Software License Agreement found
-* in file LICENSE that is included with this distribution. 
+* in file LICENSE that is included with this distribution.
 \*************************************************************************/
 /*
  * Implementation of core macro substitution library (macLib)
@@ -25,7 +25,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define epicsExportSharedSymbols
 #include "dbDefs.h"
 #include "errlog.h"
 #include "dbmf.h"
@@ -98,7 +97,7 @@ static char *Strdup( const char *string );
  * of macro definitions
  */
 long                            /* 0 = OK; <0 = ERROR */
-epicsShareAPI macCreateHandle(
+epicsStdCall macCreateHandle(
     MAC_HANDLE  **pHandle,      /* address of variable to receive pointer */
                                 /* to new macro substitution context */
 
@@ -152,7 +151,7 @@ epicsShareAPI macCreateHandle(
  * for the given handle
  */
 void
-epicsShareAPI macSuppressWarning(
+epicsStdCall macSuppressWarning(
     MAC_HANDLE  *handle,        /* opaque handle */
     int         suppress        /* 0 means issue, 1 means suppress */
 )
@@ -172,7 +171,7 @@ epicsShareAPI macSuppressWarning(
  */
 long                            /* strlen(dest), <0 if any macros are */
                                 /* undefined */
-epicsShareAPI macExpandString(
+epicsStdCall macExpandString(
     MAC_HANDLE  *handle,        /* opaque handle */
 
     const char  *src,           /* source string */
@@ -231,7 +230,7 @@ epicsShareAPI macExpandString(
  * already existed
  */
 long                            /* strlen(value) */
-epicsShareAPI macPutValue(
+epicsStdCall macPutValue(
     MAC_HANDLE  *handle,        /* opaque handle */
 
     const char  *name,          /* macro name */
@@ -252,7 +251,7 @@ epicsShareAPI macPutValue(
     /* handle NULL value case: if name was found, delete entry (may be
        several entries at different scoping levels) */
     if ( value == NULL ) {
-        /* 
+        /*
          * FIXME: shouldn't be able to delete entries from lower scopes
          * NOTE: when this is changed, this functionality of removing
          * a macro from all scopes will still be needed by iocshEnvClear
@@ -260,11 +259,11 @@ epicsShareAPI macPutValue(
         while ( ( entry = lookup( handle, name, FALSE ) ) != NULL ) {
             int done = strcmp(entry->type, "environment variable") == 0;
             delete( handle, entry );
-            
+
             if (done)
                 break;
         }
-        
+
         return 0;
     }
 
@@ -299,7 +298,7 @@ epicsShareAPI macPutValue(
  * Return the value of a macro
  */
 long                            /* strlen(value), <0 if undefined */
-epicsShareAPI macGetValue(
+epicsStdCall macGetValue(
     MAC_HANDLE  *handle,        /* opaque handle */
 
     const char  *name,          /* macro name or reference */
@@ -358,7 +357,7 @@ epicsShareAPI macGetValue(
  * context
  */
 long                            /* 0 = OK; <0 = ERROR */
-epicsShareAPI macDeleteHandle(
+epicsStdCall macDeleteHandle(
     MAC_HANDLE  *handle )       /* opaque handle */
 {
     MAC_ENTRY *entry, *nextEntry;
@@ -390,7 +389,7 @@ epicsShareAPI macDeleteHandle(
  * Mark the start of a new scoping level
  */
 long                            /* 0 = OK; <0 = ERROR */
-epicsShareAPI macPushScope(
+epicsStdCall macPushScope(
     MAC_HANDLE  *handle )       /* opaque handle */
 {
     MAC_ENTRY *entry;
@@ -425,7 +424,7 @@ epicsShareAPI macPushScope(
  * Pop all macros defined since the last call to macPushScope()
  */
 long                            /* 0 = OK; <0 = ERROR */
-epicsShareAPI macPopScope(
+epicsStdCall macPopScope(
     MAC_HANDLE  *handle )       /* opaque handle */
 {
     MAC_ENTRY *entry, *nextEntry;
@@ -469,7 +468,7 @@ epicsShareAPI macPopScope(
  * Report macro details to standard output
  */
 long                            /* 0 = OK; <0 = ERROR */
-epicsShareAPI macReportMacros(
+epicsStdCall macReportMacros(
     MAC_HANDLE  *handle )       /* opaque handle */
 {
     const char *format = "%-1s %-16s %-16s %s\n";
@@ -659,7 +658,7 @@ static long expand( MAC_HANDLE *handle )
                 entry->rawval ? entry->rawval : "" );
 
         if ( entry->value == NULL ) {
-            if ( ( entry->value = malloc( MAC_SIZE + 1 ) ) == NULL ) {  
+            if ( ( entry->value = malloc( MAC_SIZE + 1 ) ) == NULL ) {
                 return -1;
             }
         }

@@ -5,7 +5,7 @@
 *     Operator of Los Alamos National Laboratory.
 * EPICS BASE Versions 3.13.7
 * and higher are distributed subject to a Software License Agreement found
-* in file LICENSE that is included with this distribution. 
+* in file LICENSE that is included with this distribution.
 \*************************************************************************/
 /*
  *      Author  W. Eric Norum
@@ -15,12 +15,11 @@
 
 #include <new>
 
-#define epicsExportSharedSymbols
 #include "epicsMessageQueue.h"
 #include "epicsStdio.h"
 
 epicsMessageQueue::epicsMessageQueue(unsigned int aCapacity,
-                                     unsigned int aMaxMessageSize) 
+                                     unsigned int aMaxMessageSize)
     : id ( epicsMessageQueueCreate(aCapacity, aMaxMessageSize) )
 {
     if (id == NULL)

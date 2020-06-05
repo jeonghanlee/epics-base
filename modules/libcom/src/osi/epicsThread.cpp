@@ -21,7 +21,6 @@
 // The following is required for Solaris builds
 #undef __EXTENSIONS__
 
-#define epicsExportSharedSymbols
 #include "epicsAlgorithm.h"
 #include "epicsTime.h"
 #include "epicsThread.h"
@@ -31,7 +30,7 @@
 
 using namespace std;
 
-epicsThreadId epicsShareAPI epicsThreadCreate (
+epicsThreadId epicsStdCall epicsThreadCreate (
     const char * name, unsigned int priority, unsigned int stackSize,
     EPICSTHREADFUNC funptr,void * parm )
 {
@@ -164,7 +163,7 @@ bool epicsThread::exitWait ( const double delay ) throw ()
             }
             return true;
         }
-        epicsTime exitWaitBegin = epicsTime::getMonotonic ();
+        epicsTime exitWaitBegin = epicsTime::getCurrent ();
         double exitWaitElapsed = 0.0;
         epicsGuard < epicsMutex > guard ( this->mutex );
         this->cancel = true;
@@ -172,7 +171,7 @@ bool epicsThread::exitWait ( const double delay ) throw ()
             epicsGuardRelease < epicsMutex > unguard ( guard );
             this->event.signal ();
             this->exitEvent.wait ( delay - exitWaitElapsed );
-            epicsTime current = epicsTime::getMonotonic ();
+            epicsTime current = epicsTime::getCurrent ();
             exitWaitElapsed = current - exitWaitBegin;
         }
         if(this->terminated && !joined) {
@@ -356,7 +355,7 @@ extern "C" {
         okToBlockPrivate = epicsThreadPrivateCreate();
     }
 
-    int epicsShareAPI epicsThreadIsOkToBlock(void)
+    int epicsStdCall epicsThreadIsOkToBlock(void)
     {
         const int *pokToBlock;
         epicsThreadOnce(&okToBlockOnce, epicsThreadOnceIdInit, NULL);
@@ -364,7 +363,7 @@ extern "C" {
         return (pokToBlock ? *pokToBlock : 0);
     }
 
-    void epicsShareAPI epicsThreadSetOkToBlock(int isOkToBlock)
+    void epicsStdCall epicsThreadSetOkToBlock(int isOkToBlock)
     {
         const int *pokToBlock;
         epicsThreadOnce(&okToBlockOnce, epicsThreadOnceIdInit, NULL);
@@ -372,7 +371,7 @@ extern "C" {
         epicsThreadPrivateSet(okToBlockPrivate, (void *)pokToBlock);
     }
 
-    epicsThreadId epicsShareAPI epicsThreadMustCreate (
+    epicsThreadId epicsStdCall epicsThreadMustCreate (
         const char *name, unsigned int priority, unsigned int stackSize,
         EPICSTHREADFUNC funptr,void *parm)
     {
@@ -383,5 +382,11 @@ extern "C" {
     }
 } // extern "C"
 
-// Ensure the main thread gets a unique ID
-epicsThreadId epicsThreadMainId = epicsThreadGetIdSelf();
+static epicsThreadId initMainThread(void) {
+    epicsThreadId main = epicsThreadGetIdSelf();
+    epicsThreadSetOkToBlock(1);
+    return main;
+}
+
+// Ensure the main thread gets a unique ID and allows blocking I/O
+epicsThreadId epicsThreadMainId = initMainThread();

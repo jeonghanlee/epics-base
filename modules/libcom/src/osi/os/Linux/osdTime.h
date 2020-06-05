@@ -2,7 +2,7 @@
 * Copyright (c) 2002 The University of Saskatchewan
 * EPICS BASE Versions 3.13.7
 * and higher are distributed subject to a Software License Agreement found
-* in file LICENSE that is included with this distribution. 
+* in file LICENSE that is included with this distribution.
 \*************************************************************************/
 
 /*
@@ -21,7 +21,7 @@
 extern "C" {
 #endif /* __cplusplus */
 
-epicsShareFunc void epicsShareAPI
+LIBCOM_API void epicsStdCall
     convertDoubleToWakeTime(double timeout,struct timespec *wakeTime);
 
 #ifdef __cplusplus
