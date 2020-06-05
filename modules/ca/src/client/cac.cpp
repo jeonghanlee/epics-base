@@ -34,7 +34,6 @@
 #include "errlog.h"
 #include "epicsExport.h"
 
-#define epicsExportSharedSymbols
 #include "addrList.h"
 #include "iocinf.h"
 #include "cac.h"
@@ -130,7 +129,7 @@ cac::cac (
     epicsMutex & callbackControlIn,
     cacContextNotify & notifyIn ) :
     _refLocalHostName ( localHostNameCache.getReference () ),
-    programBeginTime ( epicsTime::getMonotonic() ),
+    programBeginTime ( epicsTime::getCurrent() ),
     connTMO ( CA_CONN_VERIFY_PERIOD ),
     mutex ( mutualExclusionIn ),
     cbMutex ( callbackControlIn ),
@@ -155,7 +154,7 @@ cac::cac (
     }
 
     try {
-	    long status;
+        long status;
 
         /*
          * Certain os, such as HPUX, do not unblock a socket system call

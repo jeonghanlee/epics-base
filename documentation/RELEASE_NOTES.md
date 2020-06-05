@@ -8,9 +8,199 @@ which they were originally committed.** Thus it is important to read more than
 just the first section to understand everything that has changed in each
 release.
 
-The external PVA submodules each have their own separate set of release notes
-which should also be read to understand what has changed since an earlier
-release.
+The PVA submodules each have their own individual sets of release notes which
+should also be read to understand what has changed since earlier releases.
+
+**This version of EPICS has not been released yet.**
+
+## Changes made on the 7.0 branch since 7.0.4
+
+<!-- Insert new items immediately below here ... -->
+
+
+## EPICS Release 7.0.4
+
+### Bug fixes
+
+The following launchpad bugs have fixes included in this release:
+
+- [lp: 1812084](https://bugs.launchpad.net/bugs/1812084), Build failure on
+  RTEMS 4.10.2
+- [lp: 1829919](https://bugs.launchpad.net/bugs/1829919), IOC segfaults when
+  calling dbLoadRecords after iocInit
+- [lp: 1838792](https://bugs.launchpad.net/bugs/1838792), epicsCalc bit-wise
+  operators on aarch64
+- [lp: 1853148](https://bugs.launchpad.net/bugs/1853148), mingw compiler
+  problem with printf/scanf formats
+- [lp: 1852653](https://bugs.launchpad.net/bugs/1852653), USE_TYPED_DSET
+  incompatible with C++
+- [lp: 1862328](https://bugs.launchpad.net/bugs/1862328), Race condition on
+  IOC start leaves rsrv unresponsive
+- [lp: 1866651](https://bugs.launchpad.net/bugs/1866651), thread joinable race
+- [lp: 1868486](https://bugs.launchpad.net/bugs/1868486), epicsMessageQueue
+  lost messages
+- [lp: 1868680](https://bugs.launchpad.net/bugs/1868680), Access Security file
+  reload (asInit) fails
+
+### \*_API macros in EPICS headers
+
+Internally, the Com and ca libraries now express dllimport/export (Windows)
+and symbol visibility (GCC) using library-specific macros (eg. `LIBCOM_API`)
+instead of the macros `epicsShareFunc`, `epicsShareClass`, `epicsShareDef` etc.
+that are defined in the `shareLib.h` header.
+This change may affect some user code which uses the `epicsShare*` macros
+without having explicitly included the `shareLib.h` header themselves.
+Such code should be changed to include `shareLib.h` directly.
+
+A new helper script `makeAPIheader.pl` and build rules to generate a
+library-specific `*API.h` header file has been added. Run `makeAPIheader.pl -h`
+for information on how to use this in your own applications, but note that the
+resulting sources will not be able to be compiled using earlier versions of
+EPICS Base.
+
+### IOCsh usage messages
+
+At the iocShell prompt `help <cmd>` now prints a descriptive usage message
+for many internal IOCsh commands in addition to the command parameters.
+Try `help *` to see all commands, or a glob pattern such as `help db*` to see
+a subset.
+
+External code may provide usage messages when registering commands using a
+new `const char *usage` member of the `iocshFuncDef` structure.
+The `iocsh.h` header also now defines a macro `IOCSHFUNCDEF_HAS_USAGE` which
+can be used to detect Base versions that support this feature at compile-time.
+
+### Variable names in RELEASE files
+
+`configure/RELEASE` files are parsed by both GNUmake and the `convertRelease.pl`
+script. While GNUmake is quite relaxed about what characters may be used in a
+RELEASE variable name, the `convertRelease.pl` script parser has only recognized
+variable names that match the Perl regular expression `\w+`, i.e. upper and
+lower-case letters, digits and underscore characters.
+
+The script has been modified so now RELEASE variable names must start with a
+letter or underscore, and be followed by any number of letters, digits,
+underscore or hyphen characters, matching the regular expression
+`[A-Za-z_][A-Za-z_0-9-]*`. The hyphen character `-` was not previously allowed
+and if used would have prevented a build from finding include files and
+libraries in any module using that in its RELEASE variable name.
+
+This change does disallow names that start with a digit which used to be
+allowed, but hopefully nobody has been relying on that ability. The regular
+expression used for names can be found in the file `src/tools/EPICS/Release.pm`
+and can be adjusted locally if necessary.
+
+### caRepeater /dev/null
+
+On \*NIX targets caRepeater will now partially daemonize by redirecting
+stdin/out/err to /dev/null.  This prevents caRepeater from inheriting
+the stdin/out of a process, like caget, which has spawned it in the
+background.  This has been known to cause problems in some cases when
+caget is itself being run from a shell script.
+
+caRepeater will now understand the `-v` argument to retain stdin/out/err
+which may be necessary to see any error messages it may emit.
+
+### `state` record deprecated
+
+IOCs now emit a warning when a database file containing the `state` record is
+loaded. This record has been deprecated for a while and will be removed
+beginning with EPICS 7.1. Consider using the `stringin` record instead.
+
+### Record types publish dset's
+
+The record types in Base now define their device support entry table (DSET)
+structures in the record header file. While still optional, developers of
+external support modules are encouraged to start converting their code to use
+the record's new definitions instead of the traditional approach of copying the
+structure definitions into each source file that needs them. By following the
+instructions below it is still possible for the converted code to build and
+work with older Base releases.
+
+This would also be a good time to modify the device support to use the type-safe
+device support entry tables that were introduced in Base-3.16.2 -- see
+[#type-safe-device-and-driver-support-tables](this entry below) for the
+description of that change, which is also optional for now.
+
+Look at the aiRecord for example. Near the top of the generated `aiRecord.h`
+header file is a new section that declares the `aidset`:
+
+```C
+/* Declare Device Support Entry Table */
+struct aiRecord;
+typedef struct aidset {
+    dset common;
+    long (*read_ai)(struct aiRecord *prec);
+    long (*special_linconv)(struct aiRecord *prec, int after);
+} aidset;
+#define HAS_aidset
+```
+
+Notice that the common members (`number`, `report()`, `init()`, `init_record()`
+and `get_ioint_info()` don't appear directly but are included by embedding the
+`dset common` member instead. This avoids the need to have separate definitions
+of those members in each record dset, but does require those members to be
+wrapped inside another set of braces `{}` when initializing the data structure
+for the individual device supports. It also requires changes to code that
+references those common members, but that code usually only appears inside the
+record type implementation and very rarely in device supports.
+
+An aiRecord device support that will only be built against this or later
+versions of EPICS can now declare its dset like this:
+
+```C
+aidset devAiSoft = {
+    { 6, NULL, NULL, init_record, NULL },
+    read_ai, NULL
+};
+epicsExportAddress(dset, devAiSoft);
+```
+
+However most device support that is not built into EPICS itself will need to
+remain compatible with older EPICS versions, which is why the ai record's header
+file also declares the preprocessor macro `HAS_aidset`. This makes it easy to
+define the `aidset` in the device support code when it's needed, and not when
+it's provided in the header:
+
+```C
+#ifndef HAS_aidset
+typedef struct aidset {
+    dset common;
+    long (*read_ai)(aiRecord *prec);
+    long (*special_linconv)(aiRecord *prec, int after);
+} aidset;
+#endif
+aidset devAiSoft = {
+    { 6, NULL, NULL, init_record, NULL },
+    read_ai, NULL
+};
+epicsExportAddress(dset, devAiSoft);
+```
+
+The above `typedef struct` declaration was copied directly from the new
+aiRecord.h file and wrapped in the `#ifndef HAS_aidset` conditional.
+
+This same pattern should be followed for all record types except for the lsi,
+lso and printf record types, which have published their device support entry
+table structures since they were first added to Base but didn't previously embed
+the `dset common` member. Device support for these record types therefore can't
+use the dset name since the new definitions are different from the originals and
+will cause a compile error, so this pattern should be used instead:
+
+```C
+#ifndef HAS_lsidset
+struct {
+    dset common;
+    long (*read_string)(lsiRecord *prec);
+}
+#else
+lsidset
+#endif
+devLsiEtherIP = {
+    {5, NULL, lsi_init, lsi_init_record, get_ioint_info},
+    lsi_read
+};
+```
 
 ## EPICS Release 7.0.3.1
 
@@ -162,7 +352,7 @@ set to their default values.
     void startitup(void) {
         epicsThreadOpts opts = EPICS_THREAD_OPTS_INIT;
         epicsThreadId tid;
-    
+
         opts.priority = epicsThreadPriorityMedium;
         tid = epicsThreadCreateOpt("my thread", &threadMain, NULL, &opts);
     }
@@ -629,14 +819,14 @@ number instead, like this:
 
 ```
     #include <epicsVersion.h>
-    
+
     #ifndef VERSION_INT
     #  define VERSION_INT(V,R,M,P) ( ((V)<<24) | ((R)<<16) | ((M)<<8) | (P))
     #endif
     #ifndef EPICS_VERSION_INT
     #  define EPICS_VERSION_INT VERSION_INT(EPICS_VERSION, EPICS_REVISION, EPICS_MODIFICATION, EPICS_PATCH_LEVEL)
     #endif
-    
+
     #if EPICS_VERSION_INT >= VERSION_INT(3,16,1,0)
         /* Code where Base has INT64 support */
     #else
@@ -962,7 +1152,7 @@ excerpts from a database file:
     record(ai, math:pi) {
         field(INP, {const: 3.14159265358979})   # Correct
         field(SIOL, "{const: 3.142857}")        # Wrong
-        
+
         info(autosave, {            # White-space and comments are allowed
             fields:[DESC, SIMM],
             pass0:[VAL]
@@ -1110,7 +1300,7 @@ this:
 
 ```
     #include "epicsTime.h"
-    
+
     #ifndef M_time
       /* S_time_... status values were not provided before Base 3.16 */
       #define S_time_unsynchronized epicsTimeERROR
@@ -1135,9 +1325,115 @@ Added a new macro `callbackGetPriority(prio, callback)` to the callback.h
 header and removed the need for dbScan.c to reach into the internals of its
 `CALLBACK` objects.
 
-## Changes from the 3.15 branch since 3.15.7
 
-> None.
+# Changes incorporated from the 3.15 branch
+
+
+## Changes made between 3.15.7 and 3.15.8
+
+### Bug fixes
+
+The following launchpad bugs have fixes included in this release:
+
+- [lp: 1812084](https://bugs.launchpad.net/epics-base/+bug/1812084), Build
+  failure on RTEMS 4.10.2
+- [lp: 1829770](https://bugs.launchpad.net/epics-base/+bug/1829770), event
+  record device support broken with constant INP
+- [lp: 1829919](https://bugs.launchpad.net/epics-base/+bug/1829919), IOC
+  segfaults when calling dbLoadRecords after iocInit
+- [lp: 1838792](https://bugs.launchpad.net/epics-base/+bug/1838792), epicsCalc
+  bit-wise operators on aarch64
+- [lp: 1841608](https://bugs.launchpad.net/epics-base/+bug/1841608), logClient
+  falsely sends error logs on all connections
+- [lp: 1853168](https://bugs.launchpad.net/epics-base/+bug/1853168), undefined
+  reference to `clock_gettime()`
+- [lp: 1862328](https://bugs.launchpad.net/epics-base/+bug/1862328), Race
+  condition on IOC start leaves rsrv unresponsive
+- [lp: 1868486](https://bugs.launchpad.net/epics-base/+bug/1868486),
+  epicsMessageQueue lost messages
+
+
+### Improvements to the self-test build targets
+
+This release contains changes that make it possible to integrate another test
+running and reporting system (such as Google's gtest) into the EPICS build
+system. The built-in test-runner and reporting system will continue to be used
+by the test programs inside Base however.
+
+These GNUmake `tapfiles` and `test-results` build targets now collect a list of
+the directories that experienced test failures and display those at the end of
+running and/or reporting all of the tests. The GNUmake process will also only
+exit with an error status after running and/or reporting all of the test
+results; previously the `-k` flag to make was needed and even that didn't always
+work.
+
+Continuous Integration systems are recommended to run `make tapfiles` (or if
+they can read junittest output instead of TAP `make junitests`) followed by
+`make -s test-results` to display the results of the tests. If multiple CPUs are
+available the `-j` flag can be used to run tests in parallel, giving the maximum
+jobs that should be allowed so `make -j4 tapfiles` for a system with 4 CPUs say.
+Running many more jobs than you have CPUs is likely to be slower and is not
+recommended.
+
+### Calc Engine Fixes and Enhancements
+
+The code that implements bit operations for Calc expressions has been reworked
+to better handle some CPU architectures and compilers. As part of this work a
+new operator has been added: `>>>` performs a logical right-shift, inserting
+zero bits into the most significant bits (the operator `>>` is an arithmetic
+right-shift which copies the sign bit as it shifts the value rightwards).
+
+### IOC logClient Changes
+
+The IOC's error logging system has been updated significantly to fix a number
+of issues including:
+
+  - Only send errlog messages to iocLogClient listeners
+  - Try to minimize lost messages while the log server is down:
+    + Detect disconnects sooner
+    + Don't discard the buffer on disconnect
+    + Flush the buffer immediately after a server reconnects
+
+### epicsThread: Main thread defaults to allow blocking I/O
+
+VxWorks IOCs (and potentially RTEMS IOCs running GeSys) have had problems with
+garbled error messages from dbStaticLib routines for some time &mdash; messages
+printed before `iocInit` were being queued through the errlog thread instead of
+being output immediately. This has been fixed by initializing the main thread
+with its `OkToBlock` flag set instead of cleared. IOCs running on other
+operating systems that use iocsh to execute the startup script previously had
+that set anyway in iocsh so were not affected, but this change might cause other
+programs that don't use iocsh to change their behavior slightly if they use
+`errlogPrintf()`, `epicsPrintf()` or `errPrintf()`.
+
+### catools: Handle data type changes in camonitor
+
+The camonitor program didn't properly cope if subscribed to a channel whose data
+type changed when its IOC was rebooted without restarting the camonitor program.
+This has now been fixed.
+
+### More Record Reference Documentation
+
+The remaining record types have had their reference pages moved from the Wiki,
+and some new reference pages have been written to cover the analog array and
+long string input and output record types plus the printf record type, none of
+which were previously documented. The wiki reference pages covering the fields
+common to all, input, and output record types have also been added, thanks to
+Rolf Keitel. The POD conversion scripts have also been improved and they now
+properly support linking to subsections in a different document, although the
+POD changes to add the cross-links that appeared in the original wiki pages
+still needs to be done in most cases.
+
+### Fix build issues with newer MinGW versions
+
+The `clock_gettime()` routine is no longer used under MinGW since newer versions
+don't provide it any more.
+
+### Fix race for port in RSRV when multiple IOCs start simultaneously
+
+If multiple IOCs were started at the same time, by systemd say, they could race
+to obtain the Channel Access TCP port number 5064. This issue has been fixed.
+
 
 ## Changes made between 3.15.6 and 3.15.7
 
@@ -1854,4 +2150,3 @@ Simpler versions of the `epicsTime_gmtime()` and `epicsTime_localtime()`
 routines have been included in the Windows implementations, and a new test
 program added. The original versions do not report DST status properly. Fixes
 [Launchpad bug 1528284](https://bugs.launchpad.net/bugs/1528284).
-

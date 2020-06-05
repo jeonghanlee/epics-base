@@ -29,24 +29,14 @@
 
 /* Create the dset for devLoSoftCallback */
 static long write_longout(longoutRecord *prec);
-struct {
-	long		number;
-	DEVSUPFUN	report;
-	DEVSUPFUN	init;
-	DEVSUPFUN	init_record;
-	DEVSUPFUN	get_ioint_info;
-	DEVSUPFUN	write_longout;
-}devLoSoftCallback={
-	5,
-	NULL,
-	NULL,
-	NULL,
-	NULL,
-	write_longout
-};
-epicsExportAddress(dset,devLoSoftCallback);
 
-static long write_longout(longoutRecord	*prec)
+longoutdset devLoSoftCallback = {
+    {5, NULL, NULL, NULL, NULL},
+    write_longout
+};
+epicsExportAddress(dset, devLoSoftCallback);
+
+static long write_longout(longoutRecord *prec)
 {
     struct link *plink = &prec->out;
     long status;
@@ -62,4 +52,3 @@ static long write_longout(longoutRecord	*prec)
 
     return status;
 }
-

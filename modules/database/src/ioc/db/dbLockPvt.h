@@ -24,10 +24,10 @@
  * are guarded by its lock.
  */
 typedef struct dbLockSet {
-    ELLNODE		node;
-    ELLLIST		lockRecordList; /* holds lockRecord::node */
-    epicsMutexId 	lock;
-    unsigned long	id;
+    ELLNODE             node;
+    ELLLIST             lockRecordList; /* holds lockRecord::node */
+    epicsMutexId        lock;
+    unsigned long       id;
 
     int                 refcount;
 #ifdef LOCKSET_DEBUG
@@ -48,15 +48,15 @@ struct lockRecord;
  * plockSet is guarded by spin.
  */
 typedef struct lockRecord {
-    ELLNODE	node; /* in lockSet::lockRecordList */
+    ELLNODE     node; /* in lockSet::lockRecordList */
     /* The association between lockRecord and lockSet
      * can only be changed while the lockSet is held,
      * and the lockRecord's spinlock is held.
      * It may be read which either lock is held.
      */
-    lockSet	*plockSet;
+    lockSet     *plockSet;
     /* the association between lockRecord and dbCommon never changes */
-    dbCommon	*precord;
+    dbCommon    *precord;
     epicsSpinId spin;
 
     /* temp used during lockset split.
@@ -86,6 +86,10 @@ struct dbLocker {
     lockRecordRef refs[DBLOCKER_NALLOC]; /* actual length is maxrefs */
 };
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* These are exported for testing only */
 epicsShareFunc lockSet* dbLockGetRef(lockRecord *lr); /* lookup lockset and increment ref count */
 epicsShareFunc void dbLockIncRef(lockSet* ls);
@@ -106,5 +110,9 @@ void dbLockSetMerge(struct dbLocker *locker,
 void dbLockSetSplit(struct dbLocker *locker,
                     struct dbCommon *psource,
                     struct dbCommon *psecond);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* DBLOCKPVT_H */

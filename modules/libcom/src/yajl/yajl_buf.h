@@ -22,7 +22,7 @@
 
 /*
  * Implementation/performance notes.  If this were moved to a header
- * only implementation using #define's where possible we might be 
+ * only implementation using #define's where possible we might be
  * able to sqeeze a little performance out of the guy by killing function
  * call overhead.  YMMV.
  */
@@ -32,6 +32,10 @@
  * you are always null padded.
  */
 typedef struct yajl_buf_t * yajl_buf;
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /* allocate a new buffer */
 yajl_buf yajl_buf_alloc(yajl_alloc_funcs * alloc);
@@ -53,5 +57,9 @@ size_t yajl_buf_len(yajl_buf buf);
 
 /* truncate the buffer */
 void yajl_buf_truncate(yajl_buf buf, size_t len);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

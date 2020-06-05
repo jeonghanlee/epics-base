@@ -4,7 +4,7 @@
 * Copyright (c) 2002 The Regents of the University of California, as
 *     Operator of Los Alamos National Laboratory.
 * EPICS BASE is distributed subject to a Software License Agreement found
-* in file LICENSE that is included with this distribution. 
+* in file LICENSE that is included with this distribution.
 \*************************************************************************/
 /*
  *      Original Author: Marty Kraimer
@@ -18,7 +18,6 @@
 #include <string.h>
 #include <errno.h>
 
-#define epicsExportSharedSymbols
 #define ERRLOG_INIT
 #include "adjustment.h"
 #include "dbDefs.h"
@@ -39,7 +38,7 @@
 #define MAX_MESSAGE_SIZE 256
 
 /*Declare storage for errVerbose */
-epicsShareDef int errVerbose = 0;
+int errVerbose = 0;
 
 static void errlogExitHandler(void *);
 static void errlogThread(void);

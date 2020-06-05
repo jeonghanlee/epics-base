@@ -4,7 +4,7 @@
 * Copyright (c) 2002 The Regents of the University of California, as
 *     Operator of Los Alamos National Laboratory.
 * EPICS BASE is distributed subject to a Software License Agreement found
-* in file LICENSE that is included with this distribution. 
+* in file LICENSE that is included with this distribution.
 \*************************************************************************/
 
 #include "iocsh.h"
@@ -22,7 +22,8 @@ static const iocshArg argRecType = { "recordTypeName", iocshArgString};
 
 /* dbDumpPath */
 static const iocshArg * const dbDumpPathArgs[] = {&argPdbbase};
-static const iocshFuncDef dbDumpPathFuncDef = {"dbDumpPath",1,dbDumpPathArgs};
+static const iocshFuncDef dbDumpPathFuncDef = {"dbDumpPath",1,dbDumpPathArgs,
+                                               "Dump .db/.dbd file search path.\n"};
 static void dbDumpPathCallFunc(const iocshArgBuf *args)
 {
     dbDumpPath(*iocshPpdbbase);

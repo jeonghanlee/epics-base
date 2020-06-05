@@ -32,7 +32,7 @@ typedef void * chid;
 typedef void * evid;
 epicsShareExtern const unsigned short dbr_value_size[];
 epicsShareExtern short epicsShareAPI ca_field_type (chid chan);
-#define MAX_UNITS_SIZE		8
+#define MAX_UNITS_SIZE          8
 
 #include "dbCaPvt.h"
 #include "errlog.h"
@@ -416,7 +416,7 @@ static void testArrayLink(unsigned nsrc, unsigned ntarg)
     dbScanLock((dbCommon*)ptarg);
     fillArray(buftarg, ptarg->nelm, 1);
     ptarg->nord = ptarg->nelm;
-    db_post_events(ptarg, ptarg->bptr, DBE_VALUE|DBE_ALARM|DBE_ARCHIVE);
+    db_post_events(ptarg, &ptarg->val, DBE_VALUE|DBE_ALARM|DBE_ARCHIVE);
     dbScanUnlock((dbCommon*)ptarg);
 
     waitForUpdateN(psrclnk, 2);
@@ -540,7 +540,7 @@ static void testreTargetTypeChange(void)
     dbScanLock((dbCommon*)ptarg1);
     fillArrayDouble(buftarg1, ptarg1->nelm, 1);
     ptarg1->nord = ptarg1->nelm;
-    db_post_events(ptarg1, ptarg1->bptr, DBE_VALUE|DBE_ALARM|DBE_ARCHIVE);
+    db_post_events(ptarg1, &ptarg1->val, DBE_VALUE|DBE_ALARM|DBE_ARCHIVE);
     dbScanUnlock((dbCommon*)ptarg1);
 
     epicsEventMustWait(waitEvent); /* wait for update */
