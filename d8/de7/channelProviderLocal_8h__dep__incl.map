@@ -1,0 +1,18 @@
+<map id="modules/pvDatabase/src/pv/channelProviderLocal.h" name="modules/pvDatabase/src/pv/channelProviderLocal.h">
+<area shape="rect" id="node2" href="$d0/da1/addRecord_8h.html" title="modules/pvDatabase\l/src/pv/addRecord.h" alt="" coords="261,102,420,143"/>
+<area shape="rect" id="node5" href="$d4/de4/processRecord_8h.html" title="modules/pvDatabase\l/src/pv/processRecord.h" alt="" coords="735,102,909,143"/>
+<area shape="rect" id="node8" href="$d7/dc6/removeRecord_8h.html" title="modules/pvDatabase\l/src/pv/removeRecord.h" alt="" coords="1229,102,1401,143"/>
+<area shape="rect" id="node11" href="$d4/d9a/traceRecord_8h.html" title="modules/pvDatabase\l/src/pv/traceRecord.h" alt="" coords="1485,102,1644,143"/>
+<area shape="rect" id="node12" href="$dd/d92/traceRecord_8cpp.html" title="modules/pvDatabase\l/src/special/traceRecord.cpp" alt="" coords="1473,206,1673,247"/>
+<area shape="rect" id="node14" href="$db/d29/channelLocal_8cpp.html" title="modules/pvDatabase\l/src/pvAccess/channelLocal.cpp" alt="" coords="1668,102,1891,143"/>
+<area shape="rect" id="node15" href="$d7/d65/channelProviderLocal_8cpp.html" title="modules/pvDatabase\l/src/pvAccess/channelProvider\lLocal.cpp" alt="" coords="1915,95,2129,151"/>
+<area shape="rect" id="node16" href="$d3/d98/monitorFactory_8cpp.html" title="modules/pvDatabase\l/src/pvAccess/monitorFactory.cpp" alt="" coords="2154,102,2389,143"/>
+<area shape="rect" id="node17" href="$d4/d5f/registerChannelProviderLocal_8cpp.html" title="modules/pvDatabase\l/src/pvAccess/registerChannel\lProviderLocal.cpp" alt="" coords="2413,95,2628,151"/>
+<area shape="rect" id="node3" href="$d6/d07/addRecord_8cpp.html" title="modules/pvDatabase\l/src/special/addRecord.cpp" alt="" coords="5,206,196,247"/>
+<area shape="rect" id="node4" href="$d7/d2a/addRecordRegister_8cpp.html" title="modules/pvDatabase\l/src/special/addRecordRegister.cpp" alt="" coords="220,206,461,247"/>
+<area shape="rect" id="node6" href="$d8/dd7/processRecord_8cpp.html" title="modules/pvDatabase\l/src/special/processRecord.cpp" alt="" coords="485,206,703,247"/>
+<area shape="rect" id="node7" href="$dd/d9c/processRecordRegister_8cpp.html" title="modules/pvDatabase\l/src/special/processRecord\lRegister.cpp" alt="" coords="727,199,917,255"/>
+<area shape="rect" id="node9" href="$d6/d8b/removeRecord_8cpp.html" title="modules/pvDatabase\l/src/special/removeRecord.cpp" alt="" coords="942,206,1158,247"/>
+<area shape="rect" id="node10" href="$d7/df4/removeRecordRegister_8cpp.html" title="modules/pvDatabase\l/src/special/removeRecordRegister.cpp" alt="" coords="1182,206,1449,247"/>
+<area shape="rect" id="node13" href="$de/d53/traceRecordRegister_8cpp.html" title="modules/pvDatabase\l/src/special/traceRecordRegister.cpp" alt="" coords="1697,206,1947,247"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="GWServerChannelProvider" name="GWServerChannelProvider">
+<area shape="rect" id="node2" href="$d3/d09/classepics_1_1pvAccess_1_1ChannelProvider.html" title="epics::pvAccess::Channel\lProvider" alt="" coords="415,57,597,98"/>
+<area shape="rect" id="node3" href="$d8/d4e/classepics_1_1pvAccess_1_1Destroyable.html" title="Instance declaring destroy method. " alt="" coords="5,37,213,64"/>
+<area shape="rect" id="node5" href="$d9/d5a/classepics_1_1pvAccess_1_1ChannelFind.html" title="epics::pvAccess::ChannelFind" alt="" coords="402,5,610,32"/>
+<area shape="rect" id="node7" href="$d0/d7f/structChannelCache.html" title="ChannelCache" alt="" coords="449,188,563,215"/>
+<area shape="rect" id="node8" href="$d6/dd4/structChannelCache_1_1cacheClean.html" title="ChannelCache::cacheClean" alt="" coords="749,233,945,260"/>
+</map>

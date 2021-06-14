@@ -1,0 +1,4 @@
+<map id="epics::pvDatabase::RemoveRecord" name="epics::pvDatabase::RemoveRecord">
+<area shape="rect" id="node2" href="$dd/df8/classepics_1_1pvDatabase_1_1PVRecord.html" title="Base interface for a PVRecord. " alt="" coords="272,39,420,80"/>
+<area shape="rect" id="node3" href="$d6/d42/classepics_1_1pvCopy_1_1PVCopyTraverseMasterCallback.html" title="Callback for traversing master structure. " alt="" coords="5,5,224,47"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$de/d14/classepics_1_1pvCopy_1_1PVPlugin.html" title="A filter plugin that attaches to a field of a PVStrcture. " alt="" coords="5,64,177,91"/>
+<area shape="rect" id="node2" href="$d1/d77/classepics_1_1pvCopy_1_1PVArrayPlugin.html" title="A plugin for a filter that gets a sub array from a PVScalarArray. " alt="" coords="226,5,431,32"/>
+<area shape="rect" id="node3" href="$d6/da6/classepics_1_1pvCopy_1_1PVDeadbandPlugin.html" title="A plugin for a filter that gets a sub array from a PVScalarDeadband. " alt="" coords="229,57,429,98"/>
+<area shape="rect" id="node4" href="$df/d71/classepics_1_1pvCopy_1_1PVTimestampPlugin.html" title="A plugin for a filter that sets a timeStamp to the current time. " alt="" coords="225,122,432,163"/>
+</map>

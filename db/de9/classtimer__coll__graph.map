@@ -1,0 +1,5 @@
+<map id="timer" name="timer">
+<area shape="rect" id="node3" href="$d6/d31/classtsDLNode.html" title="tsDLNode\&lt; timer \&gt;" alt="" coords="120,89,269,115"/>
+<area shape="rect" id="node4" href="$df/d11/classtsFreeList.html" title="tsFreeList\&lt; timer,\l 0x20 \&gt;" alt="" coords="293,81,429,123"/>
+<area shape="rect" id="node5" href="$d2/dfb/classtimerQueue.html" title="timerQueue" alt="" coords="453,89,552,115"/>
+</map>

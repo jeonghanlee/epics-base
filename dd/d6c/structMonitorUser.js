@@ -1,0 +1,27 @@
+var structMonitorUser =
+[
+    [ "MonitorUser", "dd/d6c/structMonitorUser.html#a115dfc084eeebafe05b5b533c2655411", null ],
+    [ "~MonitorUser", "dd/d6c/structMonitorUser.html#ad21e60435f1c3f378a6d6e632dd09ff7", null ],
+    [ "destroy", "dd/d6c/structMonitorUser.html#aa6ceef49ac444d847506964907c5b481", null ],
+    [ "getRequesterName", "dd/d6c/structMonitorUser.html#ad4bf657e15f7adec62290a8228dc2e68", null ],
+    [ "mutex", "dd/d6c/structMonitorUser.html#a050cb3b2efcc10f7b1b92f72d69bddab", null ],
+    [ "POINTER_DEFINITIONS", "dd/d6c/structMonitorUser.html#a451ebcd5f844f39cd1b5897a25fe3016", null ],
+    [ "poll", "dd/d6c/structMonitorUser.html#acb699dee9be8c9abe05e8127bfb3be2c", null ],
+    [ "release", "dd/d6c/structMonitorUser.html#a2796be4514042eb5856c8995235f3681", null ],
+    [ "start", "dd/d6c/structMonitorUser.html#a7095d654fee1b61a4e3e90e18638978d", null ],
+    [ "stop", "dd/d6c/structMonitorUser.html#afb7983a9f924f1bd405e84694745f697", null ],
+    [ "empty", "dd/d6c/structMonitorUser.html#a2c2b4ce6bb3029a6b17c9b30dc172a18", null ],
+    [ "entry", "dd/d6c/structMonitorUser.html#aa4928523cf01cd02c6efdd7f85c7fc35", null ],
+    [ "filled", "dd/d6c/structMonitorUser.html#ae5a9c80ae6ac8bbf6e12e56c3f011ead", null ],
+    [ "initial", "dd/d6c/structMonitorUser.html#a216588f5de300351358632fa21d33e4d", null ],
+    [ "inoverflow", "dd/d6c/structMonitorUser.html#a83278420f92db580181ae32d6dc44051", null ],
+    [ "inuse", "dd/d6c/structMonitorUser.html#a919bedf70dc115cef0609c0a568767dd", null ],
+    [ "ndropped", "dd/d6c/structMonitorUser.html#aa3429dedb4e2c35c7c0891e123151446", null ],
+    [ "nevents", "dd/d6c/structMonitorUser.html#a1a28b92694f1d1aa010e50d6240b15c6", null ],
+    [ "nwakeups", "dd/d6c/structMonitorUser.html#a0c4b5bafe3d634a934581f9cb0d1e316", null ],
+    [ "overflowElement", "dd/d6c/structMonitorUser.html#ae35f1ce9d6e4ecd45c6fba03edb9f0ad", null ],
+    [ "req", "dd/d6c/structMonitorUser.html#a0b6a65adcf04bd076d02981215779257", null ],
+    [ "running", "dd/d6c/structMonitorUser.html#a611795cdb8331c60f1aef47d26e0e260", null ],
+    [ "srvchan", "dd/d6c/structMonitorUser.html#a7f6ff53131c2ae326d248332310c486e", null ],
+    [ "weakref", "dd/d6c/structMonitorUser.html#a260b8deea30002ebb47adef61ac61161", null ]
+];

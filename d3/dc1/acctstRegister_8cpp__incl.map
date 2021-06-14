@@ -1,0 +1,13 @@
+<map id="modules/ca/src/client/acctstRegister.cpp" name="modules/ca/src/client/acctstRegister.cpp">
+<area shape="rect" id="node2" href="$da/d9e/iocsh_8h.html" title="iocsh.h" alt="" coords="23,393,90,420"/>
+<area shape="rect" id="node7" href="$d8/d29/caDiagnostics_8h.html" title="caDiagnostics.h" alt="" coords="150,95,273,121"/>
+<area shape="rect" id="node4" href="$d5/d48/compilerDependencies_8h.html" title="Compiler specific declarations. " alt="" coords="95,468,275,495"/>
+<area shape="rect" id="node8" href="$d4/d85/cadef_8h.html" title="cadef.h" alt="" coords="272,169,340,196"/>
+<area shape="rect" id="node10" href="$d8/d29/epicsThread_8h.html" title="C++ and C descriptions for a thread. " alt="" coords="567,244,677,271"/>
+<area shape="rect" id="node14" href="$d2/d87/caerr_8h.html" title="caerr.h" alt="" coords="57,244,123,271"/>
+<area shape="rect" id="node16" href="$d6/de3/db__access_8h.html" title="db_access.h" alt="" coords="441,244,542,271"/>
+<area shape="rect" id="node21" href="$d1/d1c/caeventmask_8h.html" title="caeventmask.h" alt="" coords="246,244,366,271"/>
+<area shape="rect" id="node15" href="$d8/d42/epicsTypes_8h.html" title="epicsTypes.h" alt="" coords="133,393,236,420"/>
+<area shape="rect" id="node17" href="$d9/d9b/epicsTime_8h.html" title="EPICS time&#45;stamps (epicsTimeStamp), epicsTime C++ class and C functions for handling wall&#45;clock times..." alt="" coords="350,319,449,345"/>
+<area shape="rect" id="node20" href="$d8/d1a/errMdef_8h.html" title="errMdef.h" alt="" coords="261,393,343,420"/>
+</map>

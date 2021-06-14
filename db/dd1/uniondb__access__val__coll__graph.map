@@ -1,0 +1,29 @@
+<map id="db_access_val" name="db_access_val">
+<area shape="rect" id="node2" href="$d7/dde/structdbr__gr__short.html" title="dbr_gr_short" alt="" coords="241,5,344,32"/>
+<area shape="rect" id="node3" href="$d7/da0/structdbr__sts__double.html" title="dbr_sts_double" alt="" coords="233,56,352,83"/>
+<area shape="rect" id="node4" href="$d7/d2a/structdbr__gr__long.html" title="dbr_gr_long" alt="" coords="244,107,341,133"/>
+<area shape="rect" id="node5" href="$d0/df7/structdbr__gr__enum.html" title="dbr_gr_enum" alt="" coords="239,157,346,184"/>
+<area shape="rect" id="node6" href="$d7/dce/structdbr__gr__char.html" title="dbr_gr_char" alt="" coords="243,208,342,235"/>
+<area shape="rect" id="node7" href="$d4/d74/structdbr__sts__float.html" title="dbr_sts_float" alt="" coords="241,259,345,285"/>
+<area shape="rect" id="node8" href="$df/da7/structdbr__gr__double.html" title="dbr_gr_double" alt="" coords="236,309,349,336"/>
+<area shape="rect" id="node9" href="$dd/d2d/structdbr__time__long.html" title="dbr_time_long" alt="" coords="236,360,349,387"/>
+<area shape="rect" id="node10" href="$d7/da5/structepicsTimeStamp.html" title="EPICS time stamp, for use from C code. " alt="" coords="5,512,135,539"/>
+<area shape="rect" id="node12" href="$dd/d7c/structdbr__time__char.html" title="dbr_time_char" alt="" coords="235,411,350,437"/>
+<area shape="rect" id="node17" href="$d5/dc2/structdbr__time__float.html" title="dbr_time_float" alt="" coords="235,461,350,488"/>
+<area shape="rect" id="node18" href="$db/db0/structdbr__time__double.html" title="dbr_time_double" alt="" coords="228,512,357,539"/>
+<area shape="rect" id="node24" href="$d5/d53/structdbr__time__enum.html" title="dbr_time_enum" alt="" coords="231,563,354,589"/>
+<area shape="rect" id="node26" href="$d4/d2c/structdbr__time__string.html" title="dbr_time_string" alt="" coords="231,613,354,640"/>
+<area shape="rect" id="node27" href="$d7/d50/structdbr__time__short.html" title="dbr_time_short" alt="" coords="233,664,352,691"/>
+<area shape="rect" id="node11" href="$de/db6/structdbr__ctrl__short.html" title="dbr_ctrl_short" alt="" coords="237,715,348,741"/>
+<area shape="rect" id="node13" href="$d4/d1e/structdbr__ctrl__double.html" title="dbr_ctrl_double" alt="" coords="233,765,353,792"/>
+<area shape="rect" id="node14" href="$dd/d82/structdbr__sts__long.html" title="dbr_sts_long" alt="" coords="241,816,344,843"/>
+<area shape="rect" id="node15" href="$dd/d16/structdbr__sts__short.html" title="dbr_sts_short" alt="" coords="238,867,347,893"/>
+<area shape="rect" id="node16" href="$d3/d46/structdbr__sts__string.html" title="dbr_sts_string" alt="" coords="237,917,349,944"/>
+<area shape="rect" id="node19" href="$db/d4b/structdbr__sts__char.html" title="dbr_sts_char" alt="" coords="241,968,345,995"/>
+<area shape="rect" id="node20" href="$d1/da0/structdbr__ctrl__char.html" title="dbr_ctrl_char" alt="" coords="240,1019,345,1045"/>
+<area shape="rect" id="node21" href="$df/dbb/structdbr__ctrl__long.html" title="dbr_ctrl_long" alt="" coords="241,1069,345,1096"/>
+<area shape="rect" id="node22" href="$dc/da5/structdbr__ctrl__enum.html" title="dbr_ctrl_enum" alt="" coords="235,1120,350,1147"/>
+<area shape="rect" id="node23" href="$db/dda/structdbr__gr__float.html" title="dbr_gr_float" alt="" coords="243,1171,342,1197"/>
+<area shape="rect" id="node25" href="$dd/d63/structdbr__ctrl__float.html" title="dbr_ctrl_float" alt="" coords="240,1221,345,1248"/>
+<area shape="rect" id="node28" href="$d5/d67/structdbr__sts__enum.html" title="dbr_sts_enum" alt="" coords="236,1272,349,1299"/>
+</map>

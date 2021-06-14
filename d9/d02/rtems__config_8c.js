@@ -1,0 +1,27 @@
+var rtems__config_8c =
+[
+    [ "CONFIGURE_APPLICATION_NEEDS_CLOCK_DRIVER", "d9/d02/rtems__config_8c.html#ac7bb1b421a5a074968ce115f91c7852e", null ],
+    [ "CONFIGURE_APPLICATION_NEEDS_CONSOLE_DRIVER", "d9/d02/rtems__config_8c.html#a82371fbde3811b6e1502dc60f8d8b9a7", null ],
+    [ "CONFIGURE_APPLICATION_NEEDS_RTC_DRIVER", "d9/d02/rtems__config_8c.html#aa058a973560be586b2dcc9efcf632f4c", null ],
+    [ "CONFIGURE_EXECUTIVE_RAM_SIZE", "d9/d02/rtems__config_8c.html#a27fa530f1abe95b96d6186a9cc268572", null ],
+    [ "CONFIGURE_FILESYSTEM_IMFS", "d9/d02/rtems__config_8c.html#af9e9d20d2570ee1b3a8d959a5af45271", null ],
+    [ "CONFIGURE_FILESYSTEM_NFS", "d9/d02/rtems__config_8c.html#ad9413f0297b32cd9acce402b9259c837", null ],
+    [ "CONFIGURE_INIT", "d9/d02/rtems__config_8c.html#a6a22faea4f13386b6014fe3b477ee17f", null ],
+    [ "CONFIGURE_INIT_TASK_ATTRIBUTES", "d9/d02/rtems__config_8c.html#a5cbcd0daa79698f20f25fd78e712a43d", null ],
+    [ "CONFIGURE_INIT_TASK_INITIAL_MODES", "d9/d02/rtems__config_8c.html#a8eb161ef6f2dee142a5bfe47fae9b75a", null ],
+    [ "CONFIGURE_INIT_TASK_PRIORITY", "d9/d02/rtems__config_8c.html#a08b282e8d6b99ae28d2346da2aea76e8", null ],
+    [ "CONFIGURE_INIT_TASK_STACK_SIZE", "d9/d02/rtems__config_8c.html#a645e66d53c7bc5895dd28ec89152bd34", null ],
+    [ "CONFIGURE_LIBIO_MAXIMUM_FILE_DESCRIPTORS", "d9/d02/rtems__config_8c.html#acd6e0381447625f6d43a0e4758c20acd", null ],
+    [ "CONFIGURE_MALLOC_STATISTICS", "d9/d02/rtems__config_8c.html#a895cf60c9aecd8a1fa23a3a99e6f1916", null ],
+    [ "CONFIGURE_MAXIMUM_BARRIERS", "d9/d02/rtems__config_8c.html#a7216c8ec9660e143de525655b8a96b5c", null ],
+    [ "CONFIGURE_MAXIMUM_DRIVERS", "d9/d02/rtems__config_8c.html#ab50fad17b759238f4acaa99f14fde76f", null ],
+    [ "CONFIGURE_MAXIMUM_MESSAGE_QUEUES", "d9/d02/rtems__config_8c.html#ab758821f15968e68924df35b894a8a13", null ],
+    [ "CONFIGURE_MAXIMUM_SEMAPHORES", "d9/d02/rtems__config_8c.html#a0e245d81363db06a2018bc22c8fe3c7d", null ],
+    [ "CONFIGURE_MAXIMUM_TASKS", "d9/d02/rtems__config_8c.html#acefc9eaaa55885d2ecf3caf7df813780", null ],
+    [ "CONFIGURE_MAXIMUM_TIMERS", "d9/d02/rtems__config_8c.html#ac0d084872c359f12b3f8a7a6d41576e2", null ],
+    [ "CONFIGURE_MAXIMUM_USER_EXTENSIONS", "d9/d02/rtems__config_8c.html#a8d821e6aebaf2f76255a128ed7d08fd4", null ],
+    [ "CONFIGURE_MICROSECONDS_PER_TICK", "d9/d02/rtems__config_8c.html#a038a43a24b8791be8a611a42ad1a5034", null ],
+    [ "CONFIGURE_RTEMS_INIT_TASKS_TABLE", "d9/d02/rtems__config_8c.html#a60d57d0bccd9d30f6704757430f41f43", null ],
+    [ "CONFIGURE_USE_IMFS_AS_BASE_FILESYSTEM", "d9/d02/rtems__config_8c.html#a5081fbae9792c536edec21b4f3532b65", null ],
+    [ "Init", "d9/d02/rtems__config_8c.html#aa35328e24a0e5f3729eda34a6ca9e20c", null ]
+];

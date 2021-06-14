@@ -1,0 +1,11 @@
+<map id="modules/database/src/std/rec/permissiveRecord.c" name="modules/database/src/std/rec/permissiveRecord.c">
+<area shape="rect" id="node7" href="$da/d00/dbDefs_8h.html" title="Miscellaneous macro definitions. " alt="" coords="60,169,139,196"/>
+<area shape="rect" id="node8" href="$d2/d28/epicsPrint_8h.html" title="epicsPrint.h" alt="" coords="214,95,310,121"/>
+<area shape="rect" id="node15" href="$da/d0d/dbFldTypes_8h.html" title="dbFldTypes.h" alt="" coords="1088,95,1191,121"/>
+<area shape="rect" id="node17" href="$d8/d1a/errMdef_8h.html" title="errMdef.h" alt="" coords="462,169,545,196"/>
+<area shape="rect" id="node18" href="$d1/d90/recSup_8h.html" title="recSup.h" alt="" coords="385,95,464,121"/>
+<area shape="rect" id="node21" href="$df/d6a/epicsExport_8h.html" title="Exporting IOC objects. " alt="" coords="956,95,1064,121"/>
+<area shape="rect" id="node9" href="$db/dba/errlog_8h.html" title="errlog.h" alt="" coords="221,169,292,196"/>
+<area shape="rect" id="node11" href="$d5/d48/compilerDependencies_8h.html" title="Compiler specific declarations. " alt="" coords="415,244,595,271"/>
+<area shape="rect" id="node16" href="$d5/ddb/shareLib_8h.html" title="Mark external symbols and entry points for shared libraries. " alt="" coords="1030,169,1118,196"/>
+</map>

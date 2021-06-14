@@ -1,0 +1,6 @@
+<map id="epics::pvDatabase::MonitorLocal" name="epics::pvDatabase::MonitorLocal">
+<area shape="rect" id="node2" href="$d6/d2d/classepics_1_1pvAccess_1_1Monitor.html" title="epics::pvAccess::Monitor" alt="" coords="272,5,451,32"/>
+<area shape="rect" id="node3" href="$d8/d4e/classepics_1_1pvAccess_1_1Destroyable.html" title="Instance declaring destroy method. " alt="" coords="5,5,213,32"/>
+<area shape="rect" id="node4" href="$dc/daa/classepics_1_1pvDatabase_1_1PVListener.html" title="Listener for PVRecord::message. " alt="" coords="287,57,435,98"/>
+<area shape="rect" id="node5" href="$d2/da0/classepics_1_1pvDatabase_1_1PVRecordClient.html" title="An interface implemented by code that accesses the record. " alt="" coords="35,57,183,98"/>
+</map>

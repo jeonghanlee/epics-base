@@ -1,0 +1,28 @@
+var reader_8c =
+[
+    [ "LINESIZE", "d5/dd9/reader_8c.html#a0095c1e0ae26941efea12c77f2232f2f", null ],
+    [ "static", "d5/dd9/reader_8c.html#aa261b98e7b0037f2a9f13cbb4b8539d7", null ],
+    [ "reader", "d5/dd9/reader_8c.html#a0886e6ea18d3e8b820428fca493d70a5", null ],
+    [ "cache", "d5/dd9/reader_8c.html#a09171f00baf289510a560e2df6d20add", null ],
+    [ "cache_size", "d5/dd9/reader_8c.html#adc2cfac3a357c5424aafa9d351a2e6ea", null ],
+    [ "cinc", "d5/dd9/reader_8c.html#a16afa6dee9d5cdcadf61c74db9a0ebb5", null ],
+    [ "cptr", "d5/dd9/reader_8c.html#af737ae5841205792e28dd73ca4b42a4d", null ],
+    [ "gensym", "d5/dd9/reader_8c.html#a8b9e707c64fb36363191b197f807250d", null ],
+    [ "goal", "d5/dd9/reader_8c.html#aeccc8425e6f8188a35133f5ee547dc19", null ],
+    [ "last_was_action", "d5/dd9/reader_8c.html#a8bdcde8bd00b0f20ab9b266713ade2ad", null ],
+    [ "line", "d5/dd9/reader_8c.html#a23c15a972e063257ed7d820c4fdcf923", null ],
+    [ "line_format", "d5/dd9/reader_8c.html#a2a7b40b34c2ced2fec7fa3d28c9c504d", null ],
+    [ "linesize", "d5/dd9/reader_8c.html#a91e4d8a878948ae4d8573c4a9894b2e2", null ],
+    [ "maxitems", "d5/dd9/reader_8c.html#a2ab360b5c118a4aeab3ec04409dc509c", null ],
+    [ "maxrules", "d5/dd9/reader_8c.html#a2f4f3cec64050916fdc4cc0d1384f739", null ],
+    [ "name_pool", "d5/dd9/reader_8c.html#a35fd82b0e894540c7d0b46a291206ef4", null ],
+    [ "name_pool_size", "d5/dd9/reader_8c.html#af9422143c1c9b05eb373c0f8ae85676f", null ],
+    [ "ntags", "d5/dd9/reader_8c.html#a498032a5fea553cb67344de2e38ada5d", null ],
+    [ "pitem", "d5/dd9/reader_8c.html#a2f1f55407e8de0f725623b3674a42219", null ],
+    [ "plhs", "d5/dd9/reader_8c.html#a73a8c7a912841b363f6f3fb0ede32e20", null ],
+    [ "prec", "d5/dd9/reader_8c.html#a5bfbd3b409ebe4bc09f9ed58d177c2bd", null ],
+    [ "saw_eof", "d5/dd9/reader_8c.html#a3711173060f4ba6063466079e1735f69", null ],
+    [ "tag_table", "d5/dd9/reader_8c.html#af2a94550cf84986b8ff77cd970849cd6", null ],
+    [ "tagmax", "d5/dd9/reader_8c.html#a2276541d2730a13720eae3a572a8a95c", null ],
+    [ "unionized", "d5/dd9/reader_8c.html#a0c2eb26538005f327c8ee9e4310ea309", null ]
+];

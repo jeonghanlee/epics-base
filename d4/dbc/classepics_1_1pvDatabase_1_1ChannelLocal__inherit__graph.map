@@ -1,0 +1,6 @@
+<map id="epics::pvDatabase::ChannelLocal" name="epics::pvDatabase::ChannelLocal">
+<area shape="rect" id="node2" href="$d9/ded/classepics_1_1pvAccess_1_1Channel.html" title="epics::pvAccess::Channel" alt="" coords="272,31,455,57"/>
+<area shape="rect" id="node3" href="$d4/d74/classepics_1_1pvAccess_1_1Requester.html" title="Callback class for passing messages to a requester. " alt="" coords="12,5,207,32"/>
+<area shape="rect" id="node4" href="$d8/d4e/classepics_1_1pvAccess_1_1Destroyable.html" title="Instance declaring destroy method. " alt="" coords="5,56,213,83"/>
+<area shape="rect" id="node5" href="$d2/da0/classepics_1_1pvDatabase_1_1PVRecordClient.html" title="An interface implemented by code that accesses the record. " alt="" coords="289,82,437,123"/>
+</map>

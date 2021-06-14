@@ -1,0 +1,8 @@
+<map id="epics::pvAccess::ChannelRPC" name="epics::pvAccess::ChannelRPC">
+<area shape="rect" id="node5" href="$d7/de9/classepics_1_1pvAccess_1_1ChannelRPCServiceImpl.html" title="epics::pvAccess::Channel\lRPCServiceImpl" alt="" coords="748,5,931,47"/>
+<area shape="rect" id="node6" href="$d2/dd8/classepics_1_1pvDatabase_1_1ChannelRPCLocal.html" title="epics::pvDatabase::\lChannelRPCLocal" alt="" coords="765,71,913,112"/>
+<area shape="rect" id="node7" href="$d4/ddf/structpvas_1_1detail_1_1SharedRPC.html" title="pvas::detail::SharedRPC" alt="" coords="752,137,927,163"/>
+<area shape="rect" id="node2" href="$d8/d5e/classepics_1_1pvAccess_1_1ChannelRequest.html" title="epics::pvAccess::Channel\lRequest" alt="" coords="261,71,444,112"/>
+<area shape="rect" id="node3" href="$d8/d4e/classepics_1_1pvAccess_1_1Destroyable.html" title="Instance declaring destroy method. " alt="" coords="5,53,213,79"/>
+<area shape="rect" id="node4" href="$d7/dd9/classepics_1_1pvAccess_1_1Lockable.html" title="epics::pvAccess::Lockable" alt="" coords="16,103,203,130"/>
+</map>

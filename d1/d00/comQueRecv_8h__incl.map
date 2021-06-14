@@ -1,0 +1,13 @@
+<map id="modules/ca/src/client/comQueRecv.h" name="modules/ca/src/client/comQueRecv.h">
+<area shape="rect" id="node2" href="$d0/db7/comBuf_8h.html" title="comBuf.h" alt="" coords="574,95,657,121"/>
+<area shape="rect" id="node5" href="$d2/d59/epicsAssert_8h.html" title="An EPICS&#45;specific replacement for ANSI C&#39;s assert. " alt="" coords="5,319,113,345"/>
+<area shape="rect" id="node7" href="$d5/d48/compilerDependencies_8h.html" title="Compiler specific declarations. " alt="" coords="395,393,575,420"/>
+<area shape="rect" id="node9" href="$d8/d42/epicsTypes_8h.html" title="epicsTypes.h" alt="" coords="481,319,584,345"/>
+<area shape="rect" id="node10" href="$d9/dec/tsFreeList_8h.html" title="tsFreeList.h" alt="" coords="311,169,405,196"/>
+<area shape="rect" id="node16" href="$d9/d77/tsDLList_8h.html" title="tsDLList.h" alt="" coords="934,169,1019,196"/>
+<area shape="rect" id="node17" href="$d2/de5/osiWireFormat_8h.html" title="osiWireFormat.h" alt="" coords="678,169,803,196"/>
+<area shape="rect" id="node12" href="$d9/da2/epicsMutex_8h.html" title="APIs for the epicsMutex mutual exclusion semaphore. " alt="" coords="169,244,275,271"/>
+<area shape="rect" id="node14" href="$db/d22/epicsGuard_8h.html" title="epicsGuard.h" alt="" coords="350,244,457,271"/>
+<area shape="rect" id="node18" href="$d3/d70/osdWireFormat_8h.html" title="osdWireFormat.h" alt="" coords="729,244,859,271"/>
+<area shape="rect" id="node19" href="$de/d6e/epicsEndian_8h.html" title="epicsEndian.h" alt="" coords="729,319,840,345"/>
+</map>

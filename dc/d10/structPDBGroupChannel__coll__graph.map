@@ -1,0 +1,7 @@
+<map id="PDBGroupChannel" name="PDBGroupChannel">
+<area shape="rect" id="node2" href="$d7/d73/structBaseChannel.html" title="BaseChannel" alt="" coords="332,191,439,218"/>
+<area shape="rect" id="node3" href="$d9/ded/classepics_1_1pvAccess_1_1Channel.html" title="epics::pvAccess::Channel" alt="" coords="245,95,427,121"/>
+<area shape="rect" id="node4" href="$d4/d74/classepics_1_1pvAccess_1_1Requester.html" title="Callback class for passing messages to a requester. " alt="" coords="5,5,200,32"/>
+<area shape="rect" id="node5" href="$d8/d4e/classepics_1_1pvAccess_1_1Destroyable.html" title="Instance declaring destroy method. " alt="" coords="224,5,432,32"/>
+<area shape="rect" id="node8" href="$d7/d44/structASCred.html" title="ASCred" alt="" coords="793,191,863,218"/>
+</map>

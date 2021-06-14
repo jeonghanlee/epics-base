@@ -1,0 +1,12 @@
+<map id="epics::pvAccess::Monitor" name="epics::pvAccess::Monitor">
+<area shape="rect" id="node3" href="$d6/dde/structBaseMonitor.html" title="BaseMonitor" alt="" coords="540,31,643,57"/>
+<area shape="rect" id="node6" href="$d7/d06/classepics_1_1pvAccess_1_1ca_1_1CAChannelMonitor.html" title="epics::pvAccess::ca\l::CAChannelMonitor" alt="" coords="517,82,665,123"/>
+<area shape="rect" id="node7" href="$d8/d57/classepics_1_1pvAccess_1_1MonitorFIFO.html" title="epics::pvAccess::MonitorFIFO" alt="" coords="488,148,695,175"/>
+<area shape="rect" id="node9" href="$dd/dbd/classepics_1_1pvDatabase_1_1MonitorLocal.html" title="epics::pvDatabase::\lMonitorLocal" alt="" coords="517,199,665,241"/>
+<area shape="rect" id="node10" href="$dd/d6c/structMonitorUser.html" title="MonitorUser" alt="" coords="541,265,641,292"/>
+<area shape="rect" id="node11" href="$d7/d22/structTestPVMonitor.html" title="TestPVMonitor" alt="" coords="535,316,647,343"/>
+<area shape="rect" id="node2" href="$d8/d4e/classepics_1_1pvAccess_1_1Destroyable.html" title="Instance declaring destroy method. " alt="" coords="5,177,213,204"/>
+<area shape="rect" id="node4" href="$db/dcf/structPDBGroupMonitor.html" title="PDBGroupMonitor" alt="" coords="787,5,923,32"/>
+<area shape="rect" id="node5" href="$d5/d55/structPDBSingleMonitor.html" title="PDBSingleMonitor" alt="" coords="787,56,923,83"/>
+<area shape="rect" id="node8" href="$d1/da9/structpvas_1_1detail_1_1SharedMonitorFIFO.html" title="pvas::detail::SharedMonitorFIFO" alt="" coords="743,148,967,175"/>
+</map>

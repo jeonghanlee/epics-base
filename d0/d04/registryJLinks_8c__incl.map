@@ -1,0 +1,17 @@
+<map id="modules/database/src/ioc/registry/registryJLinks.c" name="modules/database/src/ioc/registry/registryJLinks.c">
+<area shape="rect" id="node2" href="$dc/d27/registry_8h.html" title="registry.h" alt="" coords="321,95,401,121"/>
+<area shape="rect" id="node4" href="$d5/d33/dbBase_8h.html" title="dbBase.h" alt="" coords="549,169,631,196"/>
+<area shape="rect" id="node16" href="$d3/d37/dbStaticLib_8h.html" title="dbStaticLib.h" alt="" coords="497,95,603,121"/>
+<area shape="rect" id="node21" href="$dd/dfb/registryJLinks_8h.html" title="registryJLinks.h" alt="" coords="762,95,879,121"/>
+<area shape="rect" id="node5" href="$d8/d42/epicsTypes_8h.html" title="epicsTypes.h" alt="" coords="425,244,528,271"/>
+<area shape="rect" id="node8" href="$da/d0d/dbFldTypes_8h.html" title="dbFldTypes.h" alt="" coords="864,244,967,271"/>
+<area shape="rect" id="node10" href="$d2/d71/ellLib_8h.html" title="A doubly&#45;linked list library. " alt="" coords="145,244,211,271"/>
+<area shape="rect" id="node11" href="$da/d00/dbDefs_8h.html" title="Miscellaneous macro definitions. " alt="" coords="41,244,120,271"/>
+<area shape="rect" id="node13" href="$d1/d90/recSup_8h.html" title="recSup.h" alt="" coords="552,244,631,271"/>
+<area shape="rect" id="node15" href="$dd/d60/devSup_8h.html" title="Device support routines. " alt="" coords="706,244,789,271"/>
+<area shape="rect" id="node6" href="$d5/d48/compilerDependencies_8h.html" title="Compiler specific declarations. " alt="" coords="408,319,588,345"/>
+<area shape="rect" id="node9" href="$d5/ddb/shareLib_8h.html" title="Mark external symbols and entry points for shared libraries. " alt="" coords="871,319,959,345"/>
+<area shape="rect" id="node14" href="$d8/d1a/errMdef_8h.html" title="errMdef.h" alt="" coords="627,319,710,345"/>
+<area shape="rect" id="node18" href="$d4/d3c/link_8h.html" title="link.h" alt="" coords="153,169,208,196"/>
+<area shape="rect" id="node19" href="$d1/dc8/cantProceed_8h.html" title="Routines for code that can&#39;t continue or return after an error. " alt="" coords="286,244,401,271"/>
+</map>

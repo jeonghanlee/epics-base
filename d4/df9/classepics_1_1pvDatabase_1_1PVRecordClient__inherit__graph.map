@@ -1,0 +1,5 @@
+<map id="epics::pvDatabase::PVRecordClient" name="epics::pvDatabase::PVRecordClient">
+<area shape="rect" id="node2" href="$d5/d23/classepics_1_1pvDatabase_1_1ChannelLocal.html" title="Channel for accessing a PVRecord. " alt="" coords="5,95,153,136"/>
+<area shape="rect" id="node3" href="$dc/daa/classepics_1_1pvDatabase_1_1PVListener.html" title="Listener for PVRecord::message. " alt="" coords="177,95,325,136"/>
+<area shape="rect" id="node4" href="$dd/dbd/classepics_1_1pvDatabase_1_1MonitorLocal.html" title="epics::pvDatabase::\lMonitorLocal" alt="" coords="177,184,325,225"/>
+</map>

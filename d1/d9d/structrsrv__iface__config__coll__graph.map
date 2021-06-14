@@ -1,0 +1,12 @@
+<map id="rsrv_iface_config" name="rsrv_iface_config">
+<area shape="rect" id="node2" href="$dc/d1f/structELLNODE.html" title="List node type. " alt="" coords="439,7,521,33"/>
+<area shape="rect" id="node4" href="$d3/db7/structclient.html" title="client" alt="" coords="555,231,611,257"/>
+<area shape="rect" id="node5" href="$d3/d15/structepicsMutexParm.html" title="epicsMutexParm" alt="" coords="141,97,267,124"/>
+<area shape="rect" id="node9" href="$d6/d34/structepicsThreadOSD.html" title="epicsThreadOSD" alt="" coords="689,97,817,124"/>
+<area shape="rect" id="node10" href="$d4/d98/structELLLIST.html" title="List header type. " alt="" coords="445,97,515,124"/>
+<area shape="rect" id="node3" href="$de/df1/unionosiSockAddr.html" title="osiSockAddr" alt="" coords="181,231,283,257"/>
+<area shape="rect" id="node6" href="$d1/db0/structepicsMutexOSD.html" title="epicsMutexOSD" alt="" coords="5,7,128,33"/>
+<area shape="rect" id="node7" href="$d3/d0c/structepicsEventOSD.html" title="epicsEventOSD" alt="" coords="907,7,1027,33"/>
+<area shape="rect" id="node8" href="$d7/da5/structepicsTimeStamp.html" title="EPICS time stamp, for use from C code. " alt="" coords="291,97,421,124"/>
+<area shape="rect" id="node11" href="$da/d2b/structmessage__buffer.html" title="message_buffer" alt="" coords="540,97,665,124"/>
+</map>

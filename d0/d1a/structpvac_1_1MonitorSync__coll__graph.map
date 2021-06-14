@@ -1,0 +1,6 @@
+<map id="pvac::MonitorSync" name="pvac::MonitorSync">
+<area shape="rect" id="node2" href="$dd/d4d/structpvac_1_1Monitor.html" title="Handle for monitor subscription. " alt="" coords="47,185,155,212"/>
+<area shape="rect" id="node3" href="$da/d5c/classepics_1_1pvData_1_1BitSet.html" title="A vector of bits. " alt="" coords="23,81,179,108"/>
+<area shape="rect" id="node4" href="$d9/d02/classepics_1_1pvData_1_1Serializable.html" title="Base class for serialization. " alt="" coords="5,5,196,32"/>
+<area shape="rect" id="node5" href="$d9/d9b/structpvac_1_1MonitorEvent.html" title="Information on monitor subscription/queue change. " alt="" coords="179,185,323,212"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="modules/database/src/std/dev/devGeneralTime.c" name="modules/database/src/std/dev/devGeneralTime.c">
+<area shape="rect" id="node6" href="$da/d00/dbDefs_8h.html" title="Miscellaneous macro definitions. " alt="" coords="556,95,635,121"/>
+<area shape="rect" id="node10" href="$dd/d60/devSup_8h.html" title="Device support routines. " alt="" coords="877,95,959,121"/>
+<area shape="rect" id="node13" href="$d4/d2d/epicsString_8h.html" title="epicsString.h" alt="" coords="93,95,199,121"/>
+<area shape="rect" id="node18" href="$d1/dce/epicsGeneralTime_8h.html" title="The generalTime framework provides a mechanism for several time providers to be present within the sy..." alt="" coords="273,169,421,196"/>
+<area shape="rect" id="node23" href="$df/d6a/epicsExport_8h.html" title="Exporting IOC objects. " alt="" coords="984,95,1092,121"/>
+<area shape="rect" id="node11" href="$d8/d1a/errMdef_8h.html" title="errMdef.h" alt="" coords="877,169,959,196"/>
+<area shape="rect" id="node12" href="$d5/ddb/shareLib_8h.html" title="Mark external symbols and entry points for shared libraries. " alt="" coords="989,169,1077,196"/>
+<area shape="rect" id="node14" href="$d8/d42/epicsTypes_8h.html" title="epicsTypes.h" alt="" coords="95,169,197,196"/>
+<area shape="rect" id="node16" href="$d5/d48/compilerDependencies_8h.html" title="Compiler specific declarations. " alt="" coords="19,244,199,271"/>
+</map>

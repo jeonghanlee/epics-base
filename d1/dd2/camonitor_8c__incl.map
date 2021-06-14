@@ -1,0 +1,13 @@
+<map id="modules/ca/src/tools/camonitor.c" name="modules/ca/src/tools/camonitor.c">
+<area shape="rect" id="node3" href="$d7/d95/epicsStdlib_8h.html" title="epicsStdlib.h" alt="" coords="201,244,304,271"/>
+<area shape="rect" id="node14" href="$d4/d85/cadef_8h.html" title="cadef.h" alt="" coords="449,95,517,121"/>
+<area shape="rect" id="node27" href="$dd/d77/tool__lib_8h.html" title="tool_lib.h" alt="" coords="721,169,800,196"/>
+<area shape="rect" id="node8" href="$d8/d42/epicsTypes_8h.html" title="epicsTypes.h" alt="" coords="363,319,465,345"/>
+<area shape="rect" id="node11" href="$d8/d1a/errMdef_8h.html" title="errMdef.h" alt="" coords="490,319,573,345"/>
+<area shape="rect" id="node9" href="$d5/d48/compilerDependencies_8h.html" title="Compiler specific declarations. " alt="" coords="324,393,504,420"/>
+<area shape="rect" id="node16" href="$d8/d29/epicsThread_8h.html" title="C++ and C descriptions for a thread. " alt="" coords="824,169,935,196"/>
+<area shape="rect" id="node20" href="$d2/d87/caerr_8h.html" title="caerr.h" alt="" coords="211,169,278,196"/>
+<area shape="rect" id="node21" href="$d6/de3/db__access_8h.html" title="db_access.h" alt="" coords="595,169,697,196"/>
+<area shape="rect" id="node25" href="$d1/d1c/caeventmask_8h.html" title="caeventmask.h" alt="" coords="302,169,422,196"/>
+<area shape="rect" id="node22" href="$d9/d9b/epicsTime_8h.html" title="EPICS time&#45;stamps (epicsTimeStamp), epicsTime C++ class and C functions for handling wall&#45;clock times..." alt="" coords="615,244,714,271"/>
+</map>

@@ -1,0 +1,40 @@
+<map id="modules/pvData/src/property/pv/timeStamp.h" name="modules/pvData/src/property/pv/timeStamp.h">
+<area shape="rect" id="node3" href="$d9/d9b/epicsTime_8h.html" title="EPICS time&#45;stamps (epicsTimeStamp), epicsTime C++ class and C functions for handling wall&#45;clock times..." alt="" coords="429,95,528,121"/>
+<area shape="rect" id="node11" href="$d5/ddb/shareLib_8h.html" title="Mark external symbols and entry points for shared libraries. " alt="" coords="552,95,640,121"/>
+<area shape="rect" id="node12" href="$d2/d66/pvType_8h.html" title="pv/pvType.h" alt="" coords="1212,95,1308,121"/>
+<area shape="rect" id="node6" href="$d8/d42/epicsTypes_8h.html" title="epicsTypes.h" alt="" coords="551,169,654,196"/>
+<area shape="rect" id="node10" href="$d8/d1a/errMdef_8h.html" title="errMdef.h" alt="" coords="305,169,388,196"/>
+<area shape="rect" id="node7" href="$d5/d48/compilerDependencies_8h.html" title="Compiler specific declarations. " alt="" coords="550,244,730,271"/>
+<area shape="rect" id="node16" href="$d3/d7f/sharedPtr_8h.html" title="pv/sharedPtr.h" alt="" coords="1203,169,1317,196"/>
+<area shape="rect" id="node18" href="$de/da5/tr1_2memory_8hpp.html" title="boost/tr1/memory.hpp" alt="" coords="1178,244,1342,271"/>
+<area shape="rect" id="node19" href="$da/d32/tr1_2detail_2config_8hpp.html" title="boost/tr1/detail/config.hpp" alt="" coords="401,773,591,799"/>
+<area shape="rect" id="node26" href="$d3/dde/workaround_8hpp.html" title="boost/detail/workaround.hpp" alt="" coords="2223,862,2425,889"/>
+<area shape="rect" id="node27" href="$d0/dc5/shared__ptr_8hpp.html" title="boost/shared_ptr.hpp" alt="" coords="1089,505,1247,531"/>
+<area shape="rect" id="node58" href="$d7/df2/weak__ptr_8hpp.html" title="boost/weak_ptr.hpp" alt="" coords="1260,415,1407,442"/>
+<area shape="rect" id="node60" href="$d4/d78/enable__shared__from__this_8hpp.html" title="boost/enable_shared\l_from_this.hpp" alt="" coords="169,319,325,360"/>
+<area shape="rect" id="node21" href="$d8/dfd/config_8hpp.html" title="boost/config.hpp" alt="" coords="1015,951,1143,978"/>
+<area shape="rect" id="node22" href="$d4/d88/select__compiler__config_8hpp.html" title="boost/config/select\l_compiler_config.hpp" alt="" coords="819,1033,976,1075"/>
+<area shape="rect" id="node23" href="$d2/d71/select__platform__config_8hpp.html" title="boost/config/select\l_platform_config.hpp" alt="" coords="1001,1033,1157,1075"/>
+<area shape="rect" id="node24" href="$dd/d04/suffix_8hpp.html" title="boost/config/suffix.hpp" alt="" coords="1181,1041,1347,1067"/>
+<area shape="rect" id="node28" href="$d9/d44/smart__ptr_2shared__ptr_8hpp.html" title="boost/smart_ptr/shared\l_ptr.hpp" alt="" coords="1081,587,1255,628"/>
+<area shape="rect" id="node29" href="$d5/db7/config_2no__tr1_2memory_8hpp.html" title="boost/config/no_tr1\l/memory.hpp" alt="" coords="2362,765,2507,807"/>
+<area shape="rect" id="node30" href="$d2/d54/assert_8hpp.html" title="boost/assert.hpp" alt="" coords="173,683,304,710"/>
+<area shape="rect" id="node35" href="$d5/d3a/checked__delete_8hpp.html" title="boost/checked_delete.hpp" alt="" coords="1765,862,1955,889"/>
+<area shape="rect" id="node36" href="$d7/d3a/throw__exception_8hpp.html" title="boost/throw_exception.hpp" alt="" coords="1145,773,1340,799"/>
+<area shape="rect" id="node40" href="$de/d0f/shared__count_8hpp.html" title="boost/smart_ptr/detail\l/shared_count.hpp" alt="" coords="1718,676,1882,717"/>
+<area shape="rect" id="node48" href="$d9/d11/sp__convertible_8hpp.html" title="boost/smart_ptr/detail\l/sp_convertible.hpp" alt="" coords="966,676,1130,717"/>
+<area shape="rect" id="node49" href="$dc/d98/sp__nullptr__t_8hpp.html" title="boost/smart_ptr/detail\l/sp_nullptr_t.hpp" alt="" coords="615,765,779,807"/>
+<area shape="rect" id="node50" href="$df/da8/spinlock__pool_8hpp.html" title="boost/smart_ptr/detail\l/spinlock_pool.hpp" alt="" coords="906,765,1070,807"/>
+<area shape="rect" id="node53" href="$de/d85/memory__order_8hpp.html" title="boost/memory_order.hpp" alt="" coords="1509,683,1693,710"/>
+<area shape="rect" id="node57" href="$d3/db7/operator__bool_8hpp.html" title="boost/smart_ptr/detail\l/operator_bool.hpp" alt="" coords="726,676,890,717"/>
+<area shape="rect" id="node34" href="$dd/dc7/current__function_8hpp.html" title="boost/current_function.hpp" alt="" coords="412,862,607,889"/>
+<area shape="rect" id="node37" href="$d8/dc3/attribute__noreturn_8hpp.html" title="boost/exception/detail\l/attribute_noreturn.hpp" alt="" coords="1116,855,1287,896"/>
+<area shape="rect" id="node39" href="$d7/d1e/exception_8hpp.html" title="boost/exception/exception.hpp" alt="" coords="1311,862,1529,889"/>
+<area shape="rect" id="node41" href="$dd/d87/bad__weak__ptr_8hpp.html" title="boost/smart_ptr/bad\l_weak_ptr.hpp" alt="" coords="1525,765,1678,807"/>
+<area shape="rect" id="node42" href="$d4/d03/sp__counted__base_8hpp.html" title="boost/smart_ptr/detail\l/sp_counted_base.hpp" alt="" coords="2031,855,2198,896"/>
+<area shape="rect" id="node45" href="$d2/d44/sp__counted__impl_8hpp.html" title="boost/smart_ptr/detail\l/sp_counted_impl.hpp" alt="" coords="1805,765,1969,807"/>
+<area shape="rect" id="node43" href="$d3/d1f/sp__has__sync_8hpp.html" title="boost/smart_ptr/detail\l/sp_has_sync.hpp" alt="" coords="1501,944,1665,985"/>
+<area shape="rect" id="node51" href="$d1/de1/spinlock_8hpp.html" title="boost/smart_ptr/detail\l/spinlock.hpp" alt="" coords="826,855,990,896"/>
+<area shape="rect" id="node59" href="$db/d3c/smart__ptr_2weak__ptr_8hpp.html" title="boost/smart_ptr/weak\l_ptr.hpp" alt="" coords="1271,497,1433,539"/>
+<area shape="rect" id="node61" href="$dd/d9e/smart__ptr_2enable__shared__from__this_8hpp.html" title="boost/smart_ptr/enable\l_shared_from_this.hpp" alt="" coords="153,408,325,449"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="modules/libcom/src/osi/epicsSpin.h" name="modules/libcom/src/osi/epicsSpin.h">
+<area shape="rect" id="node2" href="$d9/d18/default_2osdSpin_8c.html" title="modules/libcom/src\l/osi/os/default/osdSpin.c" alt="" coords="5,95,183,136"/>
+<area shape="rect" id="node3" href="$dc/d4c/posix_2osdSpin_8c.html" title="modules/libcom/src\l/osi/os/posix/osdSpin.c" alt="" coords="207,95,373,136"/>
+<area shape="rect" id="node4" href="$df/d73/RTEMS_2osdSpin_8c.html" title="modules/libcom/src\l/osi/os/RTEMS/osdSpin.c" alt="" coords="397,95,572,136"/>
+<area shape="rect" id="node5" href="$d1/dde/vxWorks_2osdSpin_8c.html" title="modules/libcom/src\l/osi/os/vxWorks/osdSpin.c" alt="" coords="597,95,781,136"/>
+<area shape="rect" id="node6" href="$d6/d42/epicsRingBytes_8c.html" title="modules/libcom/src\l/ring/epicsRingBytes.c" alt="" coords="805,95,967,136"/>
+<area shape="rect" id="node7" href="$d7/d4b/epicsRingPointer_8h.html" title="A circular buffer to store pointers. " alt="" coords="991,95,1162,136"/>
+<area shape="rect" id="node8" href="$d1/d04/epicsRingPointer_8cpp.html" title="modules/libcom/src\l/ring/epicsRingPointer.cpp" alt="" coords="984,184,1169,225"/>
+</map>

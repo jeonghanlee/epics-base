@@ -1,0 +1,11 @@
+<map id="modules/ca/src/client/caDiagnostics.h" name="modules/ca/src/client/caDiagnostics.h">
+<area shape="rect" id="node2" href="$d4/d85/cadef_8h.html" title="cadef.h" alt="" coords="367,95,435,121"/>
+<area shape="rect" id="node4" href="$d8/d29/epicsThread_8h.html" title="C++ and C descriptions for a thread. " alt="" coords="171,169,282,196"/>
+<area shape="rect" id="node9" href="$d2/d87/caerr_8h.html" title="caerr.h" alt="" coords="483,169,549,196"/>
+<area shape="rect" id="node13" href="$d6/de3/db__access_8h.html" title="db_access.h" alt="" coords="307,169,408,196"/>
+<area shape="rect" id="node18" href="$d1/d1c/caeventmask_8h.html" title="caeventmask.h" alt="" coords="573,169,693,196"/>
+<area shape="rect" id="node10" href="$d8/d42/epicsTypes_8h.html" title="epicsTypes.h" alt="" coords="539,319,642,345"/>
+<area shape="rect" id="node11" href="$d5/d48/compilerDependencies_8h.html" title="Compiler specific declarations. " alt="" coords="501,393,681,420"/>
+<area shape="rect" id="node14" href="$d9/d9b/epicsTime_8h.html" title="EPICS time&#45;stamps (epicsTimeStamp), epicsTime C++ class and C functions for handling wall&#45;clock times..." alt="" coords="295,244,393,271"/>
+<area shape="rect" id="node17" href="$d8/d1a/errMdef_8h.html" title="errMdef.h" alt="" coords="432,319,515,345"/>
+</map>

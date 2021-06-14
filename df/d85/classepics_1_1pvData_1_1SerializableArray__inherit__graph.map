@@ -1,0 +1,12 @@
+<map id="epics::pvData::SerializableArray" name="epics::pvData::SerializableArray">
+<area shape="rect" id="node3" href="$dd/dff/classepics_1_1pvData_1_1PVArray.html" title="PVArray is the base class for all array types. " alt="" coords="485,89,652,116"/>
+<area shape="rect" id="node11" href="$d5/dd4/classepics_1_1pvData_1_1PVString.html" title="PVString is special case, since it implements SerializableArray. " alt="" coords="483,140,655,167"/>
+<area shape="rect" id="node2" href="$d9/d02/classepics_1_1pvData_1_1Serializable.html" title="Base class for serialization. " alt="" coords="5,115,196,141"/>
+<area shape="rect" id="node4" href="$dc/d2e/classepics_1_1pvData_1_1PVScalarArray.html" title="Base class for a scalarArray. " alt="" coords="714,21,922,48"/>
+<area shape="rect" id="node7" href="$d3/dbb/classepics_1_1pvData_1_1detail_1_1PVVectorStorage.html" title="epics::pvData::detail\l::PVVectorStorage\&lt; PVStructure\lPtr, PVArray \&gt;" alt="" coords="703,75,933,131"/>
+<area shape="rect" id="node9" href="$d3/dbb/classepics_1_1pvData_1_1detail_1_1PVVectorStorage.html" title="epics::pvData::detail\l::PVVectorStorage\&lt; PVUnionPtr,\l PVArray \&gt;" alt="" coords="703,155,933,211"/>
+<area shape="rect" id="node5" href="$d3/dbb/classepics_1_1pvData_1_1detail_1_1PVVectorStorage.html" title="epics::pvData::detail\l::PVVectorStorage\&lt; T,\l PVScalarArray \&gt;" alt="" coords="1000,5,1165,61"/>
+<area shape="rect" id="node6" href="$d8/d68/classepics_1_1pvData_1_1PVValueArray.html" title="template class for all extensions of PVArray. " alt="" coords="1232,20,1472,47"/>
+<area shape="rect" id="node8" href="$dc/daa/classepics_1_1pvData_1_1PVValueArray_3_01PVStructurePtr_01_4.html" title="Data class for a structureArray. " alt="" coords="981,85,1184,126"/>
+<area shape="rect" id="node10" href="$d5/dfa/classepics_1_1pvData_1_1PVValueArray_3_01PVUnionPtr_01_4.html" title="Data class for a unionArray. " alt="" coords="981,162,1184,203"/>
+</map>

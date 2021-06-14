@@ -1,0 +1,7 @@
+<map id="epics::pvAccess::PipelineChannelProvider" name="epics::pvAccess::PipelineChannelProvider">
+<area shape="rect" id="node2" href="$d3/d09/classepics_1_1pvAccess_1_1ChannelProvider.html" title="epics::pvAccess::Channel\lProvider" alt="" coords="407,57,590,98"/>
+<area shape="rect" id="node3" href="$d8/d4e/classepics_1_1pvAccess_1_1Destroyable.html" title="Instance declaring destroy method. " alt="" coords="5,15,213,41"/>
+<area shape="rect" id="node5" href="$d9/d5a/classepics_1_1pvAccess_1_1ChannelFind.html" title="epics::pvAccess::ChannelFind" alt="" coords="395,5,603,32"/>
+<area shape="rect" id="node8" href="$d7/d43/classepics_1_1pvData_1_1Status.html" title="Status. " alt="" coords="419,277,578,304"/>
+<area shape="rect" id="node9" href="$d9/d02/classepics_1_1pvData_1_1Serializable.html" title="Base class for serialization. " alt="" coords="14,277,205,304"/>
+</map>

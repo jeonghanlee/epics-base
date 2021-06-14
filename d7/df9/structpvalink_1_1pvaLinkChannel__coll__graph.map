@@ -1,0 +1,9 @@
+<map id="pvalink::pvaLinkChannel" name="pvalink::pvaLinkChannel">
+<area shape="rect" id="node2" href="$d7/d9c/structpvac_1_1ClientChannel_1_1MonitorCallback.html" title="Monitor event notification. " alt="" coords="545,5,693,47"/>
+<area shape="rect" id="node3" href="$d5/dd3/structpvac_1_1ClientChannel_1_1PutCallback.html" title="callbacks for put() " alt="" coords="545,71,693,112"/>
+<area shape="rect" id="node6" href="$dd/d4d/structpvac_1_1Monitor.html" title="Handle for monitor subscription. " alt="" coords="565,254,673,281"/>
+<area shape="rect" id="node7" href="$da/d5c/classepics_1_1pvData_1_1BitSet.html" title="A vector of bits. " alt="" coords="245,254,401,281"/>
+<area shape="rect" id="node8" href="$d9/d02/classepics_1_1pvData_1_1Serializable.html" title="Base class for serialization. " alt="" coords="5,254,196,281"/>
+<area shape="rect" id="node9" href="$d5/d97/classpvac_1_1ClientChannel.html" title="pvac::ClientChannel" alt="" coords="545,305,693,331"/>
+<area shape="rect" id="node12" href="$de/d9e/structpvac_1_1Operation.html" title="Handle for in&#45;progress get/put/rpc operation. " alt="" coords="557,473,680,499"/>
+</map>

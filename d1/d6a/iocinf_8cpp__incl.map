@@ -1,0 +1,17 @@
+<map id="modules/ca/src/client/iocinf.cpp" name="modules/ca/src/client/iocinf.cpp">
+<area shape="rect" id="node6" href="$d7/d5c/envDefs_8h.html" title="Routines to get and set EPICS environment parameters. " alt="" coords="727,169,814,196"/>
+<area shape="rect" id="node8" href="$d2/d59/epicsAssert_8h.html" title="An EPICS&#45;specific replacement for ANSI C&#39;s assert. " alt="" coords="595,169,703,196"/>
+<area shape="rect" id="node11" href="$d6/d55/epicsStdioRedirect_8h.html" title="epicsStdioRedirect.h" alt="" coords="286,95,437,121"/>
+<area shape="rect" id="node16" href="$db/dba/errlog_8h.html" title="errlog.h" alt="" coords="501,169,571,196"/>
+<area shape="rect" id="node17" href="$d2/de5/osiWireFormat_8h.html" title="osiWireFormat.h" alt="" coords="996,95,1121,121"/>
+<area shape="rect" id="node23" href="$d0/da5/addrList_8h.html" title="addrList.h" alt="" coords="823,95,908,121"/>
+<area shape="rect" id="node28" href="$d9/d67/iocinf_8h.html" title="iocinf.h" alt="" coords="1145,95,1212,121"/>
+<area shape="rect" id="node9" href="$d5/d48/compilerDependencies_8h.html" title="Compiler specific declarations. " alt="" coords="490,244,670,271"/>
+<area shape="rect" id="node12" href="$d5/d2c/epicsStdio_8h.html" title="epicsStdio.h" alt="" coords="191,169,291,196"/>
+<area shape="rect" id="node15" href="$dd/d8e/epicsTempFile_8h.html" title="OS&#45;independent way to create temporary files. " alt="" coords="45,244,166,271"/>
+<area shape="rect" id="node18" href="$d8/d42/epicsTypes_8h.html" title="epicsTypes.h" alt="" coords="1055,169,1158,196"/>
+<area shape="rect" id="node19" href="$d3/d70/osdWireFormat_8h.html" title="osdWireFormat.h" alt="" coords="1183,169,1313,196"/>
+<area shape="rect" id="node21" href="$de/d6e/epicsEndian_8h.html" title="epicsEndian.h" alt="" coords="1273,244,1383,271"/>
+<area shape="rect" id="node24" href="$d7/dfa/osiSock_8h.html" title="osiSock.h" alt="" coords="839,169,921,196"/>
+<area shape="rect" id="node26" href="$d2/d71/ellLib_8h.html" title="A doubly&#45;linked list library. " alt="" coords="847,244,913,271"/>
+</map>

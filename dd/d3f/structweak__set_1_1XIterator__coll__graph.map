@@ -1,0 +1,4 @@
+<map id="weak_set&lt; T &gt;::XIterator" name="weak_set&lt; T &gt;::XIterator">
+<area shape="rect" id="node2" href="$d1/d72/classweak__set.html" title="a std::set&#45;ish container where entries are removed when ref. counts fall to zero " alt="" coords="5,5,124,32"/>
+<area shape="rect" id="node3" href="$d8/d93/classepicsGuard.html" title="epicsGuard\&lt; epicsMutex \&gt;" alt="" coords="148,5,344,32"/>
+</map>

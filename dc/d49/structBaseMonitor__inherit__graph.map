@@ -1,0 +1,6 @@
+<map id="BaseMonitor" name="BaseMonitor">
+<area shape="rect" id="node4" href="$db/dcf/structPDBGroupMonitor.html" title="PDBGroupMonitor" alt="" coords="5,229,141,256"/>
+<area shape="rect" id="node5" href="$d5/d55/structPDBSingleMonitor.html" title="PDBSingleMonitor" alt="" coords="165,229,301,256"/>
+<area shape="rect" id="node2" href="$d6/d2d/classepics_1_1pvAccess_1_1Monitor.html" title="epics::pvAccess::Monitor" alt="" coords="64,80,243,107"/>
+<area shape="rect" id="node3" href="$d8/d4e/classepics_1_1pvAccess_1_1Destroyable.html" title="Instance declaring destroy method. " alt="" coords="49,5,257,32"/>
+</map>

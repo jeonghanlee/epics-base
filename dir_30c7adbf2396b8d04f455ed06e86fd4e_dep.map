@@ -1,0 +1,10 @@
+<map id="modules/database/src/ioc/dbStatic" name="modules/database/src/ioc/dbStatic">
+<area shape="rect" id="node1" href="dir_30c7adbf2396b8d04f455ed06e86fd4e.html" title="dbStatic" alt="" coords="27,52,101,100"/>
+<area shape="rect" id="node2" href="dir_ad3c6b74fe6d20a9676d0b229e4eb21d.html" title="misc" alt="" coords="125,52,197,100"/>
+<area shape="rect" id="edge3-headlabel" href="dir_000010_000012.html" title="1" alt="" coords="102,60,111,75"/>
+<area shape="rect" id="node3" href="dir_66ad26243ee5b9e4435a8c38b71879e0.html" title="libcom" alt="" coords="76,148,148,196"/>
+<area shape="rect" id="edge4-headlabel" href="dir_000010_000028.html" title="54" alt="" coords="91,121,108,135"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000012_000010.html" title="9" alt="" coords="115,77,124,92"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000012_000028.html" title="28" alt="" coords="131,128,149,143"/>
+<area shape="rect" id="clust1" href="dir_5a70bb864f2c343ea15fe1f141d2b298.html" title="ioc" alt="" coords="16,16,112,111"/>
+</map>

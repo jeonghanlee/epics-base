@@ -1,0 +1,5 @@
+<map id="epics::pvDatabase::ChannelProviderLocal" name="epics::pvDatabase::ChannelProviderLocal">
+<area shape="rect" id="node2" href="$d3/d09/classepics_1_1pvAccess_1_1ChannelProvider.html" title="epics::pvAccess::Channel\lProvider" alt="" coords="399,57,582,98"/>
+<area shape="rect" id="node3" href="$d8/d4e/classepics_1_1pvAccess_1_1Destroyable.html" title="Instance declaring destroy method. " alt="" coords="5,15,213,41"/>
+<area shape="rect" id="node5" href="$d9/d5a/classepics_1_1pvAccess_1_1ChannelFind.html" title="epics::pvAccess::ChannelFind" alt="" coords="387,5,595,32"/>
+</map>

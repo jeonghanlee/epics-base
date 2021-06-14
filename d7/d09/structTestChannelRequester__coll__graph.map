@@ -1,0 +1,6 @@
+<map id="TestChannelRequester" name="TestChannelRequester">
+<area shape="rect" id="node2" href="$d7/d37/classepics_1_1pvAccess_1_1ChannelRequester.html" title="epics::pvAccess::Channel\lRequester" alt="" coords="139,95,322,136"/>
+<area shape="rect" id="node3" href="$d4/d74/classepics_1_1pvAccess_1_1Requester.html" title="Callback class for passing messages to a requester. " alt="" coords="5,5,200,32"/>
+<area shape="rect" id="node5" href="$d7/d43/classepics_1_1pvData_1_1Status.html" title="Status. " alt="" coords="346,102,505,129"/>
+<area shape="rect" id="node6" href="$d9/d02/classepics_1_1pvData_1_1Serializable.html" title="Base class for serialization. " alt="" coords="330,5,521,32"/>
+</map>

@@ -1,0 +1,69 @@
+<map id="modules/pvDatabase/src/special/addRecord.cpp" name="modules/pvDatabase/src/special/addRecord.cpp">
+<area shape="rect" id="node7" href="$dd/d42/lock_8h.html" title="pv/lock.h" alt="" coords="2627,916,2706,943"/>
+<area shape="rect" id="node16" href="$d2/d66/pvType_8h.html" title="pv/pvType.h" alt="" coords="3957,1065,4053,1092"/>
+<area shape="rect" id="node46" href="$d0/dbb/pvData_8h.html" title="pv/pvData.h" alt="" coords="1795,617,1893,644"/>
+<area shape="rect" id="node69" href="$d6/d51/standardField_8h.html" title="pv/standardField.h" alt="" coords="939,767,1077,793"/>
+<area shape="rect" id="node70" href="$df/dc0/pvTimeStamp_8h.html" title="pv/pvTimeStamp.h" alt="" coords="1245,543,1387,569"/>
+<area shape="rect" id="node71" href="$d9/d4c/timeStamp_8h.html" title="pv/timeStamp.h" alt="" coords="3540,841,3665,868"/>
+<area shape="rect" id="node77" href="$d7/dff/rpcService_8h.html" title="pv/rpcService.h" alt="" coords="2911,319,3031,345"/>
+<area shape="rect" id="node78" href="$d1/d13/status_8h.html" title="pv/status.h" alt="" coords="3793,617,3887,644"/>
+<area shape="rect" id="node79" href="$d6/df2/pvAccess_8h.html" title="pv/pvAccess.h" alt="" coords="3554,393,3667,420"/>
+<area shape="rect" id="node88" href="$d0/d84/serverContext_8h.html" title="pv/serverContext.h" alt="" coords="4239,319,4382,345"/>
+<area shape="rect" id="node97" href="$d3/d75/pvStructureCopy_8h.html" title="pv/pvStructureCopy.h" alt="" coords="925,543,1083,569"/>
+<area shape="rect" id="node98" href="$d4/da3/pvDatabase_8h.html" title="pv/pvDatabase.h" alt="" coords="1444,244,1575,271"/>
+<area shape="rect" id="node99" href="$d0/da1/addRecord_8h.html" title="pv/addRecord.h" alt="" coords="1807,95,1927,121"/>
+<area shape="rect" id="node8" href="$d9/da2/epicsMutex_8h.html" title="APIs for the epicsMutex mutual exclusion semaphore. " alt="" coords="5061,991,5168,1017"/>
+<area shape="rect" id="node14" href="$d5/ddb/shareLib_8h.html" title="Mark external symbols and entry points for shared libraries. " alt="" coords="2356,1140,2444,1167"/>
+<area shape="rect" id="node15" href="$df/d43/noDefaultMethods_8h.html" title="pv/noDefaultMethods.h" alt="" coords="2589,991,2760,1017"/>
+<area shape="rect" id="node9" href="$d2/d59/epicsAssert_8h.html" title="An EPICS&#45;specific replacement for ANSI C&#39;s assert. " alt="" coords="3630,1065,3738,1092"/>
+<area shape="rect" id="node11" href="$d5/d48/compilerDependencies_8h.html" title="Compiler specific declarations. " alt="" coords="3539,1140,3719,1167"/>
+<area shape="rect" id="node19" href="$d3/d7f/sharedPtr_8h.html" title="pv/sharedPtr.h" alt="" coords="5351,1140,5465,1167"/>
+<area shape="rect" id="node20" href="$de/da5/tr1_2memory_8hpp.html" title="boost/tr1/memory.hpp" alt="" coords="6554,1215,6718,1241"/>
+<area shape="rect" id="node21" href="$da/d32/tr1_2detail_2config_8hpp.html" title="boost/tr1/detail/config.hpp" alt="" coords="7296,1654,7485,1681"/>
+<area shape="rect" id="node27" href="$d3/dde/workaround_8hpp.html" title="boost/detail/workaround.hpp" alt="" coords="6493,1833,6696,1859"/>
+<area shape="rect" id="node28" href="$d0/dc5/shared__ptr_8hpp.html" title="boost/shared_ptr.hpp" alt="" coords="7062,1475,7221,1502"/>
+<area shape="rect" id="node42" href="$d7/df2/weak__ptr_8hpp.html" title="boost/weak_ptr.hpp" alt="" coords="6379,1386,6525,1413"/>
+<area shape="rect" id="node44" href="$d4/d78/enable__shared__from__this_8hpp.html" title="boost/enable_shared\l_from_this.hpp" alt="" coords="6558,1289,6714,1331"/>
+<area shape="rect" id="node23" href="$d8/dfd/config_8hpp.html" title="boost/config.hpp" alt="" coords="6859,1915,6987,1941"/>
+<area shape="rect" id="node24" href="$d4/d88/select__compiler__config_8hpp.html" title="boost/config/select\l_compiler_config.hpp" alt="" coords="6663,1989,6820,2031"/>
+<area shape="rect" id="node25" href="$d2/d71/select__platform__config_8hpp.html" title="boost/config/select\l_platform_config.hpp" alt="" coords="6845,1989,7001,2031"/>
+<area shape="rect" id="node26" href="$dd/d04/suffix_8hpp.html" title="boost/config/suffix.hpp" alt="" coords="7025,1997,7191,2023"/>
+<area shape="rect" id="node29" href="$d9/d44/smart__ptr_2shared__ptr_8hpp.html" title="boost/smart_ptr/shared\l_ptr.hpp" alt="" coords="6540,1557,6713,1599"/>
+<area shape="rect" id="node30" href="$d5/db7/config_2no__tr1_2memory_8hpp.html" title="boost/config/no_tr1\l/memory.hpp" alt="" coords="6054,1736,6199,1777"/>
+<area shape="rect" id="node31" href="$d2/d54/assert_8hpp.html" title="boost/assert.hpp" alt="" coords="5111,1654,5241,1681"/>
+<area shape="rect" id="node34" href="$d5/d3a/checked__delete_8hpp.html" title="boost/checked_delete.hpp" alt="" coords="6545,1743,6735,1770"/>
+<area shape="rect" id="node35" href="$d7/d3a/throw__exception_8hpp.html" title="boost/throw_exception.hpp" alt="" coords="6224,1743,6419,1770"/>
+<area shape="rect" id="node37" href="$de/d0f/shared__count_8hpp.html" title="boost/smart_ptr/detail\l/shared_count.hpp" alt="" coords="6374,1647,6538,1688"/>
+<area shape="rect" id="node38" href="$d9/d11/sp__convertible_8hpp.html" title="boost/smart_ptr/detail\l/sp_convertible.hpp" alt="" coords="6721,1825,6885,1867"/>
+<area shape="rect" id="node39" href="$dc/d98/sp__nullptr__t_8hpp.html" title="boost/smart_ptr/detail\l/sp_nullptr_t.hpp" alt="" coords="6955,1647,7119,1688"/>
+<area shape="rect" id="node40" href="$df/da8/spinlock__pool_8hpp.html" title="boost/smart_ptr/detail\l/spinlock_pool.hpp" alt="" coords="6715,1647,6879,1688"/>
+<area shape="rect" id="node43" href="$db/d3c/smart__ptr_2weak__ptr_8hpp.html" title="boost/smart_ptr/weak\l_ptr.hpp" alt="" coords="6375,1468,6537,1509"/>
+<area shape="rect" id="node45" href="$dd/d9e/smart__ptr_2enable__shared__from__this_8hpp.html" title="boost/smart_ptr/enable\l_shared_from_this.hpp" alt="" coords="6550,1379,6722,1420"/>
+<area shape="rect" id="node50" href="$db/d45/pvIntrospect_8h.html" title="pv/pvIntrospect.h" alt="" coords="2027,841,2159,868"/>
+<area shape="rect" id="node62" href="$dd/d32/typeCast_8h.html" title="pv/typeCast.h" alt="" coords="2057,767,2167,793"/>
+<area shape="rect" id="node65" href="$df/d91/anyscalar_8h.html" title="pv/anyscalar.h" alt="" coords="1693,692,1806,719"/>
+<area shape="rect" id="node67" href="$dd/d85/sharedVector_8h.html" title="pv/sharedVector.h" alt="" coords="1882,692,2019,719"/>
+<area shape="rect" id="node51" href="$d9/d12/byteBuffer_8h.html" title="pv/byteBuffer.h" alt="" coords="3329,991,3447,1017"/>
+<area shape="rect" id="node57" href="$df/d9d/serialize_8h.html" title="pv/serialize.h" alt="" coords="3990,916,4095,943"/>
+<area shape="rect" id="node59" href="$d4/d46/pvdVersion_8h.html" title="pv/pvdVersion.h" alt="" coords="1936,916,2059,943"/>
+<area shape="rect" id="node52" href="$de/d6e/epicsEndian_8h.html" title="epicsEndian.h" alt="" coords="3342,1065,3453,1092"/>
+<area shape="rect" id="node54" href="$d8/d7c/templateMeta_8h.html" title="pv/templateMeta.h" alt="" coords="1107,1065,1250,1092"/>
+<area shape="rect" id="node55" href="$d0/d69/epicsException_8h.html" title="pv/epicsException.h" alt="" coords="1529,1065,1677,1092"/>
+<area shape="rect" id="node58" href="$d8/d42/epicsTypes_8h.html" title="epicsTypes.h" alt="" coords="4425,991,4527,1017"/>
+<area shape="rect" id="node64" href="$d5/d53/epicsConvert_8h.html" title="epicsConvert.h" alt="" coords="4533,841,4651,868"/>
+<area shape="rect" id="node73" href="$d9/d9b/epicsTime_8h.html" title="EPICS time&#45;stamps (epicsTimeStamp), epicsTime C++ class and C functions for handling wall&#45;clock times..." alt="" coords="4475,916,4573,943"/>
+<area shape="rect" id="node76" href="$d8/d1a/errMdef_8h.html" title="errMdef.h" alt="" coords="4552,991,4635,1017"/>
+<area shape="rect" id="node80" href="$d4/dd3/createRequest_8h.html" title="pv/createRequest.h" alt="" coords="3161,543,3306,569"/>
+<area shape="rect" id="node81" href="$d9/d0f/bitSet_8h.html" title="pv/bitSet.h" alt="" coords="4157,841,4248,868"/>
+<area shape="rect" id="node82" href="$db/da2/pvaVersion_8h.html" title="pv/pvaVersion.h" alt="" coords="3843,916,3965,943"/>
+<area shape="rect" id="node84" href="$d7/dea/destroyable_8h.html" title="pv/destroyable.h" alt="" coords="3088,1065,3216,1092"/>
+<area shape="rect" id="node85" href="$d5/d60/monitor_8h.html" title="pv/monitor.h" alt="" coords="3419,468,3522,495"/>
+<area shape="rect" id="node87" href="$db/dc4/requester_8h.html" title="pv/requester.h" alt="" coords="3139,991,3253,1017"/>
+<area shape="rect" id="node89" href="$dc/d9e/pvaDefs_8h.html" title="pv/pvaDefs.h" alt="" coords="4537,617,4642,644"/>
+<area shape="rect" id="node91" href="$d0/d09/beaconServerStatusProvider_8h.html" title="pv/beaconServerStatusProvider.h" alt="" coords="2800,543,3035,569"/>
+<area shape="rect" id="node92" href="$d6/d9d/pvaConstants_8h.html" title="pv/pvaConstants.h" alt="" coords="3675,991,3816,1017"/>
+<area shape="rect" id="node93" href="$d2/d2c/configuration_8h.html" title="pv/configuration.h" alt="" coords="4373,841,4509,868"/>
+<area shape="rect" id="node90" href="$db/d22/epicsGuard_8h.html" title="epicsGuard.h" alt="" coords="3635,692,3741,719"/>
+<area shape="rect" id="node96" href="$d7/d5c/envDefs_8h.html" title="Routines to get and set EPICS environment parameters. " alt="" coords="5182,1065,5269,1092"/>
+<area shape="rect" id="node100" href="$dd/dfe/channelProviderLocal_8h.html" title="pv/channelProviderLocal.h" alt="" coords="2453,169,2641,196"/>
+</map>

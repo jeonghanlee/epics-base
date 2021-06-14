@@ -1,0 +1,4 @@
+<map id="epics::pvDatabase::PVRecordStructure" name="epics::pvDatabase::PVRecordStructure">
+<area shape="rect" id="node2" href="$d8/df8/classepics_1_1pvDatabase_1_1PVRecordField.html" title="Interface for a field of a record. " alt="" coords="141,95,289,136"/>
+<area shape="rect" id="node3" href="$d3/d81/classepics_1_1pvData_1_1PostHandler.html" title="This class is implemented by code that calls setPostHander. " alt="" coords="5,13,200,39"/>
+</map>

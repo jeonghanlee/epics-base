@@ -1,0 +1,7 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$d3/d6e/classboost_1_1exception__detail_1_1clone__base.html" title="boost::exception_detail\l::clone_base" alt="" coords="5,5,176,47"/>
+<area shape="rect" id="node2" href="$d8/d37/classboost_1_1exception__detail_1_1clone__impl.html" title="boost::exception_detail\l::clone_impl\&lt; T \&gt;" alt="" coords="230,5,401,47"/>
+<area shape="rect" id="node3" href="$de/d1b/classboost_1_1exception.html" title="boost::exception" alt="" coords="27,130,155,157"/>
+<area shape="rect" id="node4" href="$d6/d85/structboost_1_1exception__detail_1_1error__info__injector.html" title="boost::exception_detail\l::error_info_injector\&lt; T \&gt;" alt="" coords="224,123,407,164"/>
+<area shape="rect" id="node6" href="$d2/d4d/classsourceFileLocation.html" title="sourceFileLocation\&lt; T \&gt;" alt="" coords="227,71,403,98"/>
+</map>

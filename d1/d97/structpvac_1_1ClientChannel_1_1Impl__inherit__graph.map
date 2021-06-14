@@ -1,0 +1,5 @@
+<map id="pvac::ClientChannel::Impl" name="pvac::ClientChannel::Impl">
+<area shape="rect" id="node2" href="$d7/d37/classepics_1_1pvAccess_1_1ChannelRequester.html" title="epics::pvAccess::Channel\lRequester" alt="" coords="278,5,461,47"/>
+<area shape="rect" id="node3" href="$d4/d74/classepics_1_1pvAccess_1_1Requester.html" title="Callback class for passing messages to a requester. " alt="" coords="5,13,200,39"/>
+<area shape="rect" id="node4" href="$d1/d2c/structpvac_1_1detail_1_1wrapped__shared__from__this.html" title="pvac::detail::wrapped\l_shared_from_this\&lt; ClientChannel\l::Impl \&gt;" alt="" coords="248,70,491,126"/>
+</map>

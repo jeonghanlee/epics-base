@@ -1,0 +1,10 @@
+<map id="modules/pvaClient/src/pv/pvaClientMultiChannel.h" name="modules/pvaClient/src/pv/pvaClientMultiChannel.h">
+<area shape="rect" id="node2" href="$de/d1c/pvaClientMultiChannel_8cpp.html" title="modules/pvaClient/src\l/pvaClientMultiChannel.cpp" alt="" coords="5,95,200,136"/>
+<area shape="rect" id="node3" href="$d7/d57/pvaClientMultiGetDouble_8cpp.html" title="modules/pvaClient/src\l/pvaClientMultiGetDouble.cpp" alt="" coords="224,95,435,136"/>
+<area shape="rect" id="node4" href="$df/d8b/pvaClientMultiMonitorDouble_8cpp.html" title="modules/pvaClient/src\l/pvaClientMultiMonitorDouble.cpp" alt="" coords="459,95,693,136"/>
+<area shape="rect" id="node5" href="$d5/dfe/pvaClientMultiPutDouble_8cpp.html" title="modules/pvaClient/src\l/pvaClientMultiPutDouble.cpp" alt="" coords="717,95,925,136"/>
+<area shape="rect" id="node6" href="$de/dca/pvaClientNTMultiData_8cpp.html" title="modules/pvaClient/src\l/pvaClientNTMultiData.cpp" alt="" coords="950,95,1141,136"/>
+<area shape="rect" id="node7" href="$d0/da4/pvaClientNTMultiGet_8cpp.html" title="modules/pvaClient/src\l/pvaClientNTMultiGet.cpp" alt="" coords="1165,95,1347,136"/>
+<area shape="rect" id="node8" href="$d0/d51/pvaClientNTMultiMonitor_8cpp.html" title="modules/pvaClient/src\l/pvaClientNTMultiMonitor.cpp" alt="" coords="1371,95,1578,136"/>
+<area shape="rect" id="node9" href="$d2/dbf/pvaClientNTMultiPut_8cpp.html" title="modules/pvaClient/src\l/pvaClientNTMultiPut.cpp" alt="" coords="1602,95,1782,136"/>
+</map>

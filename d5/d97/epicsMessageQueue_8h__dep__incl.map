@@ -1,0 +1,7 @@
+<map id="modules/libcom/src/osi/epicsMessageQueue.h" name="modules/libcom/src/osi/epicsMessageQueue.h">
+<area shape="rect" id="node2" href="$db/d24/epicsGeneralTime_8c.html" title="modules/libcom/src\l/osi/epicsGeneralTime.c" alt="" coords="5,102,179,143"/>
+<area shape="rect" id="node3" href="$d3/dd8/epicsMessageQueue_8cpp.html" title="modules/libcom/src\l/osi/epicsMessageQueue.cpp" alt="" coords="203,102,410,143"/>
+<area shape="rect" id="node4" href="$d7/d9e/default_2osdMessageQueue_8cpp.html" title="modules/libcom/src\l/osi/os/default/osdMessage\lQueue.cpp" alt="" coords="435,95,629,151"/>
+<area shape="rect" id="node5" href="$d9/d89/osdMessageQueue_8c.html" title="modules/libcom/src\l/osi/os/RTEMS/osdMessageQueue.c" alt="" coords="654,102,901,143"/>
+<area shape="rect" id="node6" href="$d9/de0/vxWorks_2osdMessageQueue_8cpp.html" title="modules/libcom/src\l/osi/os/vxWorks/osdMessage\lQueue.cpp" alt="" coords="925,95,1128,151"/>
+</map>

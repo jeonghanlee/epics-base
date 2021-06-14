@@ -1,0 +1,12 @@
+<map id="epics::pvAccess::ChannelProvider" name="epics::pvAccess::ChannelProvider">
+<area shape="rect" id="node3" href="$dd/daa/classepics_1_1pvAccess_1_1ca_1_1CAChannelProvider.html" title="epics::pvAccess::ca\l::CAChannelProvider" alt="" coords="520,5,672,47"/>
+<area shape="rect" id="node4" href="$dc/d63/classepics_1_1pvAccess_1_1PipelineChannelProvider.html" title="epics::pvAccess::Pipeline\lChannelProvider" alt="" coords="506,71,686,112"/>
+<area shape="rect" id="node5" href="$d4/df2/classepics_1_1pvAccess_1_1RPCChannelProvider.html" title="epics::pvAccess::RPCChannel\lProvider" alt="" coords="492,136,700,177"/>
+<area shape="rect" id="node6" href="$dc/d93/classepics_1_1pvDatabase_1_1ChannelProviderLocal.html" title="ChannelProvider for PVDatabase. " alt="" coords="517,201,675,243"/>
+<area shape="rect" id="node7" href="$dc/db2/structGWServerChannelProvider.html" title="GWServerChannelProvider" alt="" coords="501,267,691,294"/>
+<area shape="rect" id="node8" href="$d8/dcf/structPDBProvider.html" title="PDBProvider" alt="" coords="545,318,647,345"/>
+<area shape="rect" id="node9" href="$d4/d97/structpvas_1_1DynamicProvider_1_1Impl.html" title="pvas::DynamicProvider\l::Impl" alt="" coords="512,369,680,411"/>
+<area shape="rect" id="node10" href="$d0/dc2/structpvas_1_1StaticProvider_1_1Impl.html" title="pvas::StaticProvider\l::Impl" alt="" coords="521,435,671,476"/>
+<area shape="rect" id="node11" href="$df/def/structTestProvider.html" title="TestProvider" alt="" coords="547,501,645,527"/>
+<area shape="rect" id="node2" href="$d8/d4e/classepics_1_1pvAccess_1_1Destroyable.html" title="Instance declaring destroy method. " alt="" coords="5,267,213,294"/>
+</map>

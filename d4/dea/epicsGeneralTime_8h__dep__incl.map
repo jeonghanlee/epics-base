@@ -1,0 +1,8 @@
+<map id="modules/libcom/src/osi/epicsGeneralTime.h" name="modules/libcom/src/osi/epicsGeneralTime.h">
+<area shape="rect" id="node2" href="$d8/dff/iocInit_8c.html" title="modules/database/src\l/ioc/misc/iocInit.c" alt="" coords="5,95,169,136"/>
+<area shape="rect" id="node3" href="$dc/d95/devGeneralTime_8c.html" title="modules/database/src\l/std/dev/devGeneralTime.c" alt="" coords="194,95,386,136"/>
+<area shape="rect" id="node4" href="$d5/d35/libComRegister_8c.html" title="modules/libcom/src\l/iocsh/libComRegister.c" alt="" coords="410,95,578,136"/>
+<area shape="rect" id="node5" href="$db/d24/epicsGeneralTime_8c.html" title="modules/libcom/src\l/osi/epicsGeneralTime.c" alt="" coords="602,95,775,136"/>
+<area shape="rect" id="node6" href="$d7/d48/osiClockTime_8c.html" title="modules/libcom/src\l/osi/osiClockTime.c" alt="" coords="799,95,946,136"/>
+<area shape="rect" id="node7" href="$df/d77/osiNTPTime_8c.html" title="modules/libcom/src\l/osi/osiNTPTime.c" alt="" coords="970,95,1117,136"/>
+</map>

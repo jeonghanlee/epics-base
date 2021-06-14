@@ -1,0 +1,11 @@
+<map id="modules/libcom/src/osi/os/WIN32/osdMonotonic.c" name="modules/libcom/src/osi/os/WIN32/osdMonotonic.c">
+<area shape="rect" id="node3" href="$da/d00/dbDefs_8h.html" title="Miscellaneous macro definitions. " alt="" coords="374,169,453,196"/>
+<area shape="rect" id="node5" href="$db/dba/errlog_8h.html" title="errlog.h" alt="" coords="187,244,258,271"/>
+<area shape="rect" id="node11" href="$d9/d9b/epicsTime_8h.html" title="EPICS time&#45;stamps (epicsTimeStamp), epicsTime C++ class and C functions for handling wall&#45;clock times..." alt="" coords="669,244,768,271"/>
+<area shape="rect" id="node16" href="$da/dd1/generalTimeSup_8h.html" title="generalTimeSup.h" alt="" coords="768,95,907,121"/>
+<area shape="rect" id="node9" href="$d5/d48/compilerDependencies_8h.html" title="Compiler specific declarations. " alt="" coords="191,393,371,420"/>
+<area shape="rect" id="node13" href="$d8/d42/epicsTypes_8h.html" title="epicsTypes.h" alt="" coords="394,319,497,345"/>
+<area shape="rect" id="node15" href="$d8/d1a/errMdef_8h.html" title="errMdef.h" alt="" coords="720,319,803,345"/>
+<area shape="rect" id="node17" href="$d9/d3d/epicsTimer_8h.html" title="epicsTimer.h" alt="" coords="839,169,942,196"/>
+<area shape="rect" id="node19" href="$d8/d29/epicsThread_8h.html" title="C++ and C descriptions for a thread. " alt="" coords="835,244,946,271"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="modules/pvAccess/src/remote/pv/codec.h" name="modules/pvAccess/src/remote/pv/codec.h">
+<area shape="rect" id="node2" href="$d4/d52/ChannelAccessFactory_8cpp.html" title="modules/pvAccess/src\l/factory/ChannelAccessFactory.cpp" alt="" coords="5,102,248,143"/>
+<area shape="rect" id="node3" href="$d5/ddd/blockingTCPAcceptor_8cpp.html" title="modules/pvAccess/src\l/remote/blockingTCPAcceptor.cpp" alt="" coords="272,102,507,143"/>
+<area shape="rect" id="node4" href="$dd/d67/blockingTCPConnector_8cpp.html" title="modules/pvAccess/src\l/remote/blockingTCPConnector.cpp" alt="" coords="531,102,775,143"/>
+<area shape="rect" id="node5" href="$d8/d00/codec_8cpp.html" title="modules/pvAccess/src\l/remote/codec.cpp" alt="" coords="799,102,963,143"/>
+<area shape="rect" id="node6" href="$da/d2b/clientContextImpl_8cpp.html" title="modules/pvAccess/src\l/remoteClient/clientContext\lImpl.cpp" alt="" coords="988,95,1185,151"/>
+<area shape="rect" id="node7" href="$df/df1/responseHandlers_8cpp.html" title="modules/pvAccess/src\l/server/responseHandlers.cpp" alt="" coords="1209,102,1423,143"/>
+<area shape="rect" id="node8" href="$d6/d24/serverContext_8cpp.html" title="modules/pvAccess/src\l/server/serverContext.cpp" alt="" coords="1447,102,1633,143"/>
+</map>

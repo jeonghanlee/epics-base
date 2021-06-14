@@ -1,0 +1,5 @@
+<map id="PDBProvider" name="PDBProvider">
+<area shape="rect" id="node2" href="$d3/d09/classepics_1_1pvAccess_1_1ChannelProvider.html" title="epics::pvAccess::Channel\lProvider" alt="" coords="274,5,457,47"/>
+<area shape="rect" id="node3" href="$d8/d4e/classepics_1_1pvAccess_1_1Destroyable.html" title="Instance declaring destroy method. " alt="" coords="5,42,213,69"/>
+<area shape="rect" id="node4" href="$d9/d5a/classepics_1_1pvAccess_1_1ChannelFind.html" title="epics::pvAccess::ChannelFind" alt="" coords="261,71,469,98"/>
+</map>

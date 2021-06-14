@@ -1,0 +1,9 @@
+<map id="epics::pvAccess::ChannelRequester" name="epics::pvAccess::ChannelRequester">
+<area shape="rect" id="node3" href="$d0/d8f/structChannelCacheEntry_1_1CRequester.html" title="ChannelCacheEntry::\lCRequester" alt="" coords="514,5,669,47"/>
+<area shape="rect" id="node4" href="$dc/d3f/structepics_1_1pvAccess_1_1DefaultChannelRequester.html" title="Used when ChannelProvider::createChannel() is passed a NULL ChannelRequester. " alt="" coords="503,71,680,112"/>
+<area shape="rect" id="node5" href="$d4/df3/classepics_1_1pvAccess_1_1ServerChannelRequesterImpl.html" title="epics::pvAccess::ServerChannel\lRequesterImpl" alt="" coords="479,136,704,177"/>
+<area shape="rect" id="node6" href="$d5/d3f/classepics_1_1pvaClient_1_1PvaClientChannel.html" title="An easy to use alternative to directly calling the Channel methods of pvAccess. " alt="" coords="497,201,686,243"/>
+<area shape="rect" id="node7" href="$d6/d4c/structpvac_1_1ClientChannel_1_1Impl.html" title="pvac::ClientChannel\l::Impl" alt="" coords="517,267,665,308"/>
+<area shape="rect" id="node8" href="$d5/d8e/structTestChannelRequester.html" title="TestChannelRequester" alt="" coords="510,333,673,359"/>
+<area shape="rect" id="node2" href="$d4/d74/classepics_1_1pvAccess_1_1Requester.html" title="Callback class for passing messages to a requester. " alt="" coords="5,177,200,203"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="epics::pvAccess::Channel" name="epics::pvAccess::Channel">
+<area shape="rect" id="node2" href="$d4/d74/classepics_1_1pvAccess_1_1Requester.html" title="Callback class for passing messages to a requester. " alt="" coords="5,5,200,32"/>
+<area shape="rect" id="node3" href="$d8/d4e/classepics_1_1pvAccess_1_1Destroyable.html" title="Instance declaring destroy method. " alt="" coords="224,5,432,32"/>
+</map>

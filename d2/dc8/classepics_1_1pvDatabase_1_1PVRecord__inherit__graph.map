@@ -1,0 +1,7 @@
+<map id="epics::pvDatabase::PVRecord" name="epics::pvDatabase::PVRecord">
+<area shape="rect" id="node4" href="$dc/d77/classepics_1_1pvDatabase_1_1AddRecord.html" title="Add another record in the same database. " alt="" coords="468,5,616,47"/>
+<area shape="rect" id="node5" href="$da/dc6/classepics_1_1pvDatabase_1_1ProcessRecord.html" title="Process another record in the same database. " alt="" coords="468,71,616,112"/>
+<area shape="rect" id="node6" href="$d6/d92/classepics_1_1pvDatabase_1_1RemoveRecord.html" title="Remove another record in the same database. " alt="" coords="468,136,616,177"/>
+<area shape="rect" id="node7" href="$da/de8/classepics_1_1pvDatabase_1_1TraceRecord.html" title="Trace activity of PVRecord. " alt="" coords="468,201,616,243"/>
+<area shape="rect" id="node2" href="$d6/d42/classepics_1_1pvCopy_1_1PVCopyTraverseMasterCallback.html" title="Callback for traversing master structure. " alt="" coords="5,71,224,112"/>
+</map>

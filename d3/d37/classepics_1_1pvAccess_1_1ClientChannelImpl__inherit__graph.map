@@ -1,0 +1,9 @@
+<map id="epics::pvAccess::ClientChannelImpl" name="epics::pvAccess::ClientChannelImpl">
+<area shape="rect" id="node2" href="$d9/ded/classepics_1_1pvAccess_1_1Channel.html" title="epics::pvAccess::Channel" alt="" coords="285,52,468,79"/>
+<area shape="rect" id="node3" href="$d4/d74/classepics_1_1pvAccess_1_1Requester.html" title="Callback class for passing messages to a requester. " alt="" coords="12,5,207,32"/>
+<area shape="rect" id="node4" href="$d8/d4e/classepics_1_1pvAccess_1_1Destroyable.html" title="Instance declaring destroy method. " alt="" coords="5,56,213,83"/>
+<area shape="rect" id="node5" href="$d9/df0/classepics_1_1pvAccess_1_1TransportSender.html" title="epics::pvAccess::Transport\lSender" alt="" coords="281,103,472,145"/>
+<area shape="rect" id="node6" href="$d7/dd9/classepics_1_1pvAccess_1_1Lockable.html" title="epics::pvAccess::Lockable" alt="" coords="16,108,203,135"/>
+<area shape="rect" id="node7" href="$df/d51/classepics_1_1pvAccess_1_1fair__queue_1_1entry.html" title="epics::pvAccess::fair\l_queue\&lt; T \&gt;::entry" alt="" coords="34,159,185,201"/>
+<area shape="rect" id="node8" href="$d4/db8/classepics_1_1pvAccess_1_1SearchInstance.html" title="epics::pvAccess::SearchInstance" alt="" coords="261,169,492,196"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="epics::pvAccess::ChannelProviderFactory" name="epics::pvAccess::ChannelProviderFactory">
+<area shape="rect" id="node2" href="$d1/d21/structBaseChannelProviderFactory.html" title="BaseChannelProviderFactory\l\&lt; CP \&gt;" alt="" coords="247,5,451,47"/>
+<area shape="rect" id="node3" href="$d2/d30/structepics_1_1pvAccess_1_1SimpleChannelProviderFactory.html" title="epics::pvAccess::SimpleChannel\lProviderFactory\&lt; Provider \&gt;" alt="" coords="236,71,463,112"/>
+<area shape="rect" id="node4" href="$d2/d27/structepics_1_1pvAccess_1_1SingletonChannelProviderFactory.html" title="epics::pvAccess::Singleton\lChannelProviderFactory\l\&lt; Provider \&gt;" alt="" coords="254,135,445,191"/>
+<area shape="rect" id="node5" href="$d0/d09/classepics_1_1pvDatabase_1_1LocalChannelProviderFactory.html" title="epics::pvDatabase::\lLocalChannelProviderFactory" alt="" coords="247,215,452,256"/>
+</map>
