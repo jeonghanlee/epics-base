@@ -3,8 +3,8 @@
 *     National Laboratory.
 * Copyright (c) 2002 The Regents of the University of California, as
 *     Operator of Los Alamos National Laboratory.
-* EPICS BASE Versions 3.13.7
-* and higher are distributed subject to a Software License Agreement found
+* SPDX-License-Identifier: EPICS
+* EPICS Base is distributed subject to a Software License Agreement found
 * in file LICENSE that is included with this distribution.
 \*************************************************************************/
 /* epicsMutex.cpp */
@@ -17,6 +17,7 @@
  * currently safe to convert a thread id to a thread name because
  * the thread may have exited making the thread id invalid.
  */
+#define EPICS_PRIVATE_API
 
 #include <new>
 
@@ -223,6 +224,7 @@ void epicsStdCall epicsMutexShowAll(int onlyLocked,unsigned  int level)
 
     printf("ellCount(&mutexList) %d ellCount(&freeList) %d\n",
         ellCount(&mutexList),ellCount(&freeList));
+    epicsMutexOsdShowAll();
     epicsMutexLockStatus lockStat =
         epicsMutexOsdLock(epicsMutexGlobalLock);
     assert ( lockStat == epicsMutexLockOK );

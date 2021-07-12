@@ -3,8 +3,8 @@
 *     National Laboratory.
 * Copyright (c) 2002 The Regents of the University of California, as
 *     Operator of Los Alamos National Laboratory.
-* EPICS BASE Versions 3.13.7
-* and higher are distributed subject to a Software License Agreement found
+* SPDX-License-Identifier: EPICS
+* EPICS Base is distributed subject to a Software License Agreement found
 * in file LICENSE that is included with this distribution.
 \*************************************************************************/
 
@@ -63,10 +63,10 @@ LIBCOM_API int epicsStdCall osiSockAttach()
         DWORD titleLength = GetConsoleTitle(title, sizeof(title));
         if (titleLength) {
             titleLength = strlen (title);
-            strncat (title, " " EPICS_VERSION_STRING, sizeof(title));
+            strncat (title, " " EPICS_VERSION_STRING, sizeof(title)-1);
         }
         else {
-            strncpy(title, EPICS_VERSION_STRING, sizeof(title));
+            strncpy(title, EPICS_VERSION_STRING, sizeof(title)-1);
         }
         title[sizeof(title)-1]= '\0';
         SetConsoleTitle(title);

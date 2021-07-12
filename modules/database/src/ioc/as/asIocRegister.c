@@ -3,6 +3,7 @@
 *     National Laboratory.
 * Copyright (c) 2002 The Regents of the University of California, as
 *     Operator of Los Alamos National Laboratory.
+* SPDX-License-Identifier: EPICS
 * EPICS BASE is distributed subject to a Software License Agreement found
 * in file LICENSE that is included with this distribution.
 \*************************************************************************/
@@ -10,7 +11,6 @@
 #include "asLib.h"
 #include "iocsh.h"
 
-#define epicsExportSharedSymbols
 #include "asCa.h"
 #include "asDbLib.h"
 #include "asIocRegister.h"
@@ -119,7 +119,9 @@ static void ascarCallFunc(const iocshArgBuf *args)
 }
 
 /* asDumpHash */
-static const iocshFuncDef asDumpHashFuncDef = {"asDumpHash",0,0};
+static const iocshFuncDef asDumpHashFuncDef = {"asDumpHash",0,0,
+                                               "Show the contents of the hash table used "
+                                               "to locate UAGs and HAGs.\n"};
 static void asDumpHashCallFunc(const iocshArgBuf *args)
 {
     asDumpHash();

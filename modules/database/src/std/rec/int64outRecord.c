@@ -3,6 +3,7 @@
 *     National Laboratory.
 * Copyright (c) 2002 The Regents of the University of California, as
 *     Operator of Los Alamos National Laboratory.
+* SPDX-License-Identifier: EPICS
 * EPICS BASE is distributed subject to a Software License Agreement found
 * in file LICENSE that is included with this distribution.
 \*************************************************************************/
@@ -110,7 +111,7 @@ static long init_record(dbCommon *pcommon, int pass)
             prec->udf=FALSE;
     }
     if (pdset->common.init_record) {
-	if ((status = pdset->common.init_record(pcommon))) return status;
+        if ((status = pdset->common.init_record(pcommon))) return status;
     }
     prec->mlst = prec->val;
     prec->alst = prec->val;
@@ -121,7 +122,7 @@ static long init_record(dbCommon *pcommon, int pass)
 static long process(dbCommon *pcommon)
 {
     int64outRecord *prec = (int64outRecord*)pcommon;
-	int64outdset	*pdset = (int64outdset *)(prec->dset);
+    int64outdset  *pdset = (int64outdset *)(prec->dset);
     long                status=0;
     epicsInt64          value;
     unsigned char       pact=prec->pact;
@@ -143,6 +144,10 @@ static long process(dbCommon *pcommon)
             value = prec->val;
         }
         if (!status) convert(prec,value);
+
+        /* Update the timestamp before writing output values so it
+         * will be uptodate if any downstream records fetch it via TSEL */
+        recGblGetTimeStampSimm(prec, prec->simm, NULL);
     }
 
     /* check for alarms */
@@ -174,7 +179,10 @@ static long process(dbCommon *pcommon)
     if ( !pact && prec->pact ) return(0);
     prec->pact = TRUE;
 
-    recGblGetTimeStampSimm(prec, prec->simm, NULL);
+    if ( pact ) {
+        /* Update timestamp again for asynchronous devices */
+        recGblGetTimeStampSimm(prec, prec->simm, NULL);
+    }
 
     /* check event list */
     monitor(prec);

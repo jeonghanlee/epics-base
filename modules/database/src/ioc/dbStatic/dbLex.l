@@ -3,12 +3,14 @@
 *     National Laboratory.
 * Copyright (c) 2002 The Regents of the University of California, as
 *     Operator of Los Alamos National Laboratory.
+* SPDX-License-Identifier: EPICS
 * EPICS BASE is distributed subject to a Software License Agreement found
 * in file LICENSE that is included with this distribution.
 \*************************************************************************/
 
 newline     "\n"
 backslash   "\\"
+singlequote "'"
 doublequote "\""
 comment     "#"
 whitespace  [ \t\r\n]
@@ -17,17 +19,30 @@ stringchar  [^"\n\\]
 bareword    [a-zA-Z0-9_\-+:.\[\]<>;]
 
 punctuation [:,\[\]{}]
-normalchar  [^"\\\0-\x1f]
+normalchar  [^"'\\\0-\x1f]
 barechar    [a-zA-Z0-9_\-+.]
-escapedchar ({backslash}["\\/bfnrt])
+escapedchar ({backslash}[^ux1-9])
 hexdigit    [0-9a-fA-F]
+latinchar   ({backslash}"x"{hexdigit}{2})
 unicodechar ({backslash}"u"{hexdigit}{4})
-jsonchar    ({normalchar}|{escapedchar}|{unicodechar})
-jsondqstr   ({doublequote}{jsonchar}*{doublequote})
-int         ("-"?([0-9]|[1-9][0-9]+))
+jsondqchar  ({normalchar}|{singlequote}|{escapedchar}|{latinchar}|{unicodechar})
+jsondqstr   ({doublequote}{jsondqchar}*{doublequote})
+jsonsqchar  ({normalchar}|{doublequote}|{escapedchar}|{latinchar}|{unicodechar})
+jsonsqstr   ({singlequote}{jsonsqchar}*{singlequote})
+jsonstr     ({jsondqstr}|{jsonsqstr})
+
+sign        ([+-]?)
+int         ({sign}([0-9]|[1-9][0-9]+))
 frac        ("."[0-9]+)
-exp         ([eE][+-]?[0-9]+)
-number      ({int}{frac}?{exp}?)
+exp         ([eE]{sign}[0-9]+)
+jsonnum     ({int}{frac}?{exp}?)
+intexp      ({int}"."{exp}?)
+fracexp     ({sign}{frac}{exp}?)
+specialnum  ("NaN"|{sign}"Infinity")
+
+zerox       ("0x"|"0X")
+hexint      ({sign}{zerox}{hexdigit}+)
+number      ({jsonnum}|{intexp}|{fracexp}|{specialnum}|{hexint})
 
 %{
 #undef YY_INPUT
@@ -96,7 +111,7 @@ static int yyreset(void)
 
 <JSON>{punctuation}     return yytext[0];
 
-<JSON>{jsondqstr} {
+<JSON>{jsonstr} {
     yylval.Str = dbmfStrdup((char *) yytext);
     return jsonSTRING;
 }

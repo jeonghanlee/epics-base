@@ -4,6 +4,7 @@
 * Copyright (c) 2002 The Regents of the University of California, as
 *     Operator of Los Alamos National Laboratory.
 * Copyright (c) 2013 ITER Organization.
+* SPDX-License-Identifier: EPICS
 * EPICS BASE is distributed subject to a Software License Agreement found
 * in file LICENSE that is included with this distribution.
 \*************************************************************************/
@@ -58,6 +59,7 @@
 #include <stddef.h>
 
 #include "libComAPI.h"
+#include "compilerDependencies.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -141,8 +143,12 @@ LIBCOM_API void epicsThreadRealtimeLock(void);
  * call this routine. This should be the last call in main, except the
  * final return. On most systems epicsThreadExitMain never returns.This
  * must only be called by the main thread.
+ *
+ * @deprecated Deprecated for lack of use.  Please report any usage.
+ * Recommended replacement is loop + epicsThreadSleep(),
+ * epicsEventMustWait(), or similar.
  **/
-LIBCOM_API void epicsStdCall epicsThreadExitMain(void);
+LIBCOM_API void epicsStdCall epicsThreadExitMain(void) EPICS_DEPRECATED;
 
 /** For use with epicsThreadCreateOpt() */
 typedef struct epicsThreadOpts {

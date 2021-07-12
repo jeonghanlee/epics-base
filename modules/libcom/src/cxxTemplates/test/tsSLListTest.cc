@@ -3,8 +3,8 @@
 *     National Laboratory.
 * Copyright (c) 2002 The Regents of the University of California, as
 *     Operator of Los Alamos National Laboratory.
-* EPICS BASE Versions 3.13.7
-* and higher are distributed subject to a Software License Agreement found
+* SPDX-License-Identifier: EPICS
+* EPICS Base is distributed subject to a Software License Agreement found
 * in file LICENSE that is included with this distribution.
 \*************************************************************************/
 
@@ -46,8 +46,10 @@ int main ()
         tsSLIter<fred> iter1 = list.firstIter ();
         tsSLIter<fred> iter2 = iter1;
         tsSLIter<fred> iter3 = iter1;
-        assert ( iter1 == iter3++ );
-        assert ( iter3 == ++iter2 );
+        tsSLIter<fred> itert = iter3++
+        assert ( iter1 == itert );
+        itert = ++iter2;
+        assert ( iter3 == itert );
         list.remove ( *pFredII ); // removes pFred
     }
     list.add ( *pFred );

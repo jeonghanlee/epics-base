@@ -3,6 +3,7 @@
 *     National Laboratory.
 * Copyright (c) 2002 The Regents of the University of California, as
 *     Operator of Los Alamos National Laboratory.
+* SPDX-License-Identifier: EPICS
 * EPICS BASE is distributed subject to a Software License Agreement found
 * in file LICENSE that is included with this distribution.
 \*************************************************************************/
@@ -603,7 +604,7 @@ void epicsStdCall ca_signal_formated ( long ca_status, const char *pfilenm,
     }
     else {
         fprintf ( stderr, "CA exception in thread w/o CA ctx: status=%s file=%s line=%d: \n",
-            ca_message ( ca_status ), pfilenm, lineno );
+            ca_message ( ca_status ), pfilenm ? pfilenm : "<null>", lineno );
         if ( pFormat ) {
             vfprintf ( stderr, pFormat, theArgs );
         }

@@ -3,6 +3,7 @@
 *     National Laboratory.
 * Copyright (c) 2002 The Regents of the University of California, as
 *     Operator of Los Alamos National Laboratory.
+* SPDX-License-Identifier: EPICS
 * EPICS BASE is distributed subject to a Software License Agreement found
 * in file LICENSE that is included with this distribution.
 \*************************************************************************/
@@ -34,6 +35,10 @@ typedef struct epicsTimeStamp {
     epicsUInt32    secPastEpoch;   /**< \brief seconds since 0000 Jan 1, 1990 */
     epicsUInt32    nsec;           /**< \brief nanoseconds within second */
 } epicsTimeStamp;
+
+/** \brief Type of UTAG field (dbCommon::utag)
+ */
+typedef epicsUInt64     epicsUTag;
 
 /** \brief Old time-stamp data type, deprecated.
  * \deprecated TS_STAMP was provided for compatibility with Base-3.13 code.

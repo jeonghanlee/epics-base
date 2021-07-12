@@ -1,3 +1,9 @@
+######################################################################
+# SPDX-License-Identifier: EPICS
+# EPICS BASE is distributed subject to a Software License Agreement
+# found in file LICENSE that is included with this distribution.
+######################################################################
+
 package DBD::Parser;
 
 use strict;
@@ -23,6 +29,7 @@ use DBD::Function;
 use DBD::Variable;
 
 our $debug=0;
+our $allowAutoDeclarations=0;
 
 sub ParseDBD {
     (my $dbd, $_) = @_;
@@ -96,8 +103,11 @@ sub ParseDBD {
                 unquote($1, $2, $3, $4);
             my $rtyp = $dbd->recordtype($record_type);
             if (!defined $rtyp) {
+                my $msg = "Device '$choice' refers to unknown record type '$record_type'.";
+                dieContext($msg, "DBD files must be combined in the correct order.")
+                    unless $allowAutoDeclarations;
+                warn "$msg\nRecord type '$record_type' declared.\n";
                 $rtyp = DBD::Recordtype->new($record_type);
-                warn "Device using unknown record type '$record_type', declaration created\n";
                 $dbd->add($rtyp);
             }
             $rtyp->add_device(DBD::Device->new($link_type, $dset, $choice));

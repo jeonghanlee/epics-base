@@ -6,6 +6,7 @@
 *     National Laboratory.
 * Copyright (c) 2002 The Regents of the University of California, as
 *     Operator of Los Alamos National Laboratory.
+* SPDX-License-Identifier: EPICS
 * EPICS BASE is distributed subject to a Software License Agreement found
 * in file LICENSE that is included with this distribution.
 \*************************************************************************/
@@ -34,7 +35,6 @@
 #include "errlog.h"
 #include "errMdef.h"
 
-#include "epicsExport.h" /* #define epicsExportSharedSymbols */
 #include "caeventmask.h"
 #include "callback.h"
 #include "dbAccessDefs.h"
@@ -61,6 +61,7 @@
 #include "recGbl.h"
 #include "recSup.h"
 #include "special.h"
+#include "epicsExport.h"
 
 struct dbBase *pdbbase = 0;
 volatile int interruptAccept=FALSE;
@@ -338,7 +339,7 @@ static void getOptions(DBADDR *paddr, char **poriginal, long *options,
         dbCommon        *pcommon;
         char            *pbuffer = *poriginal;
 
-        if (!pfl || pfl->type == dbfl_type_rec)
+        if (!pfl)
             field_type = paddr->field_type;
         else
             field_type = pfl->field_type;
@@ -348,7 +349,7 @@ static void getOptions(DBADDR *paddr, char **poriginal, long *options,
         if( (*options) & DBR_STATUS ) {
             unsigned short *pushort = (unsigned short *)pbuffer;
 
-            if (!pfl || pfl->type == dbfl_type_rec) {
+            if (!pfl) {
                 *pushort++ = pcommon->stat;
                 *pushort++ = pcommon->sevr;
             } else {
@@ -358,6 +359,16 @@ static void getOptions(DBADDR *paddr, char **poriginal, long *options,
             *pushort++ = pcommon->acks;
             *pushort++ = pcommon->ackt;
             pbuffer = (char *)pushort;
+        }
+        if( (*options) & DBR_AMSG ) {
+            if (!pfl) {
+                STATIC_ASSERT(sizeof(pcommon->amsg)==sizeof(pfl->amsg));
+                strncpy(pbuffer, pcommon->amsg, sizeof(pcommon->amsg)-1);
+            } else {
+                strncpy(pbuffer, pfl->amsg,sizeof(pfl->amsg)-1);
+            }
+            pbuffer[sizeof(pcommon->amsg)-1] = '\0';
+            pbuffer += sizeof(pcommon->amsg);
         }
         if( (*options) & DBR_UNITS ) {
             memset(pbuffer,'\0',dbr_units_size);
@@ -382,7 +393,7 @@ static void getOptions(DBADDR *paddr, char **poriginal, long *options,
         if( (*options) & DBR_TIME ) {
             epicsUInt32 *ptime = (epicsUInt32 *)pbuffer;
 
-            if (!pfl || pfl->type == dbfl_type_rec) {
+            if (!pfl) {
                 *ptime++ = pcommon->time.secPastEpoch;
                 *ptime++ = pcommon->time.nsec;
             } else {
@@ -390,6 +401,15 @@ static void getOptions(DBADDR *paddr, char **poriginal, long *options,
                 *ptime++ = pfl->time.nsec;
             }
             pbuffer = (char *)ptime;
+        }
+        if( (*options) & DBR_UTAG ) {
+            epicsUInt64 *ptag = (epicsUInt64*)pbuffer;
+            if (!pfl) {
+                *ptag++ = pcommon->utag;
+            } else {
+                *ptag++ = pfl->utag;
+            }
+            pbuffer = (char *)ptag;
         }
         if( (*options) & DBR_ENUM_STRS )
             get_enum_strs(paddr, &pbuffer, prset, options);
@@ -522,7 +542,7 @@ long dbProcess(dbCommon *precord)
             (precord->lcnt++ < MAX_LOCK) ||
             (precord->sevr >= INVALID_ALARM)) goto all_done;
 
-        recGblSetSevr(precord, SCAN_ALARM, INVALID_ALARM);
+        recGblSetSevrMsg(precord, SCAN_ALARM, INVALID_ALARM, "Async in progress");
         monitor_mask = recGblResetAlarms(precord);
         monitor_mask |= DBE_VALUE|DBE_LOG;
         pdbFldDes = pdbRecordType->papFldDes[pdbRecordType->indvalFlddes];
@@ -903,22 +923,23 @@ long dbGet(DBADDR *paddr, short dbrType,
     if (nRequest && *nRequest == 0)
         return 0;
 
-    if (!pfl || pfl->type == dbfl_type_rec) {
+    if (!pfl) {
         field_type = paddr->field_type;
         no_elements = capacity = paddr->no_elements;
-
-        /* Update field info from record
-         * may modify paddr->pfield
-         */
-        if (paddr->pfldDes->special == SPC_DBADDR &&
-            (prset = dbGetRset(paddr)) &&
-            prset->get_array_info) {
-            status = prset->get_array_info(paddr, &no_elements, &offset);
-        } else
-            offset = 0;
     } else {
         field_type = pfl->field_type;
         no_elements = capacity = pfl->no_elements;
+    }
+
+    /* Update field info from record (if neccessary);
+     * may modify paddr->pfield.
+     */
+    if (!dbfl_has_copy(pfl) &&
+        paddr->pfldDes->special == SPC_DBADDR &&
+        (prset = dbGetRset(paddr)) &&
+        prset->get_array_info) {
+        status = prset->get_array_info(paddr, &no_elements, &offset);
+    } else {
         offset = 0;
     }
 
@@ -945,24 +966,27 @@ long dbGet(DBADDR *paddr, short dbrType,
     if (offset == 0 && (!nRequest || no_elements == 1)) {
         if (nRequest)
             *nRequest = 1;
-        if (!pfl || pfl->type == dbfl_type_rec) {
+        else if (no_elements < 1) {
+            status = S_db_onlyOne;
+            goto done;
+        }
+
+        if (!dbfl_has_copy(pfl)) {
             status = dbFastGetConvertRoutine[field_type][dbrType]
                 (paddr->pfield, pbuf, paddr);
         } else {
             DBADDR localAddr = *paddr; /* Structure copy */
 
-            if (pfl->no_elements < 1) {
+            if (no_elements < 1) {
                 status = S_db_badField;
                 goto done;
             }
 
             localAddr.field_type = pfl->field_type;
             localAddr.field_size = pfl->field_size;
+            /* not used by dbFastConvert: */
             localAddr.no_elements = pfl->no_elements;
-            if (pfl->type == dbfl_type_val)
-                localAddr.pfield = (char *) &pfl->u.v.field;
-            else
-                localAddr.pfield = (char *)  pfl->u.r.field;
+            localAddr.pfield = dbfl_pfield(pfl);
             status = dbFastGetConvertRoutine[field_type][dbrType]
                 (localAddr.pfield, pbuf, &localAddr);
         }
@@ -973,6 +997,8 @@ long dbGet(DBADDR *paddr, short dbrType,
         if (nRequest) {
             if (no_elements < *nRequest)
                 *nRequest = no_elements;
+            if (capacity < *nRequest)
+                *nRequest = capacity;
             n = *nRequest;
         } else {
             n = 1;
@@ -989,19 +1015,22 @@ long dbGet(DBADDR *paddr, short dbrType,
         }
         /* convert data into the caller's buffer */
         if (n <= 0) {
-            ;/*do nothing*/
-        } else if (!pfl || pfl->type == dbfl_type_rec) {
+            ;                           /*do nothing */
+        } else if (!dbfl_has_copy(pfl)) {
             status = convert(paddr, pbuf, n, capacity, offset);
         } else {
             DBADDR localAddr = *paddr; /* Structure copy */
 
+            if (pfl->no_elements < 1) {
+                status = S_db_badField;
+                goto done;
+            }
+
             localAddr.field_type = pfl->field_type;
             localAddr.field_size = pfl->field_size;
+            /* not used by dbConvert, it uses the passed capacity instead: */
             localAddr.no_elements = pfl->no_elements;
-            if (pfl->type == dbfl_type_val)
-                localAddr.pfield = (char *) &pfl->u.v.field;
-            else
-                localAddr.pfield = (char *)  pfl->u.r.field;
+            localAddr.pfield = dbfl_pfield(pfl);
             status = convert(&localAddr, pbuf, n, capacity, offset);
         }
 
@@ -1036,7 +1065,7 @@ static long dbPutFieldLink(DBADDR *paddr,
     short dbrType, const void *pbuffer, long nRequest)
 {
     dbLinkInfo  link_info;
-    DBADDR      *pdbaddr = NULL;
+    dbChannel   *chan = NULL;
     dbCommon    *precord = paddr->precord;
     dbCommon    *lockrecs[2];
     dbLocker    locker;
@@ -1074,16 +1103,11 @@ static long dbPutFieldLink(DBADDR *paddr,
 
     if (link_info.ltype == PV_LINK &&
         (link_info.modifiers & (pvlOptCA | pvlOptCP | pvlOptCPP)) == 0) {
-        DBADDR tempaddr;
-
-        if (dbNameToAddr(link_info.target, &tempaddr)==0) {
-            /* This will become a DB link. */
-            pdbaddr = malloc(sizeof(*pdbaddr));
-            if (!pdbaddr) {
-                status = S_db_noMemory;
-                goto cleanup;
-            }
-            *pdbaddr = tempaddr; /* struct copy */
+        chan = dbChannelCreate(link_info.target);
+        if (chan && dbChannelOpen(chan) != 0) {
+            errlogPrintf("ERROR: dbPutFieldLink %s.%s=%s: dbChannelOpen() failed\n",
+                precord->name, pfldDes->name, link_info.target);
+            goto cleanup;
         }
     }
 
@@ -1092,7 +1116,7 @@ static long dbPutFieldLink(DBADDR *paddr,
 
     memset(&locker, 0, sizeof(locker));
     lockrecs[0] = precord;
-    lockrecs[1] = pdbaddr ? pdbaddr->precord : NULL;
+    lockrecs[1] = chan ? dbChannelRecord(chan) : NULL;
     dbLockerPrepare(&locker, lockrecs, 2);
 
     dbScanLockMany(&locker);
@@ -1180,7 +1204,8 @@ static long dbPutFieldLink(DBADDR *paddr,
     case PV_LINK:
     case CONSTANT:
     case JSON_LINK:
-        dbAddLink(&locker, plink, pfldDes->field_type, pdbaddr);
+        dbAddLink(&locker, plink, pfldDes->field_type, chan);
+        chan = NULL; /* don't clean it up */
         break;
 
     case DB_LINK:
@@ -1210,6 +1235,8 @@ unlock:
     dbScanUnlockMany(&locker);
     dbLockerFinalize(&locker);
 cleanup:
+    if (chan)
+        dbChannelDelete(chan);
     free(link_info.target);
     return status;
 }
@@ -1329,31 +1356,28 @@ long dbPut(DBADDR *paddr, short dbrType,
         status = prset->get_array_info(paddr, &dummy, &offset);
         /* paddr->pfield may be modified */
         if (status) goto done;
-    } else
-        offset = 0;
-
-    if (no_elements <= 1) {
-        status = dbFastPutConvertRoutine[dbrType][field_type](pbuffer,
-            paddr->pfield, paddr);
-        nRequest = 1;
-    } else {
         if (no_elements < nRequest)
             nRequest = no_elements;
         status = dbPutConvertRoutine[dbrType][field_type](paddr, pbuffer,
             nRequest, no_elements, offset);
-    }
-
-    /* update array info */
-    if (!status &&
-        paddr->pfldDes->special == SPC_DBADDR &&
-        prset && prset->put_array_info) {
-        status = prset->put_array_info(paddr, nRequest);
+        /* update array info */
+        if (!status && prset->put_array_info)
+            status = prset->put_array_info(paddr, nRequest);
+    } else {
+        if (nRequest < 1) {
+            recGblSetSevr(precord, LINK_ALARM, INVALID_ALARM);
+        } else {
+            status = dbFastPutConvertRoutine[dbrType][field_type](pbuffer,
+                paddr->pfield, paddr);
+            nRequest = 1;
+        }
     }
 
     /* Always do special processing if needed */
     if (special) {
         long status2 = dbPutSpecial(paddr, 1);
-        if (status2) goto done;
+        if (status2)
+            status = status2;
     }
     if (status) goto done;
 

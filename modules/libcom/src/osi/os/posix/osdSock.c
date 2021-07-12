@@ -3,8 +3,8 @@
 *     National Laboratory.
 * Copyright (c) 2002 The Regents of the University of California, as
 *     Operator of Los Alamos National Laboratory.
-* EPICS BASE Versions 3.13.7
-* and higher are distributed subject to a Software License Agreement found
+* SPDX-License-Identifier: EPICS
+* EPICS Base is distributed subject to a Software License Agreement found
 * in file LICENSE that is included with this distribution.
 \*************************************************************************/
 /* osdSock.c */
@@ -27,6 +27,18 @@
 #include "osiSock.h"
 #include "epicsAssert.h"
 #include "errlog.h"
+
+/* Linux and *BSD (at least) specific way to atomically set O_CLOEXEC.
+ * RTEMS 5.1 provides SOCK_CLOEXEC, but doesn't implement accept4()
+ * no point anyway since neither RTEMS nor vxWorks can execv().
+ */
+#if defined(SOCK_CLOEXEC) && !defined(__rtems__) && !defined(vxWorks)
+/* with glibc, SOCK_CLOEXEC does not expand to a simple constant */
+#  define HAVE_SOCK_CLOEXEC
+#else
+#  undef SOCK_CLOEXEC
+#  define SOCK_CLOEXEC (0)
+#endif
 
 /*
  * Protect some routines which are not thread-safe
@@ -71,7 +83,7 @@ void osiSockRelease()
 LIBCOM_API SOCKET epicsStdCall epicsSocketCreate ( 
     int domain, int type, int protocol )
 {
-    SOCKET sock = socket ( domain, type, protocol );
+    SOCKET sock = socket ( domain, type | SOCK_CLOEXEC, protocol );
     if ( sock < 0 ) {
         sock = INVALID_SOCKET;
     }
@@ -94,7 +106,11 @@ LIBCOM_API SOCKET epicsStdCall epicsSocketCreate (
 LIBCOM_API int epicsStdCall epicsSocketAccept ( 
     int sock, struct sockaddr * pAddr, osiSocklen_t * addrlen )
 {
+#ifndef HAVE_SOCK_CLOEXEC
     int newSock = accept ( sock, pAddr, addrlen );
+#else
+    int newSock = accept4 ( sock, pAddr, addrlen, SOCK_CLOEXEC );
+#endif
     if ( newSock < 0 ) {
         newSock = INVALID_SOCKET;
     }

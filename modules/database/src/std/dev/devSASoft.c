@@ -3,6 +3,7 @@
 *     National Laboratory.
 * Copyright (c) 2002 Lawrence Berkeley Laboratory,The Control Systems
 *     Group, Systems Engineering Department
+* SPDX-License-Identifier: EPICS
 * EPICS BASE is distributed subject to a Software License Agreement found
 * in file LICENSE that is included with this distribution.
 \*************************************************************************/
@@ -65,7 +66,7 @@ static long init_record(dbCommon *pcommon)
 
     status = dbLoadLinkArray(&prec->inp, prec->ftvl, prec->bptr, &nRequest);
 
-    if (!status && nRequest > 0)
+    if (!status)
         subset(prec, nRequest);
 
     return status;
@@ -115,7 +116,7 @@ static long read_sa(subArrayRecord *prec)
             status = readLocked(&prec->inp, &rt);
     }
 
-    if (!status && rt.nRequest > 0) {
+    if (!status) {
         subset(prec, rt.nRequest);
 
         if (nord != prec->nord)

@@ -1,5 +1,6 @@
 /*************************************************************************\
 * Copyright (c) 2017 Michael Davidsaver
+* SPDX-License-Identifier: EPICS
 * EPICS BASE is distributed subject to a Software License Agreement found
 * in file LICENSE that is included with this distribution.
 \*************************************************************************/
@@ -23,7 +24,7 @@ void osdMonotonicInit(void)
 
 epicsUInt64 epicsMonotonicResolution(void)
 {
-    return 1e-9 * tbinfo.numer / tbinfo.denom;
+    return tbinfo.numer / tbinfo.denom;
 }
 
 epicsUInt64 epicsMonotonicGet(void)

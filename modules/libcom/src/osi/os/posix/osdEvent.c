@@ -3,6 +3,7 @@
 *     National Laboratory.
 * Copyright (c) 2002 The Regents of the University of California, as
 *     Operator of Los Alamos National Laboratory.
+* SPDX-License-Identifier: EPICS
 * EPICS BASE is distributed subject to a Software License Agreement found
 * in file LICENSE that is included with this distribution.
 \*************************************************************************/
@@ -22,6 +23,7 @@
 #include "epicsEvent.h"
 #include "epicsTime.h"
 #include "errlog.h"
+#include "osdPosixMutexPriv.h"
 
 struct epicsEventOSD {
     pthread_mutex_t mutex;
@@ -49,11 +51,11 @@ LIBCOM_API epicsEventId epicsEventCreate(epicsEventInitialState init)
     epicsEventId pevent = malloc(sizeof(*pevent));
 
     if (pevent) {
-        int status = pthread_mutex_init(&pevent->mutex, 0);
+        int status = osdPosixMutexInit(&pevent->mutex, PTHREAD_MUTEX_DEFAULT);
 
         pevent->isFull = (init == epicsEventFull);
         if (status) {
-            printStatus(status, "pthread_mutex_init", "epicsEventCreate");
+            printStatus(status, "osdPosixMutexInit", "epicsEventCreate");
         } else {
             status = pthread_cond_init(&pevent->cond, 0);
             if (!status)

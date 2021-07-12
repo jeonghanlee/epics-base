@@ -4,6 +4,7 @@
 *     Los Alamos National Laboratory.
 * Copyright (c) 2011 UChicago Argonne LLC, as Operator of Argonne
 *     National Laboratory.
+* SPDX-License-Identifier: EPICS
 * EPICS BASE is distributed subject to a Software License Agreement found
 * in file LICENSE that is included with this distribution.
 \*************************************************************************/
@@ -16,7 +17,7 @@
 #ifndef epicsAtomicDefault_h
 #define epicsAtomicDefault_h
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -238,7 +239,7 @@ EPICS_ATOMIC_INLINE EpicsAtomicPtrT epicsAtomicCmpAndSwapPtrT (
 }
 #endif
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 } /* end of extern "C" */
 #endif
 

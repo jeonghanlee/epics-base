@@ -1,9 +1,12 @@
-# Record Reference Documentation
+# Record Reference Documentation  {#recordrefmanual}
 
-The following documentation for the record types and menus include with Base was
+The documentation below for the record types and menus included with Base was
 converted from the old EPICS Wiki pages and updated. This list only includes the
-record types supplied with Base.
+record types supplied with Base. The first two links below are to an external
+website where these original reference chapters are now being published.
 
+* [Introduction to EPICS](https://docs.epics-controls.org/en/latest/guides/EPICS_Intro.html)
+* [Process Database Concepts](https://docs.epics-controls.org/en/latest/guides/EPICS_Process_Database_Concepts.html)
 * [Fields Common to All Record Types](dbCommonRecord.html)
 * [Fields Common to Input Record Types](dbCommonInput.html)
 * [Fields Common to Output Record Types](dbCommonOutput.html)
@@ -35,7 +38,7 @@ record types supplied with Base.
 * [Multi-Bit Binary Output Direct Record (mbboDirect)](mbboDirectRecord.html)
 * [Multi-Bit Binary Output Record (mbbo)](mbboRecord.html)
 * [Permissive Record (permissive)](permissiveRecord.html)
-* [Printf Record (prinf)](printfRecord.html)
+* [Printf Record (printf)](printfRecord.html)
 * [Select Record (sel)](selRecord.html)
 * [Sequence Record (seq)](seqRecord.html)
 * [State Record (state)](stateRecord.html)
@@ -53,6 +56,9 @@ record types supplied with Base.
 * [Field Type Menu](menuFtype.html)
 * [Invalid Value Output Action Menu](menuIvoa.html)
 * [Output Mode Select Menu](menuOmsl.html)
+* [Process at iocInit Menu](menuPini.html)
+* [Post Monitors Menu](menuPost.html)
+* [Priority Menu](menuPriority.html)
 * [Scan Menu](menuScan.html)
 * [Simulation Mode Menu](menuSimm.html)
 * [Yes/No Menu](menuYesNo.html)

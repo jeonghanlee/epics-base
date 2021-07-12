@@ -3,8 +3,8 @@
 *     National Laboratory.
 * Copyright (c) 2002 The Regents of the University of California, as
 *     Operator of Los Alamos National Laboratory.
-* EPICS BASE Versions 3.13.7
-* and higher are distributed subject to a Software License Agreement found
+* SPDX-License-Identifier: EPICS
+* EPICS Base is distributed subject to a Software License Agreement found
 * in file LICENSE that is included with this distribution.
 \*************************************************************************/
 
@@ -20,7 +20,6 @@
 #include "cadef.h" // this can be eliminated when the callbacks use the new interface
 #include "db_access.h" // should be eliminated here in the future
 
-#define epicsExportSharedSymbols
 
 #include "db_access_routines.h"
 #include "dbCAC.h"

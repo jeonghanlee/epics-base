@@ -1,11 +1,3 @@
-/*************************************************************************\
-* Copyright (c) 2002 The University of Chicago, as Operator of Argonne
-*     National Laboratory.
-* Copyright (c) 2002 The Regents of the University of California, as
-*     Operator of Los Alamos National Laboratory.
-* EPICS BASE is distributed subject to a Software License Agreement found
-* in file LICENSE that is included with this distribution.
-\*************************************************************************/
 /* misc - miscellaneous flex routines */
 
 /*-
@@ -438,7 +430,7 @@ int htoi(unsigned char *str)
 {
     int result;
 
-    (void) sscanf( (char *) str, "%x", &result );
+    (void) sscanf( (char *) str, "%x", (unsigned *) &result );
 
     return ( result );
     }
@@ -653,7 +645,7 @@ int otoi(Char *str)
 {
     int result;
 
-    (void) sscanf( (char *) str, "%o", &result );
+    (void) sscanf( (char *) str, "%o", (unsigned *) &result );
 
     return ( result );
     }

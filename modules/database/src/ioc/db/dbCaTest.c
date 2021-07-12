@@ -3,6 +3,7 @@
 *     National Laboratory.
 * Copyright (c) 2002 The Regents of the University of California, as
 *     Operator of Los Alamos National Laboratory.
+* SPDX-License-Identifier: EPICS
 * EPICS BASE is distributed subject to a Software License Agreement found
 * in file LICENSE that is included with this distribution.
 \*************************************************************************/
@@ -25,9 +26,7 @@
 #include "epicsPrint.h"
 #include "epicsStdio.h"
 
-#define epicsExportSharedSymbols
 #include "dbStaticLib.h"
-#undef epicsExportSharedSymbols
 /*definitions needed because of old vs new database access*/
 #undef DBR_SHORT
 #undef DBR_PUT_ACKT
@@ -41,7 +40,6 @@
 /*define DB_CONVERT_GBLSOURCE because db_access.c does not include db_access.h*/
 #define DB_CONVERT_GBLSOURCE
 
-#define epicsExportSharedSymbols
 #include "db_access.h"
 #include "db_access_routines.h"
 #include "dbCa.h"

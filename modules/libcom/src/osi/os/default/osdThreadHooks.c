@@ -3,6 +3,7 @@
 * Copyright (c) 2012 UChicago Argonne LLC, as Operator of Argonne
 *     National Laboratory.
 *
+* SPDX-License-Identifier: EPICS
 * EPICS BASE is distributed subject to a Software License Agreement found
 * in file LICENSE that is included with this distribution.
 \*************************************************************************/
@@ -71,6 +72,7 @@ LIBCOM_API int epicsThreadHookAdd(EPICS_THREAD_HOOK_ROUTINE hook)
         return 0;
     }
     fprintf(stderr, "epicsThreadHookAdd: Locking problem\n");
+    free(pHook);
     return -1;
 }
 

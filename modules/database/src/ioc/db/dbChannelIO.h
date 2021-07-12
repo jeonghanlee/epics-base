@@ -3,8 +3,8 @@
 *     National Laboratory.
 * Copyright (c) 2002 The Regents of the University of California, as
 *     Operator of Los Alamos National Laboratory.
-* EPICS BASE Versions 3.13.7
-* and higher are distributed subject to a Software License Agreement found
+* SPDX-License-Identifier: EPICS
+* EPICS Base is distributed subject to a Software License Agreement found
 * in file LICENSE that is included with this distribution.
 \*************************************************************************/
 
@@ -20,16 +20,7 @@
 #ifndef dbChannelIOh
 #define dbChannelIOh
 
-#ifdef epicsExportSharedSymbols
-#   define dbChannelIOh_restore_epicsExportSharedSymbols
-#   undef epicsExportSharedSymbols
-#endif
-
 #include "compilerDependencies.h"
-
-#ifdef dbChannelIOh_restore_epicsExportSharedSymbols
-#   define epicsExportSharedSymbols
-#endif
 
 class dbChannelIO : public cacChannel, public dbContextPrivateListOfIO {
 public:

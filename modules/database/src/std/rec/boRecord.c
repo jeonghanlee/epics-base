@@ -3,6 +3,7 @@
 *     National Laboratory.
 * Copyright (c) 2002 The Regents of the University of California, as
 *     Operator of Los Alamos National Laboratory.
+* SPDX-License-Identifier: EPICS
 * EPICS BASE is distributed subject to a Software License Agreement found
 * in file LICENSE that is included with this distribution.
 \*************************************************************************/
@@ -154,7 +155,7 @@ static long init_record(struct dbCommon *pcommon,int pass)
     pcallback->precord = (struct dbCommon *) prec;
 
     if (pdset->common.init_record) {
-	status=(*pdset->common.init_record)(pcommon);
+        status=(*pdset->common.init_record)(pcommon);
         if(status==0) {
             if(prec->rval==0) prec->val = 0;
             else prec->val = 1;
@@ -208,6 +209,10 @@ static long process(struct dbCommon *pcommon)
             if(prec->val==0) prec->rval = 0;
             else prec->rval = prec->mask;
         } else prec->rval = (epicsUInt32)prec->val;
+
+        /* Update the timestamp before writing output values so it
+         * will be uptodate if any downstream records fetch it via TSEL */
+        recGblGetTimeStampSimm(prec, prec->simm, NULL);
     }
 
     /* check for alarms */
@@ -244,7 +249,10 @@ static long process(struct dbCommon *pcommon)
     if ( !pact && prec->pact ) return(0);
     prec->pact = TRUE;
 
-    recGblGetTimeStampSimm(prec, prec->simm, NULL);
+    if ( pact ) {
+        /* Update timestamp again for asynchronous devices */
+        recGblGetTimeStampSimm(prec, prec->simm, NULL);
+    }
 
     if((prec->val==1) && (prec->high>0)){
         myCallback *pcallback;
