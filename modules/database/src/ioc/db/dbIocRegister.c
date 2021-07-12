@@ -3,13 +3,13 @@
 *     National Laboratory.
 * Copyright (c) 2002 The Regents of the University of California, as
 *     Operator of Los Alamos National Laboratory.
+* SPDX-License-Identifier: EPICS
 * EPICS BASE is distributed subject to a Software License Agreement found
 * in file LICENSE that is included with this distribution.
 \*************************************************************************/
 
 #include "iocsh.h"
 
-#define epicsExportSharedSymbols
 #include "callback.h"
 #include "dbAccess.h"
 #include "dbBkpt.h"
@@ -25,7 +25,7 @@
 #include "db_test.h"
 #include "dbTest.h"
 
-epicsShareExtern int callbackParallelThreadsDefault;
+DBCORE_API extern int callbackParallelThreadsDefault;
 
 /* dbLoadDatabase */
 static const iocshArg dbLoadDatabaseArg0 = { "file name",iocshArgString};

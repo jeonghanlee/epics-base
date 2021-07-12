@@ -4,6 +4,7 @@
 * Copyright (c) 2002 The Regents of the University of California, as
 *     Operator of Los Alamos National Laboratory.
 * Copyright (c) 2013 ITER Organization.
+* SPDX-License-Identifier: EPICS
 * EPICS BASE is distributed subject to a Software License Agreement found
 * in file LICENSE that is included with this distribution.
 \*************************************************************************/
@@ -23,14 +24,21 @@
 #include <sched.h>
 #include <unistd.h>
 
-#if defined(_POSIX_MEMLOCK) && _POSIX_MEMLOCK > 0
-#include <sys/mman.h>
+#if (defined(_POSIX_MEMLOCK) && (_POSIX_MEMLOCK > 0) && !defined(__rtems__))
+#  define USE_MEMLOCK 1
+#else
+#  define USE_MEMLOCK 0
+#endif
+
+#if USE_MEMLOCK
+#include <sys/mman.h> 
 #endif
 
 #include "epicsStdio.h"
 #include "ellLib.h"
 #include "epicsEvent.h"
 #include "epicsMutex.h"
+#include "osdPosixMutexPriv.h"
 #include "epicsString.h"
 #include "epicsThread.h"
 #include "cantProceed.h"
@@ -308,10 +316,10 @@ int          status;
     arg.ok = 0;
 
     status = pthread_create(&id, 0, find_pri_range, &arg);
-    checkStatusQuit(status, "pthread_create","epicsThreadInit");
+    checkStatusOnceQuit(status, "pthread_create","epicsThreadInit");
 
     status = pthread_join(id, &dummy);
-    checkStatusQuit(status, "pthread_join","epicsThreadInit");
+    checkStatusOnceQuit(status, "pthread_join","epicsThreadInit");
 
     a_p->minPriority = arg.min_pri;
     a_p->maxPriority = arg.max_pri;
@@ -326,10 +334,10 @@ static void once(void)
     int status;
 
     pthread_key_create(&getpthreadInfo,0);
-    status = pthread_mutex_init(&onceLock,0);
-    checkStatusQuit(status,"pthread_mutex_init","epicsThreadInit");
-    status = pthread_mutex_init(&listLock,0);
-    checkStatusQuit(status,"pthread_mutex_init","epicsThreadInit");
+    status = osdPosixMutexInit(&onceLock,PTHREAD_MUTEX_DEFAULT);
+    checkStatusOnceQuit(status,"osdPosixMutexInit","epicsThreadInit");
+    status = osdPosixMutexInit(&listLock,PTHREAD_MUTEX_DEFAULT);
+    checkStatusOnceQuit(status,"osdPosixMutexInit","epicsThreadInit");
     pcommonAttr = calloc(1,sizeof(commonAttr));
     if(!pcommonAttr) checkStatusOnceQuit(errno,"calloc","epicsThreadInit");
     status = pthread_attr_init(&pcommonAttr->attr);
@@ -424,7 +432,8 @@ static void epicsThreadInit(void)
 LIBCOM_API
 void epicsThreadRealtimeLock(void)
 {
-#if defined(_POSIX_MEMLOCK) && _POSIX_MEMLOCK > 0
+#if USE_MEMLOCK
+#ifndef RTEMS_LEGACY_STACK // seems to be part of libbsd?
     if (pcommonAttr->maxPriority > pcommonAttr->minPriority) {
         int status = mlockall(MCL_CURRENT | MCL_FUTURE);
 
@@ -449,6 +458,7 @@ void epicsThreadRealtimeLock(void)
             }
         }
     }
+#endif // LEGACY STACK
 #endif
 }
 
@@ -685,6 +695,10 @@ LIBCOM_API void epicsStdCall epicsThreadExitMain(void)
     epicsThreadOSD *pthreadInfo;
 
     epicsThreadInit();
+
+    cantProceed("epicsThreadExitMain() has been deprecated for lack of usage."
+                "  Please report if you see this message.");
+
     pthreadInfo = (epicsThreadOSD *)pthread_getspecific(getpthreadInfo);
     if(pthreadInfo==NULL)
         pthreadInfo = createImplicit();

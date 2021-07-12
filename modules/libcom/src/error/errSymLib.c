@@ -3,6 +3,7 @@
 *     National Laboratory.
 * Copyright (c) 2002 The Regents of the University of California, as
 *     Operator of Los Alamos National Laboratory.
+* SPDX-License-Identifier: EPICS
 * EPICS BASE is distributed subject to a Software License Agreement found
 * in file LICENSE that is included with this distribution.
 \*************************************************************************/
@@ -131,7 +132,7 @@ int errSymbolAdd(long errNum, const char *name)
  ***************************************************************/
 static void errRawCopy(long statusToDecode, char *pBuf, size_t bufLength)
 {
-    epicsUInt16 modnum = (statusToDecode >>= 16) & 0xffff;
+    epicsUInt16 modnum = (statusToDecode >> 16) & 0xffff;
     epicsUInt16 errnum = statusToDecode & 0xffff;
 
     assert(bufLength > 20);

@@ -3,8 +3,8 @@
 *     National Laboratory.
 * Copyright (c) 2002 The Regents of the University of California, as
 *     Operator of Los Alamos National Laboratory.
-* EPICS BASE Versions 3.13.7
-* and higher are distributed subject to a Software License Agreement found
+* SPDX-License-Identifier: EPICS
+* EPICS Base is distributed subject to a Software License Agreement found
 * in file LICENSE that is included with this distribution.
 \*************************************************************************/
 /* db_convert.h */
@@ -16,29 +16,29 @@
 extern "C" {
 #endif
 
-#include "shareLib.h"
+#include "dbCoreAPI.h"
 #include "dbAddr.h"
 
-epicsShareExtern struct dbBase *pdbbase;
-epicsShareExtern volatile int interruptAccept;
+DBCORE_API extern struct dbBase *pdbbase;
+DBCORE_API extern volatile int interruptAccept;
 
 /*Definitions that allow old database access to use new conversion routines*/
 #define newDBF_DEVICE 13
 #define newDBR_ENUM    11
-epicsShareExtern long (*dbGetConvertRoutine[newDBF_DEVICE+1][newDBR_ENUM+1])
+DBCORE_API extern long (*dbGetConvertRoutine[newDBF_DEVICE+1][newDBR_ENUM+1])
     (struct dbAddr *paddr, void *pbuffer,long nRequest,
         long no_elements, long offset);
-epicsShareExtern long (*dbPutConvertRoutine[newDBR_ENUM+1][newDBF_DEVICE+1])
+DBCORE_API extern long (*dbPutConvertRoutine[newDBR_ENUM+1][newDBF_DEVICE+1])
     (struct dbAddr *paddr, const void *pbuffer,long nRequest,
         long no_elements, long offset);
-epicsShareExtern long (*dbFastGetConvertRoutine[newDBF_DEVICE+1][newDBR_ENUM+1])
+DBCORE_API extern long (*dbFastGetConvertRoutine[newDBF_DEVICE+1][newDBR_ENUM+1])
     (const void *from, void *to, dbAddr *paddr);
-epicsShareExtern long (*dbFastPutConvertRoutine[newDBR_ENUM+1][newDBF_DEVICE+1])
+DBCORE_API extern long (*dbFastPutConvertRoutine[newDBR_ENUM+1][newDBF_DEVICE+1])
     (const void *from, void *to, dbAddr *paddr);
 
 /*Conversion between old and new DBR types*/
-epicsShareExtern unsigned short dbDBRoldToDBFnew[DBR_DOUBLE+1];
-epicsShareExtern unsigned short dbDBRnewToDBRold[newDBR_ENUM+1];
+DBCORE_API extern unsigned short dbDBRoldToDBFnew[DBR_DOUBLE+1];
+DBCORE_API extern unsigned short dbDBRnewToDBRold[newDBR_ENUM+1];
 #ifdef DB_CONVERT_GBLSOURCE
 unsigned short dbDBRoldToDBFnew[DBR_DOUBLE+1] = {
     0, /*DBR_STRING to DBF_STRING*/

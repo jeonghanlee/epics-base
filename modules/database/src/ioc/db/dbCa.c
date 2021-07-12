@@ -3,6 +3,7 @@
 *     National Laboratory.
 * Copyright (c) 2002 The Regents of the University of California, as
 *     Operator of Los Alamos National Laboratory.
+* SPDX-License-Identifier: EPICS
 * EPICS BASE is distributed subject to a Software License Agreement found
 * in file LICENSE that is included with this distribution.
 \*************************************************************************/
@@ -39,7 +40,6 @@
 /* We can't include dbStaticLib.h here */
 #define dbCalloc(nobj,size) callocMustSucceed(nobj,size,"dbCalloc")
 
-#define epicsExportSharedSymbols
 #include "db_access_routines.h"
 #include "dbCa.h"
 #include "dbCaPvt.h"
@@ -232,7 +232,7 @@ void dbCaSync(void)
     epicsEventDestroy(wake);
 }
 
-epicsShareFunc unsigned long dbCaGetUpdateCount(struct link *plink)
+DBCORE_API unsigned long dbCaGetUpdateCount(struct link *plink)
 {
     caLink *pca = (caLink *)plink->value.pv_link.pvt;
     unsigned long ret;
@@ -410,9 +410,15 @@ long dbCaGetLink(struct link *plink, short dbrType, void *pdest,
         goto done;
     }
     newType = dbDBRoldToDBFnew[pca->dbrType];
-    if (!nelements || *nelements == 1) {
+    if (!nelements) {
         long (*fConvert)(const void *from, void *to, struct dbAddr *paddr);
 
+        if (pca->usedelements < 1) {
+            pca->sevr = INVALID_ALARM;
+            pca->stat = LINK_ALARM;
+            status = -1;
+            goto done;
+        }
         fConvert = dbFastGetConvertRoutine[newType][dbrType];
         assert(pca->pgetNative);
         status = fConvert(pca->pgetNative, pdest, 0);

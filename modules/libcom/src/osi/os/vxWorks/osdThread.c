@@ -4,6 +4,7 @@
 * Copyright (c) 2002 The Regents of the University of California, as
 *     Operator of Los Alamos National Laboratory.
 * Copyright (c) 2012 ITER Organization
+* SPDX-License-Identifier: EPICS
 * EPICS BASE is distributed subject to a Software License Agreement found
 * in file LICENSE that is included with this distribution.
 \*************************************************************************/
@@ -352,7 +353,8 @@ void epicsThreadResume(epicsThreadId id)
 
 void epicsThreadExitMain(void)
 {
-    errlogPrintf("epicsThreadExitMain was called for vxWorks. Why?\n");
+    cantProceed("epicsThreadExitMain() has been deprecated for lack of usage."
+                "  Please report if you see this message.");
 }
 
 unsigned int epicsThreadGetPriority(epicsThreadId id)
@@ -468,8 +470,9 @@ LIBCOM_API void epicsThreadMap ( EPICS_THREAD_HOOK_ROUTINE func )
     while (noTasks == 0) {
         noTasks = taskIdListGet(taskIdList, taskIdListSize);
         if (noTasks == taskIdListSize) {
-            taskIdList = realloc(taskIdList, (taskIdListSize+ID_LIST_CHUNK)*sizeof(int));
-            assert(taskIdList);
+            int *newlist = realloc(taskIdList, (taskIdListSize+ID_LIST_CHUNK)*sizeof(int));
+            assert(newlist);
+            taskIdList = newlist;
             taskIdListSize += ID_LIST_CHUNK;
             noTasks = 0;
         }

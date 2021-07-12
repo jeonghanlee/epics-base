@@ -3,6 +3,7 @@
 *     National Laboratory.
 * Copyright (c) 2002 The Regents of the University of California, as
 *     Operator of Los Alamos National Laboratory.
+* SPDX-License-Identifier: EPICS
 * EPICS BASE is distributed subject to a Software License Agreement found
 * in file LICENSE that is included with this distribution.
 \*************************************************************************/
@@ -516,7 +517,7 @@ struct dbr_ctrl_double{
 };
 
 #define dbr_size_n(TYPE,COUNT)\
-((unsigned)((COUNT)<=0?dbr_size[TYPE]:dbr_size[TYPE]+((COUNT)-1)*dbr_value_size[TYPE]))
+((unsigned)((COUNT)<0?dbr_size[TYPE]:dbr_size[TYPE]+((COUNT)-1)*dbr_value_size[TYPE]))
 
 /* size for each type - array indexed by the DBR_ type code */
 LIBCA_API extern const unsigned short dbr_size[];

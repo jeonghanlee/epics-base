@@ -6,6 +6,7 @@
 *     Operator of Los Alamos National Laboratory.
 * Copyright (c) 2002 Berliner Elektronenspeicherringgesellschaft fuer
 *     Synchrotronstrahlung.
+* SPDX-License-Identifier: EPICS
 * EPICS BASE is distributed subject to a Software License Agreement found
 * in file LICENSE that is included with this distribution.
 \*************************************************************************/
@@ -258,7 +259,7 @@ int main (int argc, char *argv[])
             }
             break;
         case '#':               /* Array count */
-            if (sscanf(optarg,"%ld", &reqElems) != 1)
+            if (sscanf(optarg,"%lu", &reqElems) != 1)
             {
                 fprintf(stderr, "'%s' is not a valid array element count "
                         "- ignored. ('camonitor -h' for help.)\n", optarg);

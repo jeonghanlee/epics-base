@@ -1,5 +1,5 @@
-# .appveyor.yml for use with EPICS Base ci-scripts
-# (see: https://github.com/epics-base/ci-scripts)
+# Appveyor configuration file for EPICS Base 7 builds
+# (see also https://github.com/epics-base/ci-scripts)
 
 # Version format
 version: base-{branch}-{build}
@@ -29,13 +29,18 @@ clone_depth: 5
 skip_commits:
   files:
     - 'documentation/*'
+    - 'startup/*'
+    - '.github/*'
+    - '.tools/*'
+    - '.gitattributes'
     - '**/*.html'
     - '**/*.md'
-    - '.travis.yml'
 
 #---------------------------------#
 #   build matrix configuration    #
 #---------------------------------#
+
+image: Visual Studio 2015
 
 # Build Configurations: dll/static, regular/debug
 configuration:
@@ -49,6 +54,7 @@ environment:
   # common / default variables for all jobs
   SETUP_PATH: .ci-local:.ci
   BASE: SELF
+  EPICS_TEST_IMPRECISE_TIMING: YES
 
   matrix:
   - CMP: vs2019
@@ -59,7 +65,8 @@ environment:
   - CMP: vs2013
   - CMP: vs2012
   - CMP: vs2010
-  - CMP: mingw
+  - CMP: gcc
+    APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
 
 # Platform: processor architecture
 platform:
@@ -74,14 +81,17 @@ matrix:
     CMP: vs2012
   - platform: x64
     CMP: vs2010
-  - platform: x64
-    CMP: vs2008
   # Exclude more jobs to reduce build time
   # Skip 32-bit for "middle-aged" compilers
   - platform: x86
     CMP: vs2017
   - platform: x86
     CMP: vs2015
+  # MinGW debug builds use the same libraries, unlike VS
+  - configuration: dynamic-debug
+    CMP: gcc
+  - configuration: static-debug
+    CMP: gcc
 
 #---------------------------------#
 #     building & testing          #
@@ -89,17 +99,22 @@ matrix:
 
 install:
   - cmd: git submodule update --init --recursive
-  - cmd: python .ci/appveyor/do.py prepare
+  - cmd: pip install git+https://github.com/mdavidsaver/ci-core-dumper#egg=ci-core-dumper
+  - cmd: python .ci/cue.py prepare
 
 build_script:
-  - cmd: python .ci/appveyor/do.py build
+  - cmd: python .ci/cue.py build
 
 test_script:
-  - cmd: python .ci/appveyor/do.py test
+  - cmd: python -m ci_core_dumper install
+  - cmd: python .ci/cue.py -T 20M test
 
 on_finish:
   - ps: Get-ChildItem *.tap -Recurse -Force | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name }
-  - cmd: python .ci/appveyor/do.py build test-results -s
+  - cmd: python .ci/cue.py -T 5M test-results
+
+on_failure:
+  - cmd: python -m ci_core_dumper report
 
 #---------------------------------#
 #         debugging               #

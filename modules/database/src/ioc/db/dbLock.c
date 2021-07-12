@@ -3,8 +3,8 @@
 *     National Laboratory.
 * Copyright (c) 2002 The Regents of the University of California, as
 *     Operator of Los Alamos National Laboratory.
-* EPICS BASE Versions 3.13.7
-* and higher are distributed subject to a Software License Agreement found
+* SPDX-License-Identifier: EPICS
+* EPICS Base is distributed subject to a Software License Agreement found
 * in file LICENSE that is included with this distribution.
 \*************************************************************************/
 
@@ -25,7 +25,6 @@
 #include "epicsThread.h"
 #include "errMdef.h"
 
-#define epicsExportSharedSymbols
 #include "dbAccessDefs.h"
 #include "dbAddr.h"
 #include "dbBase.h"
@@ -743,14 +742,14 @@ void dbLockSetSplit(dbLocker *locker, dbCommon *pfirst, dbCommon *psecond)
             for(i=0; i<rtype->no_links; i++) {
                 dbFldDes *pdesc = rtype->papFldDes[rtype->link_ind[i]];
                 DBLINK *plink = (DBLINK*)((char*)prec + pdesc->offset);
-                DBADDR *ptarget;
+                dbChannel *chan;
                 lockRecord *lr;
 
                 if(plink->type!=DB_LINK)
                     continue;
 
-                ptarget = plink->value.pv_link.pvt;
-                lr = ptarget->precord->lset;
+                chan = plink->value.pv_link.pvt;
+                lr = dbChannelRecord(chan)->lset;
                 assert(lr);
 
                 if(lr->precord==pfirst) {

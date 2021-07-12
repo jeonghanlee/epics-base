@@ -3,8 +3,8 @@
 *     National Laboratory.
 * Copyright (c) 2002 The Regents of the University of California, as
 *     Operator of Los Alamos National Laboratory.
-* EPICS BASE Versions 3.13.7
-* and higher are distributed subject to a Software License Agreement found
+* SPDX-License-Identifier: EPICS
+* EPICS Base is distributed subject to a Software License Agreement found
 * in file LICENSE that is included with this distribution.
 \*************************************************************************/
 /* osdMutex.c */
@@ -41,6 +41,8 @@
 #   define _WIN32_WINNT 0x0400
 #endif
 #include <windows.h>
+
+#define EPICS_PRIVATE_API
 
 #include "libComAPI.h"
 #include "epicsMutex.h"
@@ -175,4 +177,6 @@ void epicsMutexOsdShow ( epicsMutexOSD * pSem, unsigned level )
             ( void * ) pSem->os.mutex );
     }
 }
+
+void epicsMutexOsdShowAll(void) {}
 

@@ -3,8 +3,8 @@
 *     National Laboratory.
 * Copyright (c) 2002 The Regents of the University of California, as
 *     Operator of Los Alamos National Laboratory.
-* EPICS BASE Versions 3.13.7
-* and higher are distributed subject to a Software License Agreement found
+* SPDX-License-Identifier: EPICS
+* EPICS Base is distributed subject to a Software License Agreement found
 * in file LICENSE that is included with this distribution.
 \*************************************************************************/
 
@@ -30,6 +30,14 @@ extern "C" {
 
 LIBCOM_API void epicsStdCall
     convertDoubleToWakeTime(double timeout,struct timespec *wakeTime);
+
+#ifdef __rtems__
+void osdNTPInit(void);
+int  osdNTPGet(struct timespec *now);
+int osdTickGet(void);
+int  osdTickRateGet(void);
+void osdNTPReport(void);
+#endif
 
 #ifdef __cplusplus
 }

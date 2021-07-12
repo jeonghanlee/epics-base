@@ -3,6 +3,7 @@
 *     National Laboratory.
 * Copyright (c) 2002 The Regents of the University of California, as
 *     Operator of Los Alamos National Laboratory.
+* SPDX-License-Identifier: EPICS
 * EPICS BASE is distributed subject to a Software License Agreement found
 * in file LICENSE that is included with this distribution.
 \*************************************************************************/
@@ -36,6 +37,17 @@
 #include "cacIO.h"
 #include "cadef.h"
 #include "syncGroup.h"
+
+namespace ca {
+#if __cplusplus>=201103L
+template<typename T>
+using auto_ptr = std::unique_ptr<T>;
+#define PTRMOVE(AUTO) std::move(AUTO)
+#else
+using std::auto_ptr;
+#define PTRMOVE(AUTO) (AUTO)
+#endif
+}
 
 struct oldChannelNotify : private cacChannelNotify {
 public:
@@ -392,8 +404,8 @@ private:
     epicsEvent ioDone;
     epicsEvent callbackThreadActivityComplete;
     epicsThreadId createdByThread;
-    std::auto_ptr < CallbackGuard > pCallbackGuard;
-    std::auto_ptr < cacContext > pServiceContext;
+    ca::auto_ptr < CallbackGuard > pCallbackGuard;
+    ca::auto_ptr < cacContext > pServiceContext;
     caExceptionHandler * ca_exception_func;
     void * ca_exception_arg;
     caPrintfFunc * pVPrintfFunc;

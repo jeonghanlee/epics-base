@@ -3,6 +3,7 @@
 *     National Laboratory.
 * Copyright (c) 2002 The Regents of the University of California, as
 *     Operator of Los Alamos National Laboratory.
+* SPDX-License-Identifier: EPICS
 * EPICS BASE is distributed subject to a Software License Agreement found
 * in file LICENSE that is included with this distribution.
 \*************************************************************************/
@@ -225,6 +226,7 @@ static long process(struct dbCommon *pcommon)
     struct calcoutRecord *prec = (struct calcoutRecord *)pcommon;
     rpvtStruct *prpvt = prec->rpvt;
     int doOutput;
+    unsigned char    pact=prec->pact;
 
     if (!prec->pact) {
         prec->pact = TRUE;
@@ -234,12 +236,18 @@ static long process(struct dbCommon *pcommon)
         }
         if (fetch_values(prec) == 0) {
             if (calcPerform(&prec->a, &prec->val, prec->rpcl)) {
-                recGblSetSevr(prec, CALC_ALARM, INVALID_ALARM);
+                recGblSetSevrMsg(prec, CALC_ALARM, INVALID_ALARM, "calcPerform");
             } else {
                 prec->udf = isnan(prec->val);
             }
         }
         checkAlarms(prec);
+
+        if ( !pact ) {
+            /* Update the timestamp before writing output values so it
+             * will be uptodate if any downstream records fetch it via TSEL */
+            recGblGetTimeStamp(prec);
+        }
         /* check for output link execution */
         switch (prec->oopt) {
         case calcoutOOPT_Every_Time:
@@ -268,7 +276,6 @@ static long process(struct dbCommon *pcommon)
         if (doOutput) {
             if (prec->odly > 0.0) {
                 prec->dlya = 1;
-                recGblGetTimeStamp(prec);
                 db_post_events(prec, &prec->dlya, DBE_VALUE);
                 callbackRequestProcessCallbackDelayed(&prpvt->doOutCb,
                         prec->prio, prec, (double)prec->odly);
@@ -280,11 +287,12 @@ static long process(struct dbCommon *pcommon)
                 prec->pact = TRUE;
             }
         }
-        recGblGetTimeStamp(prec);
     } else { /* pact == TRUE */
+        /* Update timestamp again for asynchronous devices */
+        recGblGetTimeStamp(prec);
+
         if (prec->dlya) {
             prec->dlya = 0;
-            recGblGetTimeStamp(prec);
             db_post_events(prec, &prec->dlya, DBE_VALUE);
             /* Make pact FALSE for asynchronous device support*/
             prec->pact = FALSE;
@@ -293,7 +301,6 @@ static long process(struct dbCommon *pcommon)
             prec->pact = TRUE;
         } else {/*Device Support is asynchronous*/
             writeValue(prec);
-            recGblGetTimeStamp(prec);
         }
     }
     monitor(prec);
@@ -603,7 +610,7 @@ static void execOutput(calcoutRecord *prec)
         break;
     case calcoutDOPT_Use_OVAL:
         if (calcPerform(&prec->a, &prec->oval, prec->orpc)) {
-            recGblSetSevr(prec, CALC_ALARM, INVALID_ALARM);
+            recGblSetSevrMsg(prec, CALC_ALARM, INVALID_ALARM, "OCAL calcPerform");
         } else {
             prec->udf = isnan(prec->oval);
         }
@@ -763,7 +770,7 @@ static long writeValue(calcoutRecord *prec)
 
     if (!pcalcoutDSET || !pcalcoutDSET->write) {
         errlogPrintf("%s DSET write does not exist\n", prec->name);
-        recGblSetSevr(prec, SOFT_ALARM, INVALID_ALARM);
+        recGblSetSevrMsg(prec, SOFT_ALARM, INVALID_ALARM, "DSET write does not exist");
         prec->pact = TRUE;
         return(-1);
     }

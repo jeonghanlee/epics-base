@@ -3,6 +3,7 @@
 *     National Laboratory.
 * Copyright (c) 2002 The Regents of the University of California, as
 *     Operator of Los Alamos National Laboratory.
+* SPDX-License-Identifier: EPICS
 * EPICS BASE is distributed subject to a Software License Agreement found
 * in file LICENSE that is included with this distribution.
 \*************************************************************************/
@@ -26,6 +27,10 @@
 #include "postfixPvt.h"
 #include "libComAPI.h"
 
+#ifdef RTEMS_HAS_ALTIVEC
+#pragma GCC push_options
+#pragma GCC optimize ("O0")
+#endif
 
 /* declarations for postfix */
 
@@ -625,3 +630,6 @@ LIBCOM_API void
         }
     }
 }
+#ifdef RTEMS_HAS_ALTIVEC
+#pragma GCC pop_options
+#endif

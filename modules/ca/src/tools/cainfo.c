@@ -6,6 +6,7 @@
 *     Operator of Los Alamos National Laboratory.
 * Copyright (c) 2002 Berliner Elektronenspeicherringgesellschaft fuer
 *     Synchrotronstrahlung.
+* SPDX-License-Identifier: EPICS
 * EPICS BASE is distributed subject to a Software License Agreement found
 * in file LICENSE that is included with this distribution.
 \*************************************************************************/
@@ -157,7 +158,7 @@ int main (int argc, char *argv[])
             }
             break;
         case 's':               /* ca_client_status interest level */
-            if (sscanf(optarg,"%du", &statLevel) != 1)
+            if (sscanf(optarg,"%u", &statLevel) != 1)
             {
                 fprintf(stderr, "'%s' is not a valid interest level "
                         "- ignored. ('cainfo -h' for help.)\n", optarg);

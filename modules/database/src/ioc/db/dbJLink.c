@@ -1,6 +1,7 @@
 /*************************************************************************\
 * Copyright (c) 2016 UChicago Argonne LLC, as Operator of Argonne
 *     National Laboratory.
+* SPDX-License-Identifier: EPICS
 * EPICS BASE is distributed subject to a Software License Agreement found
 * in file LICENSE that is included with this distribution.
 \*************************************************************************/
@@ -15,7 +16,6 @@
 #include "yajl_alloc.h"
 #include "yajl_parse.h"
 
-#define epicsExportSharedSymbols
 #include "dbAccessDefs.h"
 #include "dbCommon.h"
 #include "dbStaticLib.h"

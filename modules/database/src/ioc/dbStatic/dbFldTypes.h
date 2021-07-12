@@ -3,8 +3,8 @@
 *     National Laboratory.
 * Copyright (c) 2002 The Regents of the University of California, as
 *     Operator of Los Alamos National Laboratory.
-* EPICS BASE Versions 3.13.7
-* and higher are distributed subject to a Software License Agreement found
+* SPDX-License-Identifier: EPICS
+* EPICS Base is distributed subject to a Software License Agreement found
 * in file LICENSE that is included with this distribution.
 \*************************************************************************/
 /*
@@ -14,7 +14,7 @@
 #ifndef INCdbFldTypesh
 #define INCdbFldTypesh 1
 
-#include "shareLib.h"
+#include "dbCoreAPI.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -48,7 +48,7 @@ typedef struct mapdbfType{
     dbfType value;
 }mapdbfType;
 
-epicsShareExtern mapdbfType pamapdbfType[];
+DBCORE_API extern mapdbfType pamapdbfType[];
 #ifdef DBFLDTYPES_GBLSOURCE
 mapdbfType pamapdbfType[DBF_NTYPES] = {
     {"DBF_STRING",DBF_STRING},
